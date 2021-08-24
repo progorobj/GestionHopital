@@ -39,30 +39,45 @@ namespace GestionHopital
 
         private void btnAjouterPatient_Click(object sender, RoutedEventArgs e)
         {
-            Patient unPatient = new Patient();
-            unPatient.NSS = int.Parse(txtNSSA.Text);
-            unPatient.nom = txtNomA.Text;
-            unPatient.dateNaissance = (DateTime) datePatA.SelectedDate;
-            unPatient.prenom = txtPrenomA.Text;
-            unPatient.adresse = txtAdresseA.Text;
-            unPatient.ville = txtVilleA.Text;
-            unPatient.province = txtProvinceA.Text;
-            unPatient.codePOstal = txtCodePostalA.Text;
-            unPatient.telephone = txtTelephoneA.Text;
-            unPatient.idAssurance = int.Parse(cbxIdAssurance.Text);
-
-            magestion.Patients.Add(unPatient);
-
+           
             try
             {
-                magestion.SaveChanges();
-                MessageBox.Show("Patient Ajouté avec succès!");
-            }
-            catch (Exception ex)
-            {
+                Patient unPatient = new Patient();
+                //unPatient.NSS = int.Parse(txtNSSA.Text);
+                unPatient.nom = txtNomA.Text;
+                unPatient.dateNaissance = (DateTime)datePatA.SelectedDate;
+                unPatient.prenom = txtPrenomA.Text;
+                unPatient.adresse = txtAdresseA.Text;
+                unPatient.ville = txtVilleA.Text;
+                unPatient.province = txtProvinceA.Text;
+                unPatient.codePOstal = txtCodePostalA.Text;
+                unPatient.telephone = txtTelephoneA.Text;
+                unPatient.idAssurance = int.Parse(cbxIdAssurance.Text);
 
-                MessageBox.Show(ex.Message);
+                magestion.Patients.Add(unPatient);
+
+                try
+                {
+                    magestion.SaveChanges();
+                    MessageBox.Show("Patient Ajouté avec succès!");
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
             }
+
+
+            catch (Exception )
+            {
+                MessageBox.Show("Il ya des champs non rempli","Attention",MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
+             }
+            
+           
+
+           
                 
         
         }

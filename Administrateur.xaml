@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GestionHopital"
         mc:Ignorable="d"
-        Title="Administrateur" Height="475.565" Width="752.524" Loaded="Window_Loaded">
+        Title="Administrateur" Height="475.565" Width="752.524" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
     <Grid Background="#FF6D90CD">
         <TabControl HorizontalAlignment="Left" Height="401" Margin="0,10,0,0" VerticalAlignment="Top" Width="794">
             <TabItem Header="Ajouter Médecin" Margin="-2,2,-2,0">

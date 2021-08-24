@@ -33,26 +33,36 @@ namespace GestionHopital
 
         private void btnAjouterM_Click(object sender, RoutedEventArgs e)
         {
-            Medecin unMedecin = new Medecin();
-            unMedecin.idMedecin = int.Parse(txtIdMedecin.Text);
-            unMedecin.nom = txtNomMedecin.Text;
-            unMedecin.prenom = txtPrenomMedecin.Text;
-
-            uneGestion.Medecins.Add(unMedecin);
-            try
+            Medecin unMedecin=null;
+            if (!string.IsNullOrEmpty(txtIdMedecin.Text) && !string.IsNullOrEmpty(txtNomMedecin.Text)
+                && !string.IsNullOrEmpty(txtPrenomMedecin.Text))
             {
-                uneGestion.SaveChanges();
-                MessageBox.Show("Medecin Ajouté avec succès!");
-                //cbxMedMod.DataContext = null;
-                cbxMedMod.DataContext = uneGestion.Medecins.ToList();
-                cbxMedecin.DataContext = uneGestion.Medecins.ToList();
+                unMedecin = new Medecin();
+                unMedecin.idMedecin = int.Parse(txtIdMedecin.Text);
+                unMedecin.nom = txtNomMedecin.Text;
+                unMedecin.prenom = txtPrenomMedecin.Text;
+                uneGestion.Medecins.Add(unMedecin);
+                try
+                {
+                    uneGestion.SaveChanges();
+                    MessageBox.Show("Medecin Ajouté avec succès!");
+                    //cbxMedMod.DataContext = null;
+                    cbxMedMod.DataContext = uneGestion.Medecins.ToList();
+                    cbxMedecin.DataContext = uneGestion.Medecins.ToList();
+
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vérifier s'il ya des champs vides!", "Attention", MessageBoxButton.OK, MessageBoxImage.Information);
 
             }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
+            
         }
 
         private void btnSupprimerM_Click(object sender, RoutedEventArgs e)

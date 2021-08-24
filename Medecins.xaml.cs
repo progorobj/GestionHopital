@@ -129,5 +129,10 @@ namespace GestionHopital
             dateCong.SelectedDate = DateTime.Now.Date;
 
         }
+
+        private void btnAnnuler_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

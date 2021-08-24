@@ -29,6 +29,8 @@ namespace GestionHopital
         string pass;
         private void btnValider_Click(object sender, RoutedEventArgs e)
         {
+            string leNom = "";
+
             nomU = txtUtilisateur.Text;
             pass = txtPass.Text;
             if (String.IsNullOrEmpty(nomU) &&

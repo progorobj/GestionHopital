@@ -5,37 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GestionHopital"
         mc:Ignorable="d"
-        Title="Prepose" Height="450" Width="800" WindowStartupLocation="CenterScreen">
-    <Grid Background="#FF6D90CD">
+        Title="Prepose" Height="600" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="prepose2.jpg" Opacity="0.5"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="463*"/>
-            <ColumnDefinition Width="331*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="txtRechercherPatient" HorizontalAlignment="Left" Height="27" Margin="42,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" TextChanged="txtRechercherPatient_TextChanged"/>
-        <Button x:Name="btnRechercher" Content="Rechercher" HorizontalAlignment="Left" Margin="221,58,0,0" VerticalAlignment="Top" Width="93" RenderTransformOrigin="0.106,1.135" Click="btnRechercher_Click" Height="27"/>
-        <Button x:Name="btnCreerPatient" Content="Créer Patient" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114" Margin="42,352,0,0" Height="26" Click="btnAjouterPatient_Click"/>
-        <Button x:Name="btnCreerAdmission" Content="Créer Admission" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114" Margin="269,352,0,0" Height="26" Click="btnCreerAdmission_Click"/>
-        <Label Content="Entrer le numéro NSS:" HorizontalAlignment="Left" Margin="42,26,0,0" VerticalAlignment="Top" Width="144"/>
-        <Label Content="NSS:" HorizontalAlignment="Left" Margin="42,110,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
-        <Label Content="Date de Naissance:" HorizontalAlignment="Left" Margin="37,148,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
-        <Label Content="Nom:" HorizontalAlignment="Left" Margin="36,191,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
-        <Label Content="Prénom:" HorizontalAlignment="Left" Margin="37,237,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
-        <Label Content="Adresse:" HorizontalAlignment="Left" Margin="35,277,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
-        <Label Content="Ville:" HorizontalAlignment="Left" Margin="432,106,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtNSSR" HorizontalAlignment="Left" Height="27" Margin="161,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" TextChanged="txtRechercherPatient_TextChanged" IsEnabled="False"/>
-        <TextBox x:Name="txtNomR" HorizontalAlignment="Left" Height="27" Margin="161,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" TextChanged="txtRechercherPatient_TextChanged" IsEnabled="False"/>
-        <TextBox x:Name="txtPrenomR" HorizontalAlignment="Left" Height="27" Margin="161,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" TextChanged="txtRechercherPatient_TextChanged" IsEnabled="False"/>
-        <TextBox x:Name="txtAdresseR" HorizontalAlignment="Left" Height="27" Margin="159,278,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" TextChanged="txtRechercherPatient_TextChanged" IsEnabled="False"/>
-        <TextBox x:Name="txtVilleR" HorizontalAlignment="Left" Height="27" Margin="61.024,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" TextChanged="txtRechercherPatient_TextChanged" IsEnabled="False" Grid.Column="1"/>
-        <Label Content="Province:" HorizontalAlignment="Left" Margin="432,153,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988" Grid.ColumnSpan="2"/>
-        <Label Content="Code Postal:" HorizontalAlignment="Left" Margin="430,194,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtProvinceR" HorizontalAlignment="Left" Height="27" Margin="61.024,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" TextChanged="txtRechercherPatient_TextChanged" IsEnabled="False" Grid.Column="1"/>
-        <TextBox x:Name="txtCodePostalR" HorizontalAlignment="Left" Height="27" Margin="61.024,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" TextChanged="txtRechercherPatient_TextChanged" IsEnabled="False" Grid.Column="1"/>
-        <Label Content="Téléphone:" HorizontalAlignment="Left" Margin="431,238,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988" Grid.ColumnSpan="2"/>
-        <Label Content="ID Assurance:" HorizontalAlignment="Left" Margin="434,281,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtTelephoneR" HorizontalAlignment="Left" Height="27" Margin="61.024,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" TextChanged="txtRechercherPatient_TextChanged" IsEnabled="False" Grid.Column="1"/>
-        <TextBox x:Name="txtIDAssR" HorizontalAlignment="Left" Height="27" Margin="61.024,281,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" TextChanged="txtRechercherPatient_TextChanged" IsEnabled="False" Grid.Column="1"/>
-        <DatePicker x:Name="datePatR" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="161,146,0,0"/>
+        <Grid HorizontalAlignment="Left" Height="210" Margin="49,256,0,0" VerticalAlignment="Top" Width="328" Background="#FFC6F6DB"/>
+        <TextBox x:Name="txtRechercherPatient" HorizontalAlignment="Left" Height="27" Margin="130,353,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" TextChanged="txtRechercherPatient_TextChanged"/>
+        <Button x:Name="btnRechercher" Content="Rechercher" HorizontalAlignment="Left" Margin="167,414,0,0" VerticalAlignment="Top" Width="93" RenderTransformOrigin="0.106,1.135" Click="btnRechercher_Click" Height="27" Background="#FFA303BF" Foreground="White" FontSize="14"/>
+        <Button x:Name="btnCreerPatient" Content="Créer Patient" HorizontalAlignment="Left" VerticalAlignment="Top" Width="212" Margin="497,468,0,0" Height="32" Click="btnAjouterPatient_Click" Background="#FF7FD8DF" FontSize="14"/>
+        <Button x:Name="btnCreerAdmission" Content="Créer Admission" HorizontalAlignment="Left" VerticalAlignment="Top" Width="212" Margin="497,509,0,0" Height="33" Click="btnCreerAdmission_Click" Background="#FFA303BF" Foreground="White" FontSize="14"/>
+        <Label Content="Entrer le numéro NSS:" HorizontalAlignment="Left" Margin="135,325,0,0" VerticalAlignment="Top" Width="144" Height="26" FontSize="14"/>
+        <Label Content="NSS:" HorizontalAlignment="Left" Margin="451,89,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988" Height="26" Width="34"/>
+        <Label Content="Date de Naissance:" HorizontalAlignment="Left" Margin="374,200,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988" Height="26" Width="110"/>
+        <Label Content="Nom:" HorizontalAlignment="Left" Margin="446,121,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988" Height="26" Width="38"/>
+        <Label Content="Prénom:" HorizontalAlignment="Left" Margin="431,161,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988" Height="26" Width="54"/>
+        <Label Content="Adresse:" HorizontalAlignment="Left" Margin="430,238,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988" Height="26" Width="54"/>
+        <Label Content="Ville:" HorizontalAlignment="Left" Margin="434,275,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988" Height="26" Width="35"/>
+        <TextBox x:Name="txtNSSR" HorizontalAlignment="Left" Height="27" Margin="494,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" TextChanged="txtRechercherPatient_TextChanged" IsEnabled="False"/>
+        <TextBox x:Name="txtNomR" HorizontalAlignment="Left" Height="27" Margin="494,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" TextChanged="txtRechercherPatient_TextChanged" IsEnabled="False"/>
+        <TextBox x:Name="txtPrenomR" HorizontalAlignment="Left" Height="27" Margin="494,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" TextChanged="txtRechercherPatient_TextChanged" IsEnabled="False"/>
+        <TextBox x:Name="txtAdresseR" HorizontalAlignment="Left" Height="27" Margin="494,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" TextChanged="txtRechercherPatient_TextChanged" IsEnabled="False"/>
+        <TextBox x:Name="txtVilleR" HorizontalAlignment="Left" Height="27" Margin="494,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" TextChanged="txtRechercherPatient_TextChanged" IsEnabled="False"/>
+        <Label Content="Province:" HorizontalAlignment="Left" Margin="427,313,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988" Height="26" Width="58"/>
+        <Label Content="Code Postal:" HorizontalAlignment="Left" Margin="410,349,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988" Height="26" Width="75"/>
+        <TextBox x:Name="txtProvinceR" HorizontalAlignment="Left" Height="27" Margin="497,311,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="234" TextChanged="txtRechercherPatient_TextChanged" IsEnabled="False"/>
+        <TextBox x:Name="txtCodePostalR" HorizontalAlignment="Left" Height="27" Margin="498,350,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="114" TextChanged="txtRechercherPatient_TextChanged" IsEnabled="False" RenderTransformOrigin="0.5,0.5">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.607"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <Label Content="Téléphone:" HorizontalAlignment="Left" Margin="418,388,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988" Height="26" Width="67"/>
+        <Label Content="ID Assurance:" HorizontalAlignment="Left" Margin="403,428,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988" Height="26" Width="82"/>
+        <TextBox x:Name="txtTelephoneR" HorizontalAlignment="Left" Height="27" Margin="497,388,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="117" TextChanged="txtRechercherPatient_TextChanged" IsEnabled="False"/>
+        <TextBox x:Name="txtIDAssR" HorizontalAlignment="Left" Height="27" Margin="497,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="117" TextChanged="txtRechercherPatient_TextChanged" IsEnabled="False"/>
+        <DatePicker x:Name="datePatR" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="494,198,0,0" Height="28" Width="237"/>
+        <Label Content="REGISTRE DES PATIENTS NORTHERN LIGHTS HOSPITAL" HorizontalAlignment="Left" Margin="49,20,0,0" VerticalAlignment="Top" Width="694" Foreground="#FF028381" FontSize="28" Height="42"/>
+        <Label Content="RECHERCHE DE PATIENTS" HorizontalAlignment="Left" Margin="75,264,0,0" VerticalAlignment="Top" Width="282" Foreground="#FF028381" FontSize="24" Height="42"/>
 
     </Grid>
 </Window>

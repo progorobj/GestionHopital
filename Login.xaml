@@ -5,21 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GestionHopital"
         mc:Ignorable="d"
-        Title="Identification Employé" Height="272.929" Width="650.888" WindowStartupLocation="CenterScreen">
+        Title="Identification Employé" Height="450" Width="600" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid HorizontalAlignment="Left" Height="244" VerticalAlignment="Top" Width="645" Background="#FF6D90CD">
-            <Label Content="Nom d'utilisateur: " HorizontalAlignment="Left" Margin="232,63,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.199,0.336" FontSize="18">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="0.478"/>
-                        <TranslateTransform X="0.054" Y="-0.909"/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
-            <TextBox x:Name="txtUtilisateur" HorizontalAlignment="Left" Height="23" Margin="400,73,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="199" RenderTransformOrigin="0.511,-0.586"/>
-            <Label Content="Mot de Passe: : " HorizontalAlignment="Left" Margin="232,107,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.199,0.336" FontSize="18">
+        <Grid.Background>
+            <ImageBrush ImageSource="clinique.jpg"/>
+        </Grid.Background>
+        <Grid HorizontalAlignment="Left" Height="274" VerticalAlignment="Top" Width="490" Background="#7F79ACC3" Margin="55,87,0,0">
+            <TextBox x:Name="txtUtilisateur" HorizontalAlignment="Left" Height="29" Margin="80,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="334" RenderTransformOrigin="0.511,-0.586" FontSize="16"/>
+            <Label Content="Mot de Passe :" HorizontalAlignment="Left" Margin="167,108,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.199,0.336" FontSize="22" Foreground="#FF9D009D">
                 <Label.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -30,11 +23,20 @@
                 </Label.RenderTransform>
             </Label>
 
-            <TextBox x:Name="txtPass" HorizontalAlignment="Left" Height="23" Margin="400,117,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="199" RenderTransformOrigin="0.511,-0.586"/>
-            <Button x:Name="btnValider" Content="Valider" HorizontalAlignment="Left" Margin="339,178,0,0" VerticalAlignment="Top" Width="115" Height="29" Click="btnValider_Click"/>
-            <Button x:Name="btnQuitter" Content="Quitter" HorizontalAlignment="Left" Margin="484,178,0,0" VerticalAlignment="Top" Width="115" Height="29" Click="btnQuitter_Click"/>
+            <TextBox x:Name="txtPass" HorizontalAlignment="Left" Height="29" Margin="80,148,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="334" RenderTransformOrigin="0.511,-0.586" FontSize="16"/>
+            <Button x:Name="btnValider" Content="Valider" HorizontalAlignment="Left" Margin="154,211,0,0" VerticalAlignment="Top" Width="183" Height="38" Click="btnValider_Click" FontSize="16" Foreground="White" Background="#FFA303BF"/>
+            <Label Content="Nom d'utilisateur :" HorizontalAlignment="Left" Margin="149,25,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.199,0.336" FontSize="22" Foreground="#FF9D009D">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.478"/>
+                        <TranslateTransform X="0.054" Y="-0.909"/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
         </Grid>
-        <Image HorizontalAlignment="Left" Height="173" VerticalAlignment="Top" Width="159" Margin="23,31,0,0" Source="icons8_key_50px_1.png"/>
+        <Label Content="Northern Lights Hospital" HorizontalAlignment="Left" Margin="100,15,0,0" VerticalAlignment="Top" Foreground="#FF002CC2" FontSize="36" Height="58"/>
 
     </Grid>
 </Window>

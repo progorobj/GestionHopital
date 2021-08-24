@@ -5,20 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GestionHopital"
         mc:Ignorable="d"
-        Title="Medecins" Height="304.8" Width="479.6" Loaded="Window_Loaded">
-    <Grid Background="#FF6D90CD" Margin="0,0,-6,-6">
+        Title="Medecins" Height="550" Width="800" Loaded="Window_Loaded">
+    <Grid Margin="0,0,-6,-6">
+        <Grid.Background>
+            <ImageBrush ImageSource="medecin.jpg"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="487*"/>
-            <ColumnDefinition Width="79*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label Content="ID Médecin : " HorizontalAlignment="Left" Margin="47,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
-        <Label Content="ID Patient:" HorizontalAlignment="Left" Margin="50,111,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
-        <ComboBox x:Name="cbxMedecin" HorizontalAlignment="Left" Margin="161,75,0,0" VerticalAlignment="Top" Width="155" IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" DisplayMemberPath="idMedecin" />
-        <ComboBox x:Name="cbxPatient" HorizontalAlignment="Left" Margin="161,114,0,0" VerticalAlignment="Top" Width="155" IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" DisplayMemberPath="NSS"/>
-        <DatePicker x:Name="dateCong" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="161,146,0,0"/>
-        <Label Content="Date congé" HorizontalAlignment="Left" Margin="50,146,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
-        <Button x:Name="btnValider" Content="Valider" HorizontalAlignment="Left" Margin="128,218,0,0" VerticalAlignment="Top" Width="75" Click="btnValider_Click"/>
-        <Button x:Name="btnAnnuler" Content="Annuler" HorizontalAlignment="Left" Margin="245,218,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label Content="ID Médecin : " HorizontalAlignment="Left" Margin="66,162,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988" FontSize="14"/>
+        <Label Content="ID Patient :" HorizontalAlignment="Left" Margin="76,210,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988" FontSize="14"/>
+        <ComboBox x:Name="cbxMedecin" HorizontalAlignment="Left" Margin="175,162,0,0" VerticalAlignment="Top" Width="218" IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" DisplayMemberPath="idMedecin" Height="29" />
+        <ComboBox x:Name="cbxPatient" HorizontalAlignment="Left" Margin="175,208,0,0" VerticalAlignment="Top" Width="218" IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" DisplayMemberPath="NSS" Height="30"/>
+        <DatePicker x:Name="dateCong" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="175,308,0,0" Width="218" Height="29" FontSize="14"/>
+        <Label Content="Date congé :" HorizontalAlignment="Left" Margin="244,278,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988" FontSize="14"/>
+        <Button x:Name="btnValider" Content="Valider" HorizontalAlignment="Left" Margin="74,374,0,0" VerticalAlignment="Top" Width="143" Click="btnValider_Click" Height="40" Background="#FF0D82D4" Foreground="White" FontSize="14"/>
+        <Button x:Name="btnAnnuler" Content="Annuler" HorizontalAlignment="Left" Margin="252,374,0,0" VerticalAlignment="Top" Width="143" Height="40" Background="#FF0D82D4" Foreground="White" FontSize="14"/>
+        <Label Content="CONGÉ AUX PATIENTS" HorizontalAlignment="Left" Margin="74,69,0,0" VerticalAlignment="Top" Width="340" Height="47" FontSize="32" Foreground="#FF1924A6"/>
 
     </Grid>
 </Window>

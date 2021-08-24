@@ -173,6 +173,7 @@
     <Resource Include="image\medecin.jpg" />
     <Resource Include="image\prepose2.jpg" />
     <Resource Include="clinique.jpg" />
+    <Resource Include="medecin.jpg" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>

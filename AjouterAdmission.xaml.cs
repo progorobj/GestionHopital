@@ -30,6 +30,7 @@ namespace GestionHopital
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+          
             cbxNSS1.DataContext = BddGestion.Patients.ToList();
             cbxMedecin1.DataContext = BddGestion.Medecins.ToList();
             cbxNumeroLit1.DataContext = BddGestion.Lits.ToList();
@@ -75,16 +76,17 @@ namespace GestionHopital
             }
             else
             {
+                //La liste assurance contient l'assurance du patient (taille liste 1) creer avec LINQ
                 Assurance uneAssurance = null;
                 foreach (Assurance item in assurance)
                 {
                     uneAssurance = item;
                 }
-                
+
+
                 
                     Admission uneAdmission = new Admission();
-                    uneAdmission.idAdmission = int.Parse(txtIdAdmission1.Text);
-                    
+
                     uneAdmission.dateAdmission = (DateTime)dpDateAdmission1.SelectedDate;
                     if (checkBPHONE1.IsChecked == true)
                     {
@@ -95,6 +97,8 @@ namespace GestionHopital
                         uneAdmission.telephone = 0;
                     }
 
+
+
                     if (checkBTeleviseur1.IsChecked == true)
                     {
                         uneAdmission.televiseur = 1;
@@ -104,7 +108,7 @@ namespace GestionHopital
                         uneAdmission.televiseur = 0;
                     }
 
-                    if(checkBChirurgieProg1.IsChecked==true)
+                    if (checkBChirurgieProg1.IsChecked == true)
                     {
                         uneAdmission.chirurgieProgramme = 1;
                         uneAdmission.dateChirurgie = dpDateChirurgie.SelectedDate;
@@ -114,7 +118,7 @@ namespace GestionHopital
                         uneAdmission.chirurgieProgramme = 0;
                     }
 
-                    uneAdmission.NSS = int.Parse(cbxNSS1.Text);
+                   uneAdmission.NSS = int.Parse(cbxNSS1.Text);
                     uneAdmission.idMedecin = int.Parse(cbxMedecin1.Text);
                     uneAdmission.numeroLit = int.Parse(cbxNumeroLit1.Text);
 
@@ -129,7 +133,6 @@ namespace GestionHopital
                     }
 
                     BddGestion.Admissions.Add(uneAdmission);
-
                     try
                     {
                         BddGestion.SaveChanges();
@@ -141,13 +144,14 @@ namespace GestionHopital
                         MessageBox.Show(ex.Message);
                     }
 
-                if (uneAssurance.nomCompagnie == "ramq")
-                {
-                    
-                    MessageBox.Show("Vous n'avez pas d'assurance privé! un extra sera facturé.",
-                        "Attention",MessageBoxButton.OK,MessageBoxImage.Information);
+                    if (uneAssurance.nomCompagnie == "ramq")
+                    {
 
-                }
+                        MessageBox.Show("Vous n'avez pas d'assurance privé! un extra sera facturé.",
+                            "Attention", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    }
+                                  
 
 
             }

@@ -33,26 +33,34 @@ namespace GestionHopital
 
         private void btnAjouterM_Click(object sender, RoutedEventArgs e)
         {
+            
             Medecin unMedecin = new Medecin();
-            unMedecin.idMedecin = int.Parse(txtIdMedecin.Text);
-            unMedecin.nom = txtNomMedecin.Text;
-            unMedecin.prenom = txtPrenomMedecin.Text;
-
-            uneGestion.Medecins.Add(unMedecin);
-            try
+            if (!String.IsNullOrEmpty(txtNomMedecin.Text) && !String.IsNullOrEmpty(txtPrenomMedecin.Text) )
             {
-                uneGestion.SaveChanges();
-                MessageBox.Show("Medecin Ajouté avec succès!");
-                //cbxMedMod.DataContext = null;
-                cbxMedMod.DataContext = uneGestion.Medecins.ToList();
-                cbxMedecin.DataContext = uneGestion.Medecins.ToList();
+                unMedecin.nom = txtNomMedecin.Text;
+                unMedecin.prenom = txtPrenomMedecin.Text;
+                uneGestion.Medecins.Add(unMedecin);
+                try
+                {
+                    uneGestion.SaveChanges();
+                    MessageBox.Show("Medecin Ajouté avec succès!");
+                    //cbxMedMod.DataContext = null;
+                    cbxMedMod.DataContext = uneGestion.Medecins.ToList();
+                    cbxMedecin.DataContext = uneGestion.Medecins.ToList();
 
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch (Exception ex)
+            else
             {
-
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Merci de remplir les champs vide!","Attention",
+                    MessageBoxButton.OK,MessageBoxImage.Information);
             }
+           
         }
 
         private void btnSupprimerM_Click(object sender, RoutedEventArgs e)

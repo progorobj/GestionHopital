@@ -30,7 +30,7 @@
                             <Button x:Name="btnAnnulerM" Content="Annuler" HorizontalAlignment="Left" Margin="165,170,0,0" VerticalAlignment="Top" Width="85" Height="26"/>
                         </Grid>
                     </GroupBox>
-                    <Label Content="Northern Lights Hospital (NLH) " HorizontalAlignment="Left" Margin="1,12,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Width="476" FontStyle="Italic" FontWeight="Bold" FontSize="36" FontFamily="Tw Cen MT Condensed Extra Bold" Height="47" Grid.Column="2" Foreground="#FFCFB369"/>
+                    <Label Content="LP WAS HERE " HorizontalAlignment="Left" Margin="1,12,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Width="476" FontStyle="Italic" FontWeight="Bold" FontSize="36" FontFamily="Tw Cen MT Condensed Extra Bold" Height="47" Grid.Column="2" Foreground="#FFCFB369"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Supprimer Médecin">

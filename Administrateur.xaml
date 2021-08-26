@@ -22,10 +22,10 @@
                     </Grid.ColumnDefinitions>
                     <GroupBox Header="Informations médecin" HorizontalAlignment="Left" Height="244" Margin="192,72,0,0" VerticalAlignment="Top" Width="311" Grid.Column="3" Grid.ColumnSpan="2">
                         <Grid HorizontalAlignment="Left" Height="238" Margin="12,4,-4,0" VerticalAlignment="Top" Width="310">
-                            <Label Content="ID Médecin:" HorizontalAlignment="Left" Height="31" Margin="10,42,0,0" VerticalAlignment="Top" Width="94" FontSize="14"/>
+                            
                             <Label Content="Nom:" HorizontalAlignment="Left" Height="31" Margin="51,75,0,0" VerticalAlignment="Top" Width="51" FontSize="14"/>
                             <Label Content="Prénom:" HorizontalAlignment="Left" Height="31" Margin="35,111,0,0" VerticalAlignment="Top" Width="65" FontSize="14"/>
-                            <TextBox x:Name="txtIdMedecin" HorizontalAlignment="Left" Height="23" Margin="109,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
+                            
                             <TextBox x:Name="txtNomMedecin" HorizontalAlignment="Left" Height="23" Margin="109,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164"/>
                             <TextBox x:Name="txtPrenomMedecin" HorizontalAlignment="Left" Height="23" Margin="109,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164"/>
                             <Button x:Name="btnAjouterM" Content="Ajouter" HorizontalAlignment="Left" Margin="35,158,0,0" VerticalAlignment="Top" Width="99" Height="38" Click="btnAjouterM_Click" FontSize="14" Background="#FF458AFF" Foreground="White"/>

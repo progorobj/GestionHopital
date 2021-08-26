@@ -12,29 +12,18 @@ namespace GestionHopital
     using System;
     using System.Collections.Generic;
     
-    public partial class Patient
+    public partial class Prepose
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Patient()
+        public Prepose()
         {
-            this.Admissions = new HashSet<Admission>();
             this.DossierVaccins = new HashSet<DossierVaccin>();
         }
     
-        public int NSS { get; set; }
-        public System.DateTime dateNaissance { get; set; }
-        public string nom { get; set; }
-        public string prenom { get; set; }
-        public string adresse { get; set; }
-        public string ville { get; set; }
-        public string province { get; set; }
-        public string codePOstal { get; set; }
-        public string telephone { get; set; }
-        public int idAssurance { get; set; }
+        public int idPrepose { get; set; }
+        public string Nom { get; set; }
+        public string Prenom { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Admission> Admissions { get; set; }
-        public virtual Assurance Assurance { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DossierVaccin> DossierVaccins { get; set; }
     }

@@ -46,9 +46,7 @@
             </Grid.ColumnDefinitions>
             <Button x:Name="btnAjouterAdmission1" Content="Ajouter Admission" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114" Margin="18.8,340,0,0" Height="26" Click="btnAjouterAdmission_Click" Grid.Column="2" Grid.ColumnSpan="2" />
             <Button x:Name="btnAnnuler1" Content="Annuler" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114" Margin="91.6,340,0,0" Height="26" Grid.Column="3" Click="btnAnnuler_Click" Grid.ColumnSpan="2"/>
-            <Label Content="ID Admission:" HorizontalAlignment="Left" Margin="61,106,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
             <Label Content="Date Admission:" HorizontalAlignment="Left" Margin="62,138,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
-            <TextBox x:Name="txtIdAdmission1" HorizontalAlignment="Left" Height="27" Margin="180,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155"  Grid.ColumnSpan="2"/>
             <Label Content="NSS:" HorizontalAlignment="Left" Margin="63,173,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
             <Label Content="ID Médecin:" HorizontalAlignment="Left" Margin="66,259,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
             <Label Content="AJOUTER ADMISSION" HorizontalAlignment="Left" Margin="51,13,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Grid.ColumnSpan="3" Grid.Column="1"/>

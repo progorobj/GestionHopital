@@ -33,5 +33,11 @@ namespace GestionHopital
         public virtual DbSet<Patient> Patients { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TypeLit> TypeLits { get; set; }
+        public virtual DbSet<Affectation> Affectations { get; set; }
+        public virtual DbSet<DossierVaccin> DossierVaccins { get; set; }
+        public virtual DbSet<Infirmier> Infirmiers { get; set; }
+        public virtual DbSet<Prepose> Preposes { get; set; }
+        public virtual DbSet<Station> Stations { get; set; }
+        public virtual DbSet<Vaccin> Vaccins { get; set; }
     }
 }

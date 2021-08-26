@@ -12,30 +12,24 @@ namespace GestionHopital
     using System;
     using System.Collections.Generic;
     
-    public partial class Patient
+    public partial class Station
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Patient()
+        public Station()
         {
-            this.Admissions = new HashSet<Admission>();
+            this.Affectations = new HashSet<Affectation>();
             this.DossierVaccins = new HashSet<DossierVaccin>();
+            this.Vaccins = new HashSet<Vaccin>();
         }
     
-        public int NSS { get; set; }
-        public System.DateTime dateNaissance { get; set; }
-        public string nom { get; set; }
-        public string prenom { get; set; }
-        public string adresse { get; set; }
-        public string ville { get; set; }
-        public string province { get; set; }
-        public string codePOstal { get; set; }
-        public string telephone { get; set; }
-        public int idAssurance { get; set; }
+        public int NumeroStation { get; set; }
+        public int Etat { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Admission> Admissions { get; set; }
-        public virtual Assurance Assurance { get; set; }
+        public virtual ICollection<Affectation> Affectations { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DossierVaccin> DossierVaccins { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Vaccin> Vaccins { get; set; }
     }
 }

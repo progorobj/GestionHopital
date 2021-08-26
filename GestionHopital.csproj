@@ -70,6 +70,9 @@
     <Compile Include="Admission.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Affectation.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="AjouterAdmission.xaml.cs">
       <DependentUpon>AjouterAdmission.xaml</DependentUpon>
     </Compile>
@@ -80,6 +83,12 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Departement.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DossierVaccin.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infirmier.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Lit.cs">
@@ -102,8 +111,14 @@
     <Compile Include="Patient.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Prepose.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Prepose.xaml.cs">
       <DependentUpon>Prepose.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Station.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -114,6 +129,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Vaccin.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -161,12 +179,23 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="prepose2.jpg" />
     <Resource Include="icons8_key_50px_1.png" />
     <Resource Include="image\chirurgie.jpg" />
     <Resource Include="image\chirurgie1.jpg" />
     <Resource Include="image\chirurgie2.jpg" />
     <Resource Include="image\chirurgie3.jpg" />
     <Resource Include="image\chirurgie4.jpg" />
+    <Resource Include="image\admin.jpg" />
+    <Resource Include="image\clinique.jpg" />
+    <Resource Include="image\medecin.jpg" />
+    <Resource Include="image\prepose2.jpg" />
+    <Resource Include="clinique.jpg" />
+    <Resource Include="medecin.jpg" />
+    <Resource Include="admin.jpg" />
+    <Resource Include="chirurgie1.jpg" />
+    <Resource Include="chirurgie3.jpg" />
+    <Resource Include="chirurgie4.jpg" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>

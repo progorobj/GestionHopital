@@ -43,7 +43,7 @@ namespace GestionHopital
             {
                 if (patient.NSS.ToString() == patientRechercher)
                 {
-                    txtNSSR.Text = patient.NSS.ToString();
+                    
                     datePatR.SelectedDate = patient.dateNaissance;
                     txtNomR.Text = patient.nom;
                     txtPrenomR.Text = patient.prenom;

@@ -43,7 +43,7 @@ namespace GestionHopital
             {
                 if (patient.NSS.ToString() == patientRechercher)
                 {
-                    txtNSSR.Text = patient.NSS.ToString();
+                   
                     datePatR.SelectedDate = patient.dateNaissance;
                     txtNomR.Text = patient.nom;
                     txtPrenomR.Text = patient.prenom;
@@ -80,6 +80,13 @@ namespace GestionHopital
         {
             AjouterAdmission uneAdmission = new AjouterAdmission(gestionH);
             uneAdmission.ShowDialog();
+        }
+
+        private void btnAdmissionVaccination_Click(object sender, RoutedEventArgs e)
+        {
+            Vaccination vaccination = new Vaccination();
+            vaccination.ShowDialog();
+            
         }
     }
 }

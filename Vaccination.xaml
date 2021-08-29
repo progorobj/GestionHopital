@@ -29,6 +29,13 @@
         <DatePicker x:Name="dateDose2" HorizontalAlignment="Left" Height="29" Margin="191,332,0,0" VerticalAlignment="Top" Width="210"/>
         <TextBox x:Name="idPrepose" HorizontalAlignment="Left" Height="29" Margin="56,426,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" FontSize="16" TextChanged="idPrepose_TextChanged"/>
         <Button x:Name="btnCreerAdmission" Content="Créer Admission" HorizontalAlignment="Left" Height="40" Margin="56,532,0,0" VerticalAlignment="Top" Width="161" FontSize="14" Background="#FFA303BF" Foreground="White" Click="btnCreerAdmission_Click"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="128" Margin="603,251,0,0" Stroke="White" VerticalAlignment="Top" Width="142"/>
+        <Button x:Name="btnSave" Content="Enregistrer" HorizontalAlignment="Left" Margin="603,532,0,0" VerticalAlignment="Top" Width="142" FontSize="14" Height="40" Background="#FF4D60C2" Foreground="White"/>
+        <Button x:Name="btnPreview" Content="Générer" HorizontalAlignment="Left" Margin="603,481,0,0" VerticalAlignment="Top" Width="142" FontSize="14" Height="40" Click="btnPreview_Click" Background="#FF4D60C2" Foreground="White"/>
+        <TextBox x:Name="txtInfo" HorizontalAlignment="Left" Height="60" Margin="603,410,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142"/>
+        <Label Content="Information patient QR" HorizontalAlignment="Left" Margin="597,379,0,0" VerticalAlignment="Top" FontSize="13" Height="31" FontWeight="Bold"/>
+        <Label Content="QR" HorizontalAlignment="Left" Margin="637,278,0,0" VerticalAlignment="Top" FontSize="48" Foreground="#FFCECECE"/>
+        <Image x:Name="qrImage" HorizontalAlignment="Left" Height="117" Margin="613,257,0,0" VerticalAlignment="Top" Width="140" OpacityMask="#FFB7B7B7"/>
 
     </Grid>
 </Window>

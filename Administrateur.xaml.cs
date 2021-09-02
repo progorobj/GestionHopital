@@ -95,7 +95,7 @@ namespace GestionHopital
                 from l in uneGestion.Admissions                
                 join c in uneGestion.Patients on l.NSS equals c.NSS                
                 select new {l.idAdmission,c.NSS,c.prenom,c.nom,l.dateAdmission,l.dateChirurgie,l.dateConge };
-                dgPatient.DataContext = query.ToList();
+                //dgPatient.DataContext = query.ToList();
         }
 
         private void cbxMedecin_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -135,9 +135,11 @@ namespace GestionHopital
             this.Close();
         }
 
+
+        // code a modifier
         private void btnValider_Click(object sender, RoutedEventArgs e)
         {
-            if(ckbxAssur.IsChecked==true && ckbxMedecin.IsChecked == false)
+          /*  if(ckbxAssur.IsChecked==true && ckbxMedecin.IsChecked == false)
             {
                 var query =
                 from l in uneGestion.Admissions
@@ -177,7 +179,7 @@ namespace GestionHopital
                 select new { l.idAdmission, c.NSS, c.prenom, c.nom,l.dateAdmission, l.dateChirurgie, l.dateConge };
                 dgPatient.DataContext = query.ToList();
 
-            }
+            }*/
         }
 
     }

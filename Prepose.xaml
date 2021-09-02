@@ -13,12 +13,12 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid HorizontalAlignment="Left" Height="210" Margin="49,256,0,0" VerticalAlignment="Top" Width="328" Background="#FFC6F6DB"/>
-        <TextBox x:Name="txtRechercherPatient" HorizontalAlignment="Left" Height="27" Margin="130,353,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" TextChanged="txtRechercherPatient_TextChanged"/>
-        <Button x:Name="btnRechercher" Content="Rechercher" HorizontalAlignment="Left" Margin="167,414,0,0" VerticalAlignment="Top" Width="93" RenderTransformOrigin="0.106,1.135" Click="btnRechercher_Click" Height="27" Background="#FFA303BF" Foreground="White" FontSize="14"/>
+        <Grid HorizontalAlignment="Left" Height="95" Margin="56,76,0,0" VerticalAlignment="Top" Width="285" Background="#FFC6F6DB" Opacity="0.5"/>
+        <TextBox x:Name="txtRechercherPatient" HorizontalAlignment="Left" Height="27" Margin="78,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" TextChanged="txtRechercherPatient_TextChanged"/>
+        <Button x:Name="btnRechercher" Content="Rechercher" HorizontalAlignment="Left" Margin="216,134,0,0" VerticalAlignment="Top" Width="109" RenderTransformOrigin="0.106,1.135" Click="btnRechercher_Click" Height="27" Background="#FF2DAAE2" Foreground="White" FontSize="14"/>
         <Button x:Name="btnCreerPatient" Content="Créer Patient" HorizontalAlignment="Left" VerticalAlignment="Top" Width="212" Margin="497,438,0,0" Height="32" Click="btnAjouterPatient_Click" Background="#FF7FD8DF" FontSize="14"/>
-        <Button x:Name="btnCreerAdmission" Content="Créer Admission" HorizontalAlignment="Left" VerticalAlignment="Top" Width="212" Margin="497,487,0,0" Height="33" Click="btnCreerAdmission_Click" Background="#FFA303BF" Foreground="White" FontSize="14"/>
-        <Label Content="Entrer le numéro NSS:" HorizontalAlignment="Left" Margin="135,325,0,0" VerticalAlignment="Top" Width="144" Height="26" FontSize="14"/>
+        <Button x:Name="btnCreerAdmission" Content="Créer Admission Hôpital" HorizontalAlignment="Left" VerticalAlignment="Top" Width="212" Margin="497,487,0,0" Height="33" Click="btnCreerAdmission_Click" Background="#FFA303BF" Foreground="White" FontSize="14"/>
+        <Label Content="Numéro NSS:" HorizontalAlignment="Left" Margin="73,108,0,0" VerticalAlignment="Top" Width="100" Height="26" FontSize="14"/>
         <Label Content="Date de Naissance:" HorizontalAlignment="Left" Margin="374,160,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988" Height="26" Width="110"/>
         <Label Content="Nom:" HorizontalAlignment="Left" Margin="446,81,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988" Height="26" Width="38"/>
         <Label Content="Prénom:" HorizontalAlignment="Left" Margin="431,121,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988" Height="26" Width="54"/>
@@ -47,7 +47,13 @@
         <TextBox x:Name="txtIDAssR" HorizontalAlignment="Left" Height="27" Margin="497,388,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="117" TextChanged="txtRechercherPatient_TextChanged" IsEnabled="False"/>
         <DatePicker x:Name="datePatR" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="494,158,0,0" Height="28" Width="237"/>
         <Label Content="REGISTRE DES PATIENTS NORTHERN LIGHTS HOSPITAL" HorizontalAlignment="Left" Margin="49,20,0,0" VerticalAlignment="Top" Width="694" Foreground="#FF028381" FontSize="28" Height="42"/>
-        <Label Content="RECHERCHE DE PATIENTS" HorizontalAlignment="Left" Margin="75,264,0,0" VerticalAlignment="Top" Width="282" Foreground="#FF028381" FontSize="24" Height="42"/>
+        <Label Content="RECHERCHE DE PATIENTS" HorizontalAlignment="Left" Margin="71,76,0,0" VerticalAlignment="Top" Width="259" Foreground="#FF028381" FontSize="22" Height="42"/>
+        <Image x:Name="imageVaccination" HorizontalAlignment="Left" Height="171" Margin="56,349,0,0" VerticalAlignment="Top" Width="285" Source="vaccination.jpg" Stretch="Fill">
+            <Image.OpacityMask>
+                <ImageBrush ImageSource="vaccination.jpg"/>
+            </Image.OpacityMask>
+        </Image>
+        <Button x:Name="btnAdmissionVaccination" Content="Admission Vaccination" HorizontalAlignment="Left" Height="30" Margin="56,314,0,0" VerticalAlignment="Top" Width="285" FontSize="16" Background="#FF2DAAE2" Foreground="White" BorderBrush="#FF2DAAE2" Click="btnAdmissionVaccination_Click"/>
 
     </Grid>
 </Window>

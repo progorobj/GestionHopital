@@ -20,6 +20,7 @@ namespace GestionHopital
     public partial class Login : Window
     {
         Gestion_Hopital1Entities gh;
+        
         public Login()
         {
             InitializeComponent();

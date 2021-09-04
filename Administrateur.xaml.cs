@@ -182,5 +182,34 @@ namespace GestionHopital
             }*/
         }
 
+        private void btnModifierInf_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSupprimerInf_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSupprimerPrep_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnModifierPrep_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAjouterPrepose_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAjouterInfirmiere_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

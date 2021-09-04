@@ -14,20 +14,20 @@
             <ImageBrush ImageSource="vaccination.jpg"/>
         </Grid.Background>
         <Label Content="Admission vaccination" HorizontalAlignment="Left" Margin="45,12,0,0" VerticalAlignment="Top" FontSize="48" Foreground="#FF2DAAE2"/>
-        <Label Content="Numéro de Dossier :" HorizontalAlignment="Left" Margin="145,100,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="NSS :" HorizontalAlignment="Left" Margin="237,100,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label Content="Date Admission :" HorizontalAlignment="Left" Margin="167,141,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label Content="Nombre de doses :" HorizontalAlignment="Left" Margin="322,180,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label Content="Date première dose :" HorizontalAlignment="Left" Margin="47,292,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label Content="Date deuxième dose :" HorizontalAlignment="Left" Margin="43,331,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label Content="Id Preposé :" HorizontalAlignment="Left" Margin="50,397,0,0" VerticalAlignment="Top" FontSize="14" Width="125"/>
-        <Label Content="Nom du Vaccin :" HorizontalAlignment="Left" Margin="50,457,0,0" VerticalAlignment="Top" FontSize="14" Width="125"/>
+        <Label Content="Id Preposé :" HorizontalAlignment="Left" Margin="50,372,0,0" VerticalAlignment="Top" FontSize="14" Width="83"/>
+        <Label Content="Vaccin :" HorizontalAlignment="Left" Margin="53,461,0,0" VerticalAlignment="Top" FontSize="14" Width="57"/>
         <TextBox x:Name="nomVaccin" HorizontalAlignment="Left" Height="29" Margin="56,486,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" FontSize="16" TextChanged="nomVaccin_TextChanged"/>
         <TextBox x:Name="numeroDossier" HorizontalAlignment="Left" Height="29" Margin="289,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" TextChanged="numeroDossier_TextChanged"/>
         <TextBox x:Name="nombreDoses" HorizontalAlignment="Left" Height="29" Margin="460,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="39" FontSize="16" TextChanged="nombreDoses_TextChanged"/>
         <DatePicker x:Name="dateAdmission" HorizontalAlignment="Left" Height="29" Margin="289,142,0,0" VerticalAlignment="Top" Width="210"/>
         <DatePicker x:Name="dateDose1" HorizontalAlignment="Left" Height="29" Margin="191,293,0,0" VerticalAlignment="Top" Width="210"/>
         <DatePicker x:Name="dateDose2" HorizontalAlignment="Left" Height="29" Margin="191,332,0,0" VerticalAlignment="Top" Width="210"/>
-        <TextBox x:Name="idPrepose" HorizontalAlignment="Left" Height="29" Margin="56,426,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" FontSize="16" TextChanged="idPrepose_TextChanged"/>
+        <TextBox x:Name="idPrepose" HorizontalAlignment="Left" Height="29" Margin="133,375,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" FontSize="16" TextChanged="idPrepose_TextChanged"/>
         <Button x:Name="btnCreerAdmission" Content="Créer Admission" HorizontalAlignment="Left" Height="40" Margin="56,532,0,0" VerticalAlignment="Top" Width="161" FontSize="14" Background="#FFA303BF" Foreground="White" Click="btnCreerAdmission_Click"/>
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="128" Margin="603,251,0,0" Stroke="White" VerticalAlignment="Top" Width="142"/>
         <Button x:Name="btnSave" Content="Enregistrer" HorizontalAlignment="Left" Margin="603,532,0,0" VerticalAlignment="Top" Width="142" FontSize="14" Height="40" Background="#FF4D60C2" Foreground="White"/>
@@ -36,6 +36,8 @@
         <Label Content="Information patient QR" HorizontalAlignment="Left" Margin="597,379,0,0" VerticalAlignment="Top" FontSize="13" Height="31" FontWeight="Bold"/>
         <Label Content="QR" HorizontalAlignment="Left" Margin="637,278,0,0" VerticalAlignment="Top" FontSize="48" Foreground="#FFCECECE"/>
         <Image x:Name="qrImage" HorizontalAlignment="Left" Height="117" Margin="613,257,0,0" VerticalAlignment="Top" Width="140" OpacityMask="#FFB7B7B7"/>
+        <ComboBox x:Name="cbxListeStation" HorizontalAlignment="Left" Height="31" Margin="56,432,0,0" VerticalAlignment="Top" Width="161"/>
+        <Label Content="Liste des stations :" HorizontalAlignment="Left" Margin="53,406,0,0" VerticalAlignment="Top" FontSize="14" Width="125"/>
 
     </Grid>
 </Window>

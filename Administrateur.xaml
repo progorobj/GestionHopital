@@ -9,58 +9,57 @@
     <Grid Background="#FFFAFAFA" Margin="0,0,0,74.2">
         <TabControl HorizontalAlignment="Left" Height="351" Margin="0,10,0,-73.6" VerticalAlignment="Top" Width="616">
             <TabItem Header="Médecin" Margin="-2,2,-2,0">
-                <Grid Margin="0,-2,-1.6,-21.8">
-                    <Grid.Background>
-                        <ImageBrush ImageSource="clinique.jpg"/>
-                    </Grid.Background>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="7*"/>
-                        <ColumnDefinition Width="44*"/>
-                    </Grid.ColumnDefinitions>
-                    <Rectangle Fill="White" HorizontalAlignment="Left" Height="191" Margin="240.4,69,0,0" Stroke="#FFCECECE" VerticalAlignment="Top" Width="230" Grid.Column="1" Opacity="0.5"/>
-                    <ComboBox x:Name="cbListeMed" HorizontalAlignment="Left" Height="29" Margin="253.4,86,0,0" VerticalAlignment="Top" Width="205" Grid.Column="1"/>
-                    <Button x:Name="btnSupprimer" Content="Supprimer" HorizontalAlignment="Left" Height="27" Margin="360.4,214,0,0" VerticalAlignment="Top" Width="98" Background="#FF458AFF" Foreground="White" FontSize="14" Grid.Column="1"/>
-                    <Button x:Name="btnModifier1" Content="Modifier" HorizontalAlignment="Left" Height="27" Margin="253.4,214,0,0" VerticalAlignment="Top" Width="98" Background="#FF458AFF" Foreground="White" FontSize="14" Grid.Column="1"/>
-                    <Label Content="Nom :" HorizontalAlignment="Left" Margin="267.4,130,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-                    <Label Content="Prénom :" HorizontalAlignment="Left" Margin="253.4,169,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-                    <TextBox x:Name="txtNomMed" HorizontalAlignment="Left" Height="24" Margin="314.4,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" Grid.Column="1"/>
-                    <TextBox x:Name="txtPrenomMed" HorizontalAlignment="Left" Height="24" Margin="316.4,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" Grid.Column="1"/>
-                    <Rectangle Fill="White" HorizontalAlignment="Left" Height="191" Margin="59,69,0,0" Stroke="#FFCECECE" VerticalAlignment="Top" Width="230" Grid.ColumnSpan="2" Opacity="0.5"/>
-                    <Button x:Name="btnAjouterM" Content="Ajouter" HorizontalAlignment="Left" Margin="34.4,214,0,0" VerticalAlignment="Top" Width="99" Height="27" Click="btnAjouterM_Click" FontSize="14" Background="#FF458AFF" Foreground="White" Grid.Column="1"/>
-                    <TextBox x:Name="txtPrenomMedecin" HorizontalAlignment="Left" Height="23" Margin="45.4,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Grid.Column="1"/>
-                    <TextBox x:Name="txtNomMedecin" HorizontalAlignment="Left" Height="23" Margin="45.4,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Grid.Column="1"/>
-                    <Label Content="Nom:" HorizontalAlignment="Left" Height="31" Margin="1.4,130,0,0" VerticalAlignment="Top" Width="39" Grid.Column="1"/>
-                    <Label Content="Prénom:" HorizontalAlignment="Left" Height="31" Margin="71,167,0,0" VerticalAlignment="Top" Width="57" Grid.ColumnSpan="2"/>
-                    <Button Content="Déconnexion" HorizontalAlignment="Left" Height="27" Margin="170.4,279,0,0" VerticalAlignment="Top" Width="100" Background="#FFB90092" Foreground="White" Grid.Column="1"/>
-                    <Label Content="Régistremet de Médecins" HorizontalAlignment="Left" Margin="67,76,0,0" VerticalAlignment="Top" Width="218" Height="39" FontSize="18" Foreground="#FF9D0303" Grid.ColumnSpan="2"/>
-                    <Label Content="Northern Lights Hospital (NLH) " HorizontalAlignment="Left" Margin="55,1,0,0" VerticalAlignment="Top" Width="506" Grid.ColumnSpan="2" Foreground="#FF003786" FontSize="36"/>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Infirmière">
-                <Grid>
+                <Grid Margin="0,-2,-1.6,-3.8">
                     <Grid.Background>
                         <ImageBrush ImageSource="clinique.jpg"/>
                     </Grid.Background>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <GroupBox Header="Informations médecin" HorizontalAlignment="Left" Height="245" Margin="19,68,0,0" VerticalAlignment="Top" Width="337">
-                        <Grid HorizontalAlignment="Left" Height="216" VerticalAlignment="Top" Width="327" Margin="0,0,-2,0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="5*"/>
-                                <ColumnDefinition Width="104*"/>
-                            </Grid.ColumnDefinitions>
-                            <Label Content="ID Médecin:" HorizontalAlignment="Left" Height="31" Margin="11.8,27,0,0" VerticalAlignment="Top" Width="91" Grid.Column="1" FontSize="14"/>
-                            <Label Content="Nom:" HorizontalAlignment="Left" Height="31" Margin="51.8,60,0,0" VerticalAlignment="Top" Width="47" Grid.Column="1" FontSize="14"/>
-                            <Label Content="Prénom:" HorizontalAlignment="Left" Height="31" Margin="35.8,96,0,0" VerticalAlignment="Top" Width="67" Grid.Column="1" FontSize="14"/>
-                            <TextBox x:Name="txtNomM" HorizontalAlignment="Left" Height="23" Margin="117.8,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Grid.Column="1"/>
-                            <TextBox x:Name="txtPrenomM" HorizontalAlignment="Left" Height="23" Margin="117.8,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Grid.Column="1"/>
-                            <ComboBox x:Name="cbxMedecin" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="117.8,31,0,0" IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" DisplayMemberPath="idMedecin" SelectionChanged="cbxMedecin_SelectionChanged" Grid.Column="1"/>
-                            <Button x:Name="btnSupprimerM" Content="Supprimer" HorizontalAlignment="Left" Margin="25.453,166,0,0" VerticalAlignment="Top" Width="99" Height="38" Click="btnSupprimerM_Click" Grid.Column="1" Background="#FF458AFF" Foreground="White" FontSize="14"/>
-                            <Button x:Name="btnAnnuler" Content="Annuler" HorizontalAlignment="Left" Margin="177.8,166,0,0" VerticalAlignment="Top" Width="99" Height="38" Grid.Column="1" Background="#FF458AFF" Foreground="White" FontSize="14"/>
-                        </Grid>
-                    </GroupBox>
-                    <Label Content="Northern Lights Hospital (NLH) " HorizontalAlignment="Left" Margin="60,2,0,0" VerticalAlignment="Top" Width="520" FontSize="36" Height="60" Foreground="#FF003786"/>
+                    <Rectangle Fill="White" HorizontalAlignment="Left" Height="191" Margin="325,69,0,0" Stroke="#FFCECECE" VerticalAlignment="Top" Width="230" Opacity="0.5"/>
+                    <ComboBox x:Name="cbListeMed" HorizontalAlignment="Left" Height="26" Margin="338,89,0,0" VerticalAlignment="Top" Width="205"/>
+                    <Button x:Name="btnSupprimerM" Content="Supprimer" HorizontalAlignment="Left" Height="27" Margin="445,214,0,0" VerticalAlignment="Top" Width="98" Background="#FF458AFF" Foreground="White"/>
+                    <Button x:Name="btnModifierM" Content="Modifier" HorizontalAlignment="Left" Height="27" Margin="338,214,0,0" VerticalAlignment="Top" Width="98" Background="#FF458AFF" Foreground="White"/>
+                    <Label Content="Nom :" HorizontalAlignment="Left" Margin="352,130,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Prénom :" HorizontalAlignment="Left" Margin="338,169,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtNomMed" HorizontalAlignment="Left" Height="24" Margin="399,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144"/>
+                    <TextBox x:Name="txtPrenomMed" HorizontalAlignment="Left" Height="24" Margin="401,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142"/>
+                    <Rectangle Fill="White" HorizontalAlignment="Left" Height="191" Margin="59,69,0,0" Stroke="#FFCECECE" VerticalAlignment="Top" Width="230" Opacity="0.5"/>
+                    <Button x:Name="btnAjouterM" Content="Ajouter" HorizontalAlignment="Left" Margin="119,214,0,0" VerticalAlignment="Top" Width="99" Height="27" Click="btnAjouterM_Click" Background="#FF458AFF" Foreground="White"/>
+                    <TextBox x:Name="txtPrenomMedecin" HorizontalAlignment="Left" Height="24" Margin="130,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"/>
+                    <TextBox x:Name="txtNomMedecin" HorizontalAlignment="Left" Height="23" Margin="130,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"/>
+                    <Label Content="Nom:" HorizontalAlignment="Left" Height="31" Margin="85,130,0,0" VerticalAlignment="Top" Width="39"/>
+                    <Label Content="Prénom:" HorizontalAlignment="Left" Height="31" Margin="71,167,0,0" VerticalAlignment="Top" Width="57"/>
+                    <Button Content="Déconnexion" HorizontalAlignment="Left" Height="27" Margin="255,279,0,0" VerticalAlignment="Top" Width="100" Background="#FFB90092" Foreground="White"/>
+                    <Label Content="Régistremet de Médecins" HorizontalAlignment="Left" Margin="67,76,0,0" VerticalAlignment="Top" Width="218" Height="39" FontSize="18" Foreground="#FF9D0303"/>
+                    <Label Content="Northern Lights Hospital (NLH) " HorizontalAlignment="Left" Margin="55,1,0,0" VerticalAlignment="Top" Width="506" Foreground="#FF003786" FontSize="36"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Infirmière">
+                <Grid Margin="0,0,0.4,0.2">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="clinique.jpg"/>
+                    </Grid.Background>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Northern Lights Hospital (NLH) " HorizontalAlignment="Left" Margin="55,-2,0,0" VerticalAlignment="Top" Width="520" FontSize="36" Height="60" Foreground="#FF003786"/>
+                    <Rectangle Fill="White" HorizontalAlignment="Left" Height="191" Margin="59,68,0,0" Stroke="#FFCECECE" VerticalAlignment="Top" Width="230" Opacity="0.5"/>
+                    <Rectangle Fill="White" HorizontalAlignment="Left" Height="191" Margin="325,68,0,0" Stroke="#FFCECECE" VerticalAlignment="Top" Width="230" Opacity="0.5"/>
+                    <Label Content="Régistremet d'Infirmières" HorizontalAlignment="Left" Margin="67,76,0,0" VerticalAlignment="Top" Width="218" Height="39" FontSize="18" Foreground="#FF9D0303"/>
+                    <Label Content="Nom :" HorizontalAlignment="Left" Margin="352,130,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Prénom :" HorizontalAlignment="Left" Margin="338,169,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Nom:" HorizontalAlignment="Left" Height="31" Margin="85,130,0,0" VerticalAlignment="Top" Width="39"/>
+                    <Label Content="Prénom:" HorizontalAlignment="Left" Height="31" Margin="71,167,0,0" VerticalAlignment="Top" Width="57"/>
+                    <TextBox x:Name="txtNomInfirmiere" HorizontalAlignment="Left" Height="23" Margin="133,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142"/>
+                    <TextBox x:Name="txtPrenomInfirmiere" HorizontalAlignment="Left" Height="26" Margin="133,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142"/>
+                    <TextBox x:Name="txtNomInf" HorizontalAlignment="Left" Height="23" Margin="397,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142"/>
+                    <TextBox x:Name="txtPrenomInf" HorizontalAlignment="Left" Height="26" Margin="397,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142"/>
+                    <ComboBox x:Name="cbListeInfirmieres" HorizontalAlignment="Left" Height="25" Margin="338,90,0,0" VerticalAlignment="Top" Width="201"/>
+                    <Button Content="Déconnexion" HorizontalAlignment="Left" Height="27" Margin="255,279,0,0" VerticalAlignment="Top" Width="100" Background="#FFB90092" Foreground="White"/>
+                    <Button x:Name="btnModifierInf" Content="Modifier" HorizontalAlignment="Left" Height="27" Margin="338,214,0,0" VerticalAlignment="Top" Width="98" Background="#FF458AFF" Foreground="White" Click="btnModifierInf_Click"/>
+                    <Button x:Name="btnSupprimerInf" Content="Supprimer" HorizontalAlignment="Left" Height="27" Margin="445,214,0,0" VerticalAlignment="Top" Width="98" Background="#FF458AFF" Foreground="White" Click="btnSupprimerInf_Click"/>
+                    <Button x:Name="btnAjouterInfirmiere" Content="Ajouter" HorizontalAlignment="Left" Height="27" Margin="115,214,0,0" VerticalAlignment="Top" Width="108" Click="btnAjouterInfirmiere_Click" Foreground="White" Background="#FF458AFF"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Prepose" Height="25" VerticalAlignment="Top">
@@ -69,23 +68,25 @@
                         <ImageBrush ImageSource="clinique.jpg"/>
                     </Grid.Background>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="16*"/>
-                        <ColumnDefinition Width="53*"/>
-                        <ColumnDefinition Width="325*"/>
+                        <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <GroupBox Header="informations médecin" HorizontalAlignment="Left" Height="247" Margin="18,64,0,0" VerticalAlignment="Top" Width="290" Grid.ColumnSpan="3">
-                        <Grid HorizontalAlignment="Left" Height="213" Margin="4,13,0,0" VerticalAlignment="Top" Width="292">
-                            <Label Content="ID Médecin :" HorizontalAlignment="Left" Margin="17,27,0,0" VerticalAlignment="Top" FontSize="14" Width="92"/>
-                            <Label Content="Nom :" HorizontalAlignment="Left" Margin="54,61,0,0" VerticalAlignment="Top" FontSize="14" Width="55"/>
-                            <Label Content="Prénom :" HorizontalAlignment="Left" Margin="40,95,0,0" VerticalAlignment="Top" FontSize="14" Width="69"/>
-                            <ComboBox x:Name="cbxMedMod" HorizontalAlignment="Left" Margin="114,32,0,0" VerticalAlignment="Top" Width="143" IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" DisplayMemberPath="idMedecin" SelectionChanged="cbxMedMod_SelectionChanged"/>
-                            <TextBox x:Name="txtNomMod" HorizontalAlignment="Left" Height="23" Margin="114,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"/>
-                            <TextBox x:Name="txtPrenomMod" HorizontalAlignment="Left" Height="23" Margin="114,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"/>
-                            <Button x:Name="btnModifier" Content="Modifier" HorizontalAlignment="Left" Margin="33,169,0,0" VerticalAlignment="Top" Width="99" Height="38" Click="btnModifier_Click" Background="#FF458AFF" Foreground="White" FontSize="14"/>
-                            <Button x:Name="btnAnnuler1" Content="Annuler" HorizontalAlignment="Left" Margin="142,169,0,0" VerticalAlignment="Top" Width="99" Height="38" Background="#FF458AFF" Foreground="White" FontSize="14"/>
-                        </Grid>
-                    </GroupBox>
-                    <Label Content="Northern Lights Hospital (NLH) " HorizontalAlignment="Left" Margin="32.2,-1,0,0" VerticalAlignment="Top" Width="532" FontSize="36" Height="61" Grid.Column="1" Foreground="#FF003786" Grid.ColumnSpan="2"/>
+                    <Label Content="Northern Lights Hospital (NLH) " HorizontalAlignment="Left" Margin="54,-2,0,0" VerticalAlignment="Top" Width="532" FontSize="36" Height="61" Foreground="#FF003786"/>
+                    <Rectangle Fill="White" HorizontalAlignment="Left" Height="191" Margin="58,70,0,0" Stroke="#FFCECECE" VerticalAlignment="Top" Width="230" Opacity="0.5"/>
+                    <Rectangle Fill="White" HorizontalAlignment="Left" Height="191" Margin="326,70,0,0" Stroke="#FFCECECE" VerticalAlignment="Top" Width="230" Opacity="0.5"/>
+                    <Label Content="Régistremet de préposé" HorizontalAlignment="Left" Margin="67,76,0,0" VerticalAlignment="Top" Width="218" Height="39" FontSize="18" Foreground="#FF9D0303"/>
+                    <Label Content="Nom :" HorizontalAlignment="Left" Margin="352,130,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Prénom :" HorizontalAlignment="Left" Margin="338,169,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Nom:" HorizontalAlignment="Left" Height="31" Margin="85,130,0,0" VerticalAlignment="Top" Width="39"/>
+                    <Label Content="Prénom:" HorizontalAlignment="Left" Height="31" Margin="71,167,0,0" VerticalAlignment="Top" Width="57"/>
+                    <ComboBox x:Name="cbListePreposes" HorizontalAlignment="Left" Height="26" Margin="343,89,0,0" VerticalAlignment="Top" Width="199"/>
+                    <TextBox HorizontalAlignment="Left" Height="22" Margin="398,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="400,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142"/>
+                    <TextBox HorizontalAlignment="Left" Height="22" Margin="128,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="128,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144"/>
+                    <Button Content="Déconnexion" HorizontalAlignment="Left" Height="27" Margin="255,279,0,0" VerticalAlignment="Top" Width="100" Background="#FFB90092" Foreground="White"/>
+                    <Button x:Name="btnModifierPrep" Content="Modifier" HorizontalAlignment="Left" Height="27" Margin="338,214,0,0" VerticalAlignment="Top" Width="98" Background="#FF458AFF" Foreground="White" Click="btnModifierPrep_Click"/>
+                    <Button x:Name="btnSupprimerPrep" Content="Supprimer" HorizontalAlignment="Left" Height="27" Margin="445,214,0,0" VerticalAlignment="Top" Width="98" Background="#FF458AFF" Foreground="White" Click="btnSupprimerPrep_Click"/>
+                    <Button x:Name="btnAjouterPrepose" Content="Ajouter" HorizontalAlignment="Left" Height="27" Margin="113,214,0,0" VerticalAlignment="Top" Width="109" Background="#FF458AFF" Foreground="White" Click="btnAjouterPrepose_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Affectation">
@@ -100,11 +101,15 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Label Content="Northern Lights Hospital (NLH) " HorizontalAlignment="Left" Margin="60,-2,0,0" VerticalAlignment="Top" Width="531" FontSize="36" Height="71" Foreground="#FF003786"/>
-                    <GroupBox Header="Filtres" HorizontalAlignment="Left" Height="87" Margin="10,62,0,0" VerticalAlignment="Top" Width="573">
-                        <Grid HorizontalAlignment="Left" Height="61" Margin="10,-1,0,0" VerticalAlignment="Top" Width="354"/>
-                    </GroupBox>
                     <Button x:Name="btnValider" Content="Valider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="99" Margin="202,329,0,-13.8" Click="btnValider_Click" Height="38" FontSize="14" Background="#FF458AFF" Foreground="White"/>
                     <Button Content="Annuler" HorizontalAlignment="Left" Margin="327,329,0,-13.8" VerticalAlignment="Top" Width="99" Click="Button_Click" Height="38" FontSize="14" Background="#FF458AFF" Foreground="White"/>
+                    <Rectangle Fill="White" HorizontalAlignment="Left" Height="121" Margin="20,61,0,0" Stroke="#FFCECECE" VerticalAlignment="Top" Width="567" Opacity="0.5"/>
+                    <ComboBox HorizontalAlignment="Left" Height="32" Margin="37,103,0,0" VerticalAlignment="Top" Width="164"/>
+                    <ComboBox HorizontalAlignment="Left" Height="32" Margin="224,103,0,0" VerticalAlignment="Top" Width="158"/>
+                    <Label Content="Liste Infirmiéres" HorizontalAlignment="Left" Margin="33,74,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Liste d'stations" HorizontalAlignment="Left" Margin="221,74,0,0" VerticalAlignment="Top"/>
+                    <DatePicker HorizontalAlignment="Left" Height="32" Margin="404,103,0,0" VerticalAlignment="Top" Width="167"/>
+                    <Label Content="Date d'affectation" HorizontalAlignment="Left" Margin="399,74,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
         </TabControl>

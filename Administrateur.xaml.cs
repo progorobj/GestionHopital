@@ -24,10 +24,10 @@ namespace GestionHopital
         {
             InitializeComponent();
             uneGestion = g;
-            cbxMedecin.DataContext = uneGestion.Medecins.ToList();
-            cbxMedMod.DataContext = uneGestion.Medecins.ToList();
-            cbxMedecin.SelectedIndex = 0;
-            cbxMedMod.SelectedIndex = 0;
+            cbListeMed.DataContext = uneGestion.Medecins.ToList();
+           // cbxMedMod.DataContext = uneGestion.Medecins.ToList();
+            cbListeMed.SelectedIndex = 0;
+           // cbxMedMod.SelectedIndex = 0;
 
         }
 
@@ -45,8 +45,8 @@ namespace GestionHopital
                     uneGestion.SaveChanges();
                     MessageBox.Show("Medecin Ajouté avec succès!");
                     //cbxMedMod.DataContext = null;
-                    cbxMedMod.DataContext = uneGestion.Medecins.ToList();
-                    cbxMedecin.DataContext = uneGestion.Medecins.ToList();
+                  //  cbxMedMod.DataContext = uneGestion.Medecins.ToList();
+                    cbListeMed.DataContext = uneGestion.Medecins.ToList();
 
                 }
                 catch (Exception ex)
@@ -62,35 +62,16 @@ namespace GestionHopital
             }
            
         }
-
-        private void btnSupprimerM_Click(object sender, RoutedEventArgs e)
-        {
-            Medecin unMed = cbxMedecin.SelectedItem as Medecin;
-
-            uneGestion.Medecins.Remove(unMed);
-
-            try
-            {
-                
-                uneGestion.SaveChanges();
-                MessageBox.Show("Medecin Supprimé avec succès!");
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-
-        }
+      
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Medecin unMed = cbxMedecin.SelectedItem as Medecin;
-            txtNomM.Text = unMed.nom;
-            txtPrenomM.Text = unMed.prenom;
+            Medecin unMed = cbListeMed.SelectedItem as Medecin;
+            txtNomMed.Text = unMed.nom;
+            txtPrenomMed.Text = unMed.prenom;
 
             txtNomMod.Text = unMed.nom;
-            txtPrenomMod.Text = unMed.prenom;
+            txtPrenomMed.Text = unMed.prenom;
             var query =
                 from l in uneGestion.Admissions                
                 join c in uneGestion.Patients on l.NSS equals c.NSS                
@@ -105,18 +86,13 @@ namespace GestionHopital
             txtPrenomM.Text = unMed.prenom;
         }
 
-        private void cbxMedMod_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Medecin unMed = cbxMedMod.SelectedItem as Medecin;
-            txtNomMod.Text = unMed.nom;
-            txtPrenomMod.Text = unMed.prenom;
-        }
+       
 
-        private void btnModifier_Click(object sender, RoutedEventArgs e)
+       private void btnModifier1_Click(object sender, RoutedEventArgs e)
         {
-            Medecin unMed = cbxMedMod.SelectedItem as Medecin;
-             unMed.nom = txtNomMod.Text;
-             unMed.prenom = txtPrenomMod.Text;
+            Medecin unMed = cbListeMed.SelectedItem as Medecin;
+             unMed.nom = txtNomMed.Text;
+             unMed.prenom = txtPrenomMed.Text;
             try
             {
 
@@ -182,34 +158,32 @@ namespace GestionHopital
             }*/
         }
 
-        private void btnModifierInf_Click(object sender, RoutedEventArgs e)
+        private void cbListeMed_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            Medecin unMed = cbListeMed.SelectedItem as Medecin;
+            txtNomMed.Text = unMed.nom;
+            txtPrenomMed.Text = unMed.prenom;
         }
 
-        private void btnSupprimerInf_Click(object sender, RoutedEventArgs e)
+        private void btnSupprimer_Click(object sender, RoutedEventArgs e)
         {
+          
+            Medecin unMed = cbListeMed.SelectedItem as Medecin;
 
-        }
+            uneGestion.Medecins.Remove(unMed);
 
-        private void btnSupprimerPrep_Click(object sender, RoutedEventArgs e)
-        {
+            try
+            {
+               
 
-        }
+                uneGestion.SaveChanges();
+                MessageBox.Show("Medecin Supprimé avec succès!");
+            }
+            catch (Exception ex)
+            {
 
-        private void btnModifierPrep_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnAjouterPrepose_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnAjouterInfirmiere_Click(object sender, RoutedEventArgs e)
-        {
-
+                MessageBox.Show("Vérifier si ce medecin est lié à d'autre table ");
+            }
         }
     }
 }

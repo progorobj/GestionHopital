@@ -20,58 +20,89 @@ namespace GestionHopital
     public partial class Login : Window
     {
         Gestion_Hopital1Entities gh;
+        
         public Login()
         {
             InitializeComponent();
             gh = new Gestion_Hopital1Entities();
         }
         string nomU;
-        string pass;
+        int pass;
+        int trouve = 0;
         private void btnValider_Click(object sender, RoutedEventArgs e)
         {
+            
             nomU = txtUtilisateur.Text;
-            pass = txtPass.Text;
-            if (String.IsNullOrEmpty(nomU) &&
-                string.IsNullOrEmpty(pass))
+            pass = int.Parse(txtPass.Text);
+
+
+            if (String.IsNullOrEmpty(txtUtilisateur.Text) &&
+                String.IsNullOrEmpty(txtPass.Text))
             {
                 MessageBox.Show("Merci de sair un nom d'utilisateur et un mot de passe!", "Attention",
                     MessageBoxButton.OK, MessageBoxImage.Information);
             }
+            else if (nomU == "admin" && pass == 1234)
+            {
+                trouve = 2;
+            }
             else
             {
-                if (nomU == "prep" && pass == "prep")
+                
+                foreach (Prepose item in gh.Preposes)
                 {
-                    Prepose unprep = new Prepose(gh);
-                    unprep.Show();
-                    this.Close();
-                    
-                }
-                else if (nomU == "admin" && pass == "admin")
-                {
-                    Administrateur unadmin = new Administrateur(gh);
-                    unadmin.Show();
-                    this.Close();
-                    
-                }
-                else if (nomU == "med" && pass == "med")
-                {
-                    Medecins unMedecin = new Medecins(gh);
-                    unMedecin.Show();
-                    this.Close();
+                    if (item.Nom == nomU && item.idPrepose == pass)
+                    {
+                        trouve = 1;
+                       
+                    }
 
                 }
+
+                if(trouve==0)
+                {
+                    foreach (Medecin item in gh.Medecins)
+                    {
+                        if (item.nom == nomU && item.idMedecin == pass)
+                        {
+                            trouve = 3;
+                        }
+
+                    }
+
+
+                }
+               
+               
                 else
                     MessageBox.Show("Le nom d'utilisateur ou le mot de passe est incorrect!", "Attention",
                     MessageBoxButton.OK, MessageBoxImage.Information);
 
+            }
 
+            if (trouve == 1)
+            {
+                Prepose unprep = new Prepose(gh);
+                unprep.Show();
+                this.Close();
+
+            }
+            else if (trouve == 2)
+            {
+                Administrateur unadmin = new Administrateur(gh);
+                unadmin.Show();
+                this.Close();
+
+            }
+            else if (trouve == 3)
+            {
+                Medecins unMedecin = new Medecins(gh);
+                unMedecin.Show();
+                this.Close();
 
             }
         }
 
-        private void btnQuitter_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
+       
     }
 }

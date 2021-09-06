@@ -70,20 +70,13 @@ namespace GestionHopital
             txtNomMed.Text = unMed.nom;
             txtPrenomMed.Text = unMed.prenom;
 
-            txtNomMod.Text = unMed.nom;
+            
             txtPrenomMed.Text = unMed.prenom;
             var query =
                 from l in uneGestion.Admissions                
                 join c in uneGestion.Patients on l.NSS equals c.NSS                
                 select new {l.idAdmission,c.NSS,c.prenom,c.nom,l.dateAdmission,l.dateChirurgie,l.dateConge };
                 //dgPatient.DataContext = query.ToList();
-        }
-
-        private void cbxMedecin_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Medecin unMed = cbxMedecin.SelectedItem as Medecin;
-            txtNomM.Text = unMed.nom;
-            txtPrenomM.Text = unMed.prenom;
         }
 
        
@@ -158,12 +151,6 @@ namespace GestionHopital
             }*/
         }
 
-        private void cbListeMed_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Medecin unMed = cbListeMed.SelectedItem as Medecin;
-            txtNomMed.Text = unMed.nom;
-            txtPrenomMed.Text = unMed.prenom;
-        }
 
         private void btnSupprimer_Click(object sender, RoutedEventArgs e)
         {
@@ -184,6 +171,91 @@ namespace GestionHopital
 
                 MessageBox.Show("Vérifier si ce medecin est lié à d'autre table ");
             }
+        }
+
+        private void txtNomInfirmiere_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtPrenomInfirmiere_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtNomInfirmiere2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtPrenomInfirmiere2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtPrenomPrepose_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtNomPrepose_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtNomPrepose2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtPrenomPrepose2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void cbListePreposes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void cbListeInfirmieres_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void btnAjouterInfirmiere_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnModiffierInfirmiere_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSupprimerInfirmiere_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAjouterPrepose_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnModiffierPrepose_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSupprimerPrepose_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cbListeMed_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -31,15 +31,17 @@ namespace GestionHopital
         int trouve = 0;
         private void btnValider_Click(object sender, RoutedEventArgs e)
         {
-            
-            nomU = txtUtilisateur.Text;
-            pass = int.Parse(txtPass.Text);
+            try
+            {
+                nomU = txtUtilisateur.Text;
+                pass = int.Parse(txtPass.Text);
+           
 
 
             if (String.IsNullOrEmpty(txtUtilisateur.Text) &&
                 String.IsNullOrEmpty(txtPass.Text))
             {
-                MessageBox.Show("Merci de sair un nom d'utilisateur et un mot de passe!", "Attention",
+                MessageBox.Show("Merci de saisir un nom d'utilisateur et un mot de passe!", "Attention",
                     MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if (nomU == "admin" && pass == 1234)
@@ -74,11 +76,12 @@ namespace GestionHopital
                 }
                
                
-                else
-                    MessageBox.Show("Le nom d'utilisateur ou le mot de passe est incorrect!", "Attention",
-                    MessageBoxButton.OK, MessageBoxImage.Information);
+              
 
             }
+
+
+
 
             if (trouve == 1)
             {
@@ -101,8 +104,22 @@ namespace GestionHopital
                 this.Close();
 
             }
+            else                  
+                MessageBox.Show("Le nom d'utilisateur ou le mot de passe est incorrect!", "Attention",
+                MessageBoxButton.OK, MessageBoxImage.Information);
+
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Le mot de passe ne doit pas contenir de caractères!", "Attention",
+               MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+
+
+
         }
 
-       
+
     }
 }

@@ -27,8 +27,9 @@ namespace GestionHopital
             cbListeMed.DataContext = uneGestion.Medecins.ToList();
            // cbxMedMod.DataContext = uneGestion.Medecins.ToList();
             cbListeMed.SelectedIndex = 0;
-           // cbxMedMod.SelectedIndex = 0;
-
+            // cbxMedMod.SelectedIndex = 0;
+            cbxListInfirmier.DataContext = uneGestion.Infirmiers.ToList();
+            cbxListStations.DataContext = uneGestion.Stations.ToList();
         }
 
         private void btnAjouterM_Click(object sender, RoutedEventArgs e)
@@ -76,7 +77,13 @@ namespace GestionHopital
                 from l in uneGestion.Admissions                
                 join c in uneGestion.Patients on l.NSS equals c.NSS                
                 select new {l.idAdmission,c.NSS,c.prenom,c.nom,l.dateAdmission,l.dateChirurgie,l.dateConge };
-                //dgPatient.DataContext = query.ToList();
+            //dgPatient.DataContext = query.ToList();
+              
+            
+            //definir la date du jours pour Affectation
+            datePAffectation.SelectedDate = DateTime.Today;
+
+            
         }
 
        
@@ -255,6 +262,36 @@ namespace GestionHopital
 
         private void cbListeMed_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
+        }
+
+        private void cbListeMed_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void btnAjouterAffectation_Click(object sender, RoutedEventArgs e)
+        {
+            Affectation uneAffectation = new Affectation();
+
+            uneAffectation.idInfirmier = int.Parse(cbxListInfirmier.Text);
+            uneAffectation.NumeroStation = int.Parse(cbxListStations.Text);
+            uneAffectation.DateAffectation = datePAffectation.SelectedDate.Value;
+
+            uneGestion.Affectations.Add(uneAffectation);
+
+            try
+            {
+
+
+                uneGestion.SaveChanges();
+                MessageBox.Show("Affectation ajouté avec succès!");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Vérifier les informatiosn entrées ! ");
+            }
 
         }
     }

@@ -16,8 +16,8 @@ namespace GestionHopital
     {
         public int NumeroVaccin { get; set; }
         public string Marque { get; set; }
-        public Nullable<int> NumeroStation { get; set; }
+        public Nullable<int> NumeroDossierV { get; set; }
     
-        public virtual Station Station { get; set; }
+        public virtual DossierVaccin DossierVaccin { get; set; }
     }
 }

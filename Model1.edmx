@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Gestion_Hopital1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Gestion_Hopital1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Admission">
           <Key>
             <PropertyRef Name="idAdmission" />
@@ -135,7 +135,7 @@
           </Key>
           <Property Name="NumeroVaccin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Marque" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="NumeroStation" Type="int" />
+          <Property Name="NumeroDossierV" Type="int" />
         </EntityType>
         <Association Name="FK_Admission_Lit">
           <End Role="Lit" Type="Self.Lit" Multiplicity="1" />
@@ -269,15 +269,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Vaccin_Station">
-          <End Role="Station" Type="Self.Station" Multiplicity="0..1" />
+        <Association Name="FK_Vaccin_DossierVaccin">
+          <End Role="DossierVaccin" Type="Self.DossierVaccin" Multiplicity="0..1" />
           <End Role="Vaccin" Type="Self.Vaccin" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Station">
-              <PropertyRef Name="NumeroStation" />
+            <Principal Role="DossierVaccin">
+              <PropertyRef Name="NumeroDossierV" />
             </Principal>
             <Dependent Role="Vaccin">
-              <PropertyRef Name="NumeroStation" />
+              <PropertyRef Name="NumeroDossierV" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -340,12 +340,13 @@
             <End Role="Assurance" EntitySet="Assurance" />
             <End Role="Patient" EntitySet="Patient" />
           </AssociationSet>
-          <AssociationSet Name="FK_Vaccin_Station" Association="Self.FK_Vaccin_Station">
-            <End Role="Station" EntitySet="Station" />
+          <AssociationSet Name="FK_Vaccin_DossierVaccin" Association="Self.FK_Vaccin_DossierVaccin">
+            <End Role="DossierVaccin" EntitySet="DossierVaccin" />
             <End Role="Vaccin" EntitySet="Vaccin" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Gestion_Hopital1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -353,7 +354,7 @@
           <Key>
             <PropertyRef Name="idAdmission" />
           </Key>
-          <Property Name="idAdmission" Type="Int32" Nullable="false" />
+          <Property Name="idAdmission" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="chirurgieProgramme" Type="Int32" Nullable="false" />
           <Property Name="dateAdmission" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="dateChirurgie" Type="DateTime" Precision="0" />
@@ -367,11 +368,22 @@
           <NavigationProperty Name="Medecin" Relationship="Self.FK_Admission_Medecin" FromRole="Admission" ToRole="Medecin" />
           <NavigationProperty Name="Patient" Relationship="Self.FK_Admission_Patient" FromRole="Admission" ToRole="Patient" />
         </EntityType>
+        <EntityType Name="Affectation">
+          <Key>
+            <PropertyRef Name="NumeroAffectation" />
+          </Key>
+          <Property Name="NumeroAffectation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateAffectation" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="idInfirmier" Type="Int32" Nullable="false" />
+          <Property Name="NumeroStation" Type="Int32" />
+          <NavigationProperty Name="Infirmier" Relationship="Self.FK_Affectation_Infirmier" FromRole="Affectation" ToRole="Infirmier" />
+          <NavigationProperty Name="Station" Relationship="Self.FK_Affectation_Station" FromRole="Affectation" ToRole="Station" />
+        </EntityType>
         <EntityType Name="Assurance">
           <Key>
             <PropertyRef Name="idAssurance" />
           </Key>
-          <Property Name="idAssurance" Type="Int32" Nullable="false" />
+          <Property Name="idAssurance" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nomCompagnie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Patients" Relationship="Self.FK_Patient_Assurance" FromRole="Assurance" ToRole="Patient" />
         </EntityType>
@@ -379,15 +391,42 @@
           <Key>
             <PropertyRef Name="idDepartement" />
           </Key>
-          <Property Name="idDepartement" Type="Int32" Nullable="false" />
+          <Property Name="idDepartement" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nomDepartement" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Lits" Relationship="Self.FK_Lit_Departement" FromRole="Departement" ToRole="Lit" />
+        </EntityType>
+        <EntityType Name="DossierVaccin">
+          <Key>
+            <PropertyRef Name="NumeroDossierV" />
+          </Key>
+          <Property Name="NumeroDossierV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateCreationD" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NombreDoses" Type="Int32" />
+          <Property Name="DatePremiereDose" Type="DateTime" Precision="0" />
+          <Property Name="DateDeuxiemeDose" Type="DateTime" Precision="0" />
+          <Property Name="idPrepose" Type="Int32" Nullable="false" />
+          <Property Name="NSS" Type="Int32" Nullable="false" />
+          <Property Name="NumeroStation" Type="Int32" Nullable="false" />
+          <Property Name="Alergie" Type="Int32" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK_DossierVaccin_Patient" FromRole="DossierVaccin" ToRole="Patient" />
+          <NavigationProperty Name="Prepose" Relationship="Self.FK_DossierVaccin_Prepose" FromRole="DossierVaccin" ToRole="Prepose" />
+          <NavigationProperty Name="Station" Relationship="Self.FK_DossierVaccin_Station" FromRole="DossierVaccin" ToRole="Station" />
+          <NavigationProperty Name="Vaccins" Relationship="Self.FK_Vaccin_DossierVaccin" FromRole="DossierVaccin" ToRole="Vaccin" />
+        </EntityType>
+        <EntityType Name="Infirmier">
+          <Key>
+            <PropertyRef Name="idInfirmier" />
+          </Key>
+          <Property Name="idInfirmier" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomInf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PrenomInf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Affectations" Relationship="Self.FK_Affectation_Infirmier" FromRole="Infirmier" ToRole="Affectation" />
         </EntityType>
         <EntityType Name="Lit">
           <Key>
             <PropertyRef Name="numeroLit" />
           </Key>
-          <Property Name="numeroLit" Type="Int32" Nullable="false" />
+          <Property Name="numeroLit" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="occupe" Type="Int32" Nullable="false" />
           <Property Name="idType" Type="Int32" Nullable="false" />
           <Property Name="idDEpartement" Type="Int32" Nullable="false" />
@@ -399,7 +438,7 @@
           <Key>
             <PropertyRef Name="idMedecin" />
           </Key>
-          <Property Name="idMedecin" Type="Int32" Nullable="false" />
+          <Property Name="idMedecin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Admissions" Relationship="Self.FK_Admission_Medecin" FromRole="Medecin" ToRole="Admission" />
@@ -408,7 +447,7 @@
           <Key>
             <PropertyRef Name="NSS" />
           </Key>
-          <Property Name="NSS" Type="Int32" Nullable="false" />
+          <Property Name="NSS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="dateNaissance" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -420,7 +459,25 @@
           <Property Name="idAssurance" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Admissions" Relationship="Self.FK_Admission_Patient" FromRole="Patient" ToRole="Admission" />
           <NavigationProperty Name="Assurance" Relationship="Self.FK_Patient_Assurance" FromRole="Patient" ToRole="Assurance" />
-          <NavigationProperty Name="DossierVaccins" Relationship="Gestion_Hopital1Model.FK_DossierVaccin_Patient" FromRole="Patient" ToRole="DossierVaccin" />
+          <NavigationProperty Name="DossierVaccins" Relationship="Self.FK_DossierVaccin_Patient" FromRole="Patient" ToRole="DossierVaccin" />
+        </EntityType>
+        <EntityType Name="Prepose">
+          <Key>
+            <PropertyRef Name="idPrepose" />
+          </Key>
+          <Property Name="idPrepose" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DossierVaccins" Relationship="Self.FK_DossierVaccin_Prepose" FromRole="Prepose" ToRole="DossierVaccin" />
+        </EntityType>
+        <EntityType Name="Station">
+          <Key>
+            <PropertyRef Name="NumeroStation" />
+          </Key>
+          <Property Name="NumeroStation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Etat" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Affectations" Relationship="Self.FK_Affectation_Station" FromRole="Station" ToRole="Affectation" />
+          <NavigationProperty Name="DossierVaccins" Relationship="Self.FK_DossierVaccin_Station" FromRole="Station" ToRole="DossierVaccin" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -436,9 +493,18 @@
           <Key>
             <PropertyRef Name="idType" />
           </Key>
-          <Property Name="idType" Type="Int32" Nullable="false" />
+          <Property Name="idType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Lits" Relationship="Self.FK_Lit_TypeLit" FromRole="TypeLit" ToRole="Lit" />
+        </EntityType>
+        <EntityType Name="Vaccin">
+          <Key>
+            <PropertyRef Name="NumeroVaccin" />
+          </Key>
+          <Property Name="NumeroVaccin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Marque" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NumeroDossierV" Type="Int32" />
+          <NavigationProperty Name="DossierVaccin" Relationship="Self.FK_Vaccin_DossierVaccin" FromRole="Vaccin" ToRole="DossierVaccin" />
         </EntityType>
         <Association Name="FK_Admission_Lit">
           <End Role="Lit" Type="Self.Lit" Multiplicity="1" />
@@ -476,6 +542,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Affectation_Infirmier">
+          <End Role="Infirmier" Type="Self.Infirmier" Multiplicity="1" />
+          <End Role="Affectation" Type="Self.Affectation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Infirmier">
+              <PropertyRef Name="idInfirmier" />
+            </Principal>
+            <Dependent Role="Affectation">
+              <PropertyRef Name="idInfirmier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Affectation_Station">
+          <End Role="Station" Type="Self.Station" Multiplicity="0..1" />
+          <End Role="Affectation" Type="Self.Affectation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Station">
+              <PropertyRef Name="NumeroStation" />
+            </Principal>
+            <Dependent Role="Affectation">
+              <PropertyRef Name="NumeroStation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Patient_Assurance">
           <End Role="Assurance" Type="Self.Assurance" Multiplicity="1" />
           <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
@@ -500,6 +590,54 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_DossierVaccin_Patient">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="DossierVaccin" Type="Self.DossierVaccin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="NSS" />
+            </Principal>
+            <Dependent Role="DossierVaccin">
+              <PropertyRef Name="NSS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DossierVaccin_Prepose">
+          <End Role="Prepose" Type="Self.Prepose" Multiplicity="1" />
+          <End Role="DossierVaccin" Type="Self.DossierVaccin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prepose">
+              <PropertyRef Name="idPrepose" />
+            </Principal>
+            <Dependent Role="DossierVaccin">
+              <PropertyRef Name="idPrepose" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DossierVaccin_Station">
+          <End Role="Station" Type="Self.Station" Multiplicity="1" />
+          <End Role="DossierVaccin" Type="Self.DossierVaccin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Station">
+              <PropertyRef Name="NumeroStation" />
+            </Principal>
+            <Dependent Role="DossierVaccin">
+              <PropertyRef Name="NumeroStation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vaccin_DossierVaccin">
+          <End Role="DossierVaccin" Type="Self.DossierVaccin" Multiplicity="0..1" />
+          <End Role="Vaccin" Type="Self.Vaccin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DossierVaccin">
+              <PropertyRef Name="NumeroDossierV" />
+            </Principal>
+            <Dependent Role="Vaccin">
+              <PropertyRef Name="NumeroDossierV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Lit_TypeLit">
           <End Role="TypeLit" Type="Self.TypeLit" Multiplicity="1" />
           <End Role="Lit" Type="Self.Lit" Multiplicity="*" />
@@ -514,13 +652,19 @@
         </Association>
         <EntityContainer Name="Gestion_Hopital1Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Admissions" EntityType="Self.Admission" />
+          <EntitySet Name="Affectations" EntityType="Self.Affectation" />
           <EntitySet Name="Assurances" EntityType="Self.Assurance" />
           <EntitySet Name="Departements" EntityType="Self.Departement" />
+          <EntitySet Name="DossierVaccins" EntityType="Self.DossierVaccin" />
+          <EntitySet Name="Infirmiers" EntityType="Self.Infirmier" />
           <EntitySet Name="Lits" EntityType="Self.Lit" />
           <EntitySet Name="Medecins" EntityType="Self.Medecin" />
           <EntitySet Name="Patients" EntityType="Self.Patient" />
+          <EntitySet Name="Preposes" EntityType="Self.Prepose" />
+          <EntitySet Name="Stations" EntityType="Self.Station" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="TypeLits" EntityType="Self.TypeLit" />
+          <EntitySet Name="Vaccins" EntityType="Self.Vaccin" />
           <AssociationSet Name="FK_Admission_Lit" Association="Self.FK_Admission_Lit">
             <End Role="Lit" EntitySet="Lits" />
             <End Role="Admission" EntitySet="Admissions" />
@@ -533,6 +677,14 @@
             <End Role="Patient" EntitySet="Patients" />
             <End Role="Admission" EntitySet="Admissions" />
           </AssociationSet>
+          <AssociationSet Name="FK_Affectation_Infirmier" Association="Self.FK_Affectation_Infirmier">
+            <End Role="Infirmier" EntitySet="Infirmiers" />
+            <End Role="Affectation" EntitySet="Affectations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Affectation_Station" Association="Self.FK_Affectation_Station">
+            <End Role="Station" EntitySet="Stations" />
+            <End Role="Affectation" EntitySet="Affectations" />
+          </AssociationSet>
           <AssociationSet Name="FK_Patient_Assurance" Association="Self.FK_Patient_Assurance">
             <End Role="Assurance" EntitySet="Assurances" />
             <End Role="Patient" EntitySet="Patients" />
@@ -541,178 +693,27 @@
             <End Role="Departement" EntitySet="Departements" />
             <End Role="Lit" EntitySet="Lits" />
           </AssociationSet>
+          <AssociationSet Name="FK_DossierVaccin_Patient" Association="Self.FK_DossierVaccin_Patient">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="DossierVaccin" EntitySet="DossierVaccins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DossierVaccin_Prepose" Association="Self.FK_DossierVaccin_Prepose">
+            <End Role="Prepose" EntitySet="Preposes" />
+            <End Role="DossierVaccin" EntitySet="DossierVaccins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DossierVaccin_Station" Association="Self.FK_DossierVaccin_Station">
+            <End Role="Station" EntitySet="Stations" />
+            <End Role="DossierVaccin" EntitySet="DossierVaccins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vaccin_DossierVaccin" Association="Self.FK_Vaccin_DossierVaccin">
+            <End Role="DossierVaccin" EntitySet="DossierVaccins" />
+            <End Role="Vaccin" EntitySet="Vaccins" />
+          </AssociationSet>
           <AssociationSet Name="FK_Lit_TypeLit" Association="Self.FK_Lit_TypeLit">
             <End Role="TypeLit" EntitySet="TypeLits" />
             <End Role="Lit" EntitySet="Lits" />
           </AssociationSet>
-          <EntitySet Name="Affectations" EntityType="Gestion_Hopital1Model.Affectation" />
-          <EntitySet Name="DossierVaccins" EntityType="Gestion_Hopital1Model.DossierVaccin" />
-          <EntitySet Name="Infirmiers" EntityType="Gestion_Hopital1Model.Infirmier" />
-          <EntitySet Name="Preposes" EntityType="Gestion_Hopital1Model.Prepose" />
-          <EntitySet Name="Stations" EntityType="Gestion_Hopital1Model.Station" />
-          <EntitySet Name="Vaccins" EntityType="Gestion_Hopital1Model.Vaccin" />
-          <AssociationSet Name="FK_Affectation_Infirmier" Association="Gestion_Hopital1Model.FK_Affectation_Infirmier">
-            <End Role="Infirmier" EntitySet="Infirmiers" />
-            <End Role="Affectation" EntitySet="Affectations" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Affectation_Station" Association="Gestion_Hopital1Model.FK_Affectation_Station">
-            <End Role="Station" EntitySet="Stations" />
-            <End Role="Affectation" EntitySet="Affectations" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DossierVaccin_Patient" Association="Gestion_Hopital1Model.FK_DossierVaccin_Patient">
-            <End Role="Patient" EntitySet="Patients" />
-            <End Role="DossierVaccin" EntitySet="DossierVaccins" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DossierVaccin_Prepose" Association="Gestion_Hopital1Model.FK_DossierVaccin_Prepose">
-            <End Role="Prepose" EntitySet="Preposes" />
-            <End Role="DossierVaccin" EntitySet="DossierVaccins" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DossierVaccin_Station" Association="Gestion_Hopital1Model.FK_DossierVaccin_Station">
-            <End Role="Station" EntitySet="Stations" />
-            <End Role="DossierVaccin" EntitySet="DossierVaccins" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Vaccin_Station" Association="Gestion_Hopital1Model.FK_Vaccin_Station">
-            <End Role="Station" EntitySet="Stations" />
-            <End Role="Vaccin" EntitySet="Vaccins" />
-          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Affectation">
-          <Key>
-            <PropertyRef Name="NumeroAffectation" />
-          </Key>
-          <Property Name="NumeroAffectation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DateAffectation" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="idInfirmier" Type="Int32" Nullable="false" />
-          <Property Name="NumeroStation" Type="Int32" />
-          <NavigationProperty Name="Infirmier" Relationship="Gestion_Hopital1Model.FK_Affectation_Infirmier" FromRole="Affectation" ToRole="Infirmier" />
-          <NavigationProperty Name="Station" Relationship="Gestion_Hopital1Model.FK_Affectation_Station" FromRole="Affectation" ToRole="Station" />
-        </EntityType>
-        <EntityType Name="DossierVaccin">
-          <Key>
-            <PropertyRef Name="NumeroDossierV" />
-          </Key>
-          <Property Name="NumeroDossierV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DateCreationD" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="NombreDoses" Type="Int32" />
-          <Property Name="DatePremiereDose" Type="DateTime" Precision="0" />
-          <Property Name="DateDeuxiemeDose" Type="DateTime" Precision="0" />
-          <Property Name="idPrepose" Type="Int32" Nullable="false" />
-          <Property Name="NSS" Type="Int32" Nullable="false" />
-          <Property Name="NumeroStation" Type="Int32" Nullable="false" />
-          <Property Name="Alergie" Type="Int32" />
-          <NavigationProperty Name="Patient" Relationship="Gestion_Hopital1Model.FK_DossierVaccin_Patient" FromRole="DossierVaccin" ToRole="Patient" />
-          <NavigationProperty Name="Prepose" Relationship="Gestion_Hopital1Model.FK_DossierVaccin_Prepose" FromRole="DossierVaccin" ToRole="Prepose" />
-          <NavigationProperty Name="Station" Relationship="Gestion_Hopital1Model.FK_DossierVaccin_Station" FromRole="DossierVaccin" ToRole="Station" />
-        </EntityType>
-        <EntityType Name="Infirmier">
-          <Key>
-            <PropertyRef Name="idInfirmier" />
-          </Key>
-          <Property Name="idInfirmier" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NomInf" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PrenomInf" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Affectations" Relationship="Gestion_Hopital1Model.FK_Affectation_Infirmier" FromRole="Infirmier" ToRole="Affectation" />
-        </EntityType>
-        <EntityType Name="Prepose">
-          <Key>
-            <PropertyRef Name="idPrepose" />
-          </Key>
-          <Property Name="idPrepose" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Prenom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="DossierVaccins" Relationship="Gestion_Hopital1Model.FK_DossierVaccin_Prepose" FromRole="Prepose" ToRole="DossierVaccin" />
-        </EntityType>
-        <EntityType Name="Station">
-          <Key>
-            <PropertyRef Name="NumeroStation" />
-          </Key>
-          <Property Name="NumeroStation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Etat" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Affectations" Relationship="Gestion_Hopital1Model.FK_Affectation_Station" FromRole="Station" ToRole="Affectation" />
-          <NavigationProperty Name="DossierVaccins" Relationship="Gestion_Hopital1Model.FK_DossierVaccin_Station" FromRole="Station" ToRole="DossierVaccin" />
-          <NavigationProperty Name="Vaccins" Relationship="Gestion_Hopital1Model.FK_Vaccin_Station" FromRole="Station" ToRole="Vaccin" />
-        </EntityType>
-        <EntityType Name="Vaccin">
-          <Key>
-            <PropertyRef Name="NumeroVaccin" />
-          </Key>
-          <Property Name="NumeroVaccin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Marque" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="NumeroStation" Type="Int32" />
-          <NavigationProperty Name="Station" Relationship="Gestion_Hopital1Model.FK_Vaccin_Station" FromRole="Vaccin" ToRole="Station" />
-        </EntityType>
-        <Association Name="FK_Affectation_Infirmier">
-          <End Type="Gestion_Hopital1Model.Infirmier" Role="Infirmier" Multiplicity="1" />
-          <End Type="Gestion_Hopital1Model.Affectation" Role="Affectation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Infirmier">
-              <PropertyRef Name="idInfirmier" />
-            </Principal>
-            <Dependent Role="Affectation">
-              <PropertyRef Name="idInfirmier" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Affectation_Station">
-          <End Type="Gestion_Hopital1Model.Station" Role="Station" Multiplicity="0..1" />
-          <End Type="Gestion_Hopital1Model.Affectation" Role="Affectation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Station">
-              <PropertyRef Name="NumeroStation" />
-            </Principal>
-            <Dependent Role="Affectation">
-              <PropertyRef Name="NumeroStation" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DossierVaccin_Patient">
-          <End Type="Gestion_Hopital1Model.Patient" Role="Patient" Multiplicity="1" />
-          <End Type="Gestion_Hopital1Model.DossierVaccin" Role="DossierVaccin" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Patient">
-              <PropertyRef Name="NSS" />
-            </Principal>
-            <Dependent Role="DossierVaccin">
-              <PropertyRef Name="NSS" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DossierVaccin_Prepose">
-          <End Type="Gestion_Hopital1Model.Prepose" Role="Prepose" Multiplicity="1" />
-          <End Type="Gestion_Hopital1Model.DossierVaccin" Role="DossierVaccin" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Prepose">
-              <PropertyRef Name="idPrepose" />
-            </Principal>
-            <Dependent Role="DossierVaccin">
-              <PropertyRef Name="idPrepose" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DossierVaccin_Station">
-          <End Type="Gestion_Hopital1Model.Station" Role="Station" Multiplicity="1" />
-          <End Type="Gestion_Hopital1Model.DossierVaccin" Role="DossierVaccin" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Station">
-              <PropertyRef Name="NumeroStation" />
-            </Principal>
-            <Dependent Role="DossierVaccin">
-              <PropertyRef Name="NumeroStation" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Vaccin_Station">
-          <End Type="Gestion_Hopital1Model.Station" Role="Station" Multiplicity="0..1" />
-          <End Type="Gestion_Hopital1Model.Vaccin" Role="Vaccin" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Station">
-              <PropertyRef Name="NumeroStation" />
-            </Principal>
-            <Dependent Role="Vaccin">
-              <PropertyRef Name="NumeroStation" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -735,6 +736,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Affectations">
+            <EntityTypeMapping TypeName="Gestion_Hopital1Model.Affectation">
+              <MappingFragment StoreEntitySet="Affectation">
+                <ScalarProperty Name="NumeroAffectation" ColumnName="NumeroAffectation" />
+                <ScalarProperty Name="DateAffectation" ColumnName="DateAffectation" />
+                <ScalarProperty Name="idInfirmier" ColumnName="idInfirmier" />
+                <ScalarProperty Name="NumeroStation" ColumnName="NumeroStation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Assurances">
             <EntityTypeMapping TypeName="Gestion_Hopital1Model.Assurance">
               <MappingFragment StoreEntitySet="Assurance">
@@ -748,6 +759,30 @@
               <MappingFragment StoreEntitySet="Departement">
                 <ScalarProperty Name="idDepartement" ColumnName="idDepartement" />
                 <ScalarProperty Name="nomDepartement" ColumnName="nomDepartement" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DossierVaccins">
+            <EntityTypeMapping TypeName="Gestion_Hopital1Model.DossierVaccin">
+              <MappingFragment StoreEntitySet="DossierVaccin">
+                <ScalarProperty Name="NumeroDossierV" ColumnName="NumeroDossierV" />
+                <ScalarProperty Name="DateCreationD" ColumnName="DateCreationD" />
+                <ScalarProperty Name="NombreDoses" ColumnName="NombreDoses" />
+                <ScalarProperty Name="DatePremiereDose" ColumnName="DatePremiereDose" />
+                <ScalarProperty Name="DateDeuxiemeDose" ColumnName="DateDeuxiemeDose" />
+                <ScalarProperty Name="idPrepose" ColumnName="idPrepose" />
+                <ScalarProperty Name="NSS" ColumnName="NSS" />
+                <ScalarProperty Name="NumeroStation" ColumnName="NumeroStation" />
+                <ScalarProperty Name="Alergie" ColumnName="Alergie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Infirmiers">
+            <EntityTypeMapping TypeName="Gestion_Hopital1Model.Infirmier">
+              <MappingFragment StoreEntitySet="Infirmier">
+                <ScalarProperty Name="idInfirmier" ColumnName="idInfirmier" />
+                <ScalarProperty Name="NomInf" ColumnName="NomInf" />
+                <ScalarProperty Name="PrenomInf" ColumnName="PrenomInf" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -786,6 +821,23 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Preposes">
+            <EntityTypeMapping TypeName="Gestion_Hopital1Model.Prepose">
+              <MappingFragment StoreEntitySet="Prepose">
+                <ScalarProperty Name="idPrepose" ColumnName="idPrepose" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stations">
+            <EntityTypeMapping TypeName="Gestion_Hopital1Model.Station">
+              <MappingFragment StoreEntitySet="Station">
+                <ScalarProperty Name="NumeroStation" ColumnName="NumeroStation" />
+                <ScalarProperty Name="Etat" ColumnName="Etat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="Gestion_Hopital1Model.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -805,63 +857,12 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Affectations">
-            <EntityTypeMapping TypeName="Gestion_Hopital1Model.Affectation">
-              <MappingFragment StoreEntitySet="Affectation">
-                <ScalarProperty Name="NumeroStation" ColumnName="NumeroStation" />
-                <ScalarProperty Name="idInfirmier" ColumnName="idInfirmier" />
-                <ScalarProperty Name="DateAffectation" ColumnName="DateAffectation" />
-                <ScalarProperty Name="NumeroAffectation" ColumnName="NumeroAffectation" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DossierVaccins">
-            <EntityTypeMapping TypeName="Gestion_Hopital1Model.DossierVaccin">
-              <MappingFragment StoreEntitySet="DossierVaccin">
-                <ScalarProperty Name="Alergie" ColumnName="Alergie" />
-                <ScalarProperty Name="NumeroStation" ColumnName="NumeroStation" />
-                <ScalarProperty Name="NSS" ColumnName="NSS" />
-                <ScalarProperty Name="idPrepose" ColumnName="idPrepose" />
-                <ScalarProperty Name="DateDeuxiemeDose" ColumnName="DateDeuxiemeDose" />
-                <ScalarProperty Name="DatePremiereDose" ColumnName="DatePremiereDose" />
-                <ScalarProperty Name="NombreDoses" ColumnName="NombreDoses" />
-                <ScalarProperty Name="DateCreationD" ColumnName="DateCreationD" />
-                <ScalarProperty Name="NumeroDossierV" ColumnName="NumeroDossierV" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Infirmiers">
-            <EntityTypeMapping TypeName="Gestion_Hopital1Model.Infirmier">
-              <MappingFragment StoreEntitySet="Infirmier">
-                <ScalarProperty Name="PrenomInf" ColumnName="PrenomInf" />
-                <ScalarProperty Name="NomInf" ColumnName="NomInf" />
-                <ScalarProperty Name="idInfirmier" ColumnName="idInfirmier" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Preposes">
-            <EntityTypeMapping TypeName="Gestion_Hopital1Model.Prepose">
-              <MappingFragment StoreEntitySet="Prepose">
-                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
-                <ScalarProperty Name="Nom" ColumnName="Nom" />
-                <ScalarProperty Name="idPrepose" ColumnName="idPrepose" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Stations">
-            <EntityTypeMapping TypeName="Gestion_Hopital1Model.Station">
-              <MappingFragment StoreEntitySet="Station">
-                <ScalarProperty Name="Etat" ColumnName="Etat" />
-                <ScalarProperty Name="NumeroStation" ColumnName="NumeroStation" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Vaccins">
             <EntityTypeMapping TypeName="Gestion_Hopital1Model.Vaccin">
               <MappingFragment StoreEntitySet="Vaccin">
-                <ScalarProperty Name="NumeroStation" ColumnName="NumeroStation" />
-                <ScalarProperty Name="Marque" ColumnName="Marque" />
                 <ScalarProperty Name="NumeroVaccin" ColumnName="NumeroVaccin" />
+                <ScalarProperty Name="Marque" ColumnName="Marque" />
+                <ScalarProperty Name="NumeroDossierV" ColumnName="NumeroDossierV" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -19,7 +19,6 @@ namespace GestionHopital
         {
             this.Affectations = new HashSet<Affectation>();
             this.DossierVaccins = new HashSet<DossierVaccin>();
-            this.Vaccins = new HashSet<Vaccin>();
         }
     
         public int NumeroStation { get; set; }
@@ -29,7 +28,5 @@ namespace GestionHopital
         public virtual ICollection<Affectation> Affectations { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DossierVaccin> DossierVaccins { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Vaccin> Vaccins { get; set; }
     }
 }

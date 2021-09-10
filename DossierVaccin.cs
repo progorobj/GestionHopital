@@ -14,6 +14,12 @@ namespace GestionHopital
     
     public partial class DossierVaccin
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public DossierVaccin()
+        {
+            this.Vaccins = new HashSet<Vaccin>();
+        }
+    
         public int NumeroDossierV { get; set; }
         public System.DateTime DateCreationD { get; set; }
         public Nullable<int> NombreDoses { get; set; }
@@ -27,5 +33,7 @@ namespace GestionHopital
         public virtual Patient Patient { get; set; }
         public virtual Prepose Prepose { get; set; }
         public virtual Station Station { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Vaccin> Vaccins { get; set; }
     }
 }

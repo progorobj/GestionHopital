@@ -85,7 +85,7 @@ namespace GestionHopital
 
             if (trouve == 1)
             {
-                Prepose unprep = new Prepose(gh);
+                Prepose unprep = new Prepose(gh,pass);
                 unprep.Show();
                 this.Close();
 

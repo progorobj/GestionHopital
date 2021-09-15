@@ -20,6 +20,7 @@ namespace GestionHopital
     public partial class Administrateur : Window
     {
         Gestion_Hopital1Entities uneGestion;
+        Infirmier infirmier = new Infirmier();
         public Administrateur(Gestion_Hopital1Entities g)
         {
             InitializeComponent();
@@ -28,8 +29,11 @@ namespace GestionHopital
            // cbxMedMod.DataContext = uneGestion.Medecins.ToList();
             cbListeMed.SelectedIndex = 0;
             // cbxMedMod.SelectedIndex = 0;
-            cbxListInfirmier.DataContext = uneGestion.Infirmiers.ToList();
+            cbListeInfirmieres.DataContext = uneGestion.Infirmiers.ToList();
             cbxListStations.DataContext = uneGestion.Stations.ToList();
+
+            //Section Infirmier (LP)
+            
         }
 
         private void btnAjouterM_Click(object sender, RoutedEventArgs e)
@@ -225,6 +229,13 @@ namespace GestionHopital
 
         }
 
+        private void refresh()
+        {
+
+            cbListeInfirmieres.DataContext = uneGestion.Infirmiers.ToList();
+
+
+        }
         private void cbListeInfirmieres_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -232,7 +243,23 @@ namespace GestionHopital
 
         private void btnAjouterInfirmiere_Click(object sender, RoutedEventArgs e)
         {
+            infirmier.NomInf = txtNomInfirmiere.Text;
+            infirmier.PrenomInf = txtPrenomInfirmiere.Text;
 
+            uneGestion.Infirmiers.Add(infirmier);
+
+            try
+            {
+                uneGestion.SaveChanges();
+                MessageBox.Show("Infirmier ajouter avec success!");
+                refresh();
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("L'infirmier n'a pas pu etre ajouter");
+            }
         }
 
         private void btnModiffierInfirmiere_Click(object sender, RoutedEventArgs e)
@@ -274,7 +301,7 @@ namespace GestionHopital
         {
             Affectation uneAffectation = new Affectation();
 
-            uneAffectation.idInfirmier = int.Parse(cbxListInfirmier.Text);
+            uneAffectation.idInfirmier = int.Parse(cbListeInfirmieres.Text);
             uneAffectation.NumeroStation = int.Parse(cbxListStations.Text);
             uneAffectation.DateAffectation = datePAffectation.SelectedDate.Value;
 
@@ -293,6 +320,11 @@ namespace GestionHopital
                 MessageBox.Show("Vérifier les informatiosn entrées ! ");
             }
 
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -30,6 +30,7 @@ namespace GestionHopital
             cbListeMed.SelectedIndex = 0;
             // cbxMedMod.SelectedIndex = 0;
             cbListeInfirmieres.DataContext = uneGestion.Infirmiers.ToList();
+            cbxListInfirmier.DataContext = uneGestion.Infirmiers.ToList();
             cbxListStations.DataContext = uneGestion.Stations.ToList();
 
             //Section Infirmier (LP)
@@ -231,18 +232,19 @@ namespace GestionHopital
 
         private void refresh()
         {
-
             cbListeInfirmieres.DataContext = uneGestion.Infirmiers.ToList();
-
-
         }
         private void cbListeInfirmieres_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            Infirmier infirmier = new Infirmier();
+            Infirmier sinfirmier = (Infirmier)cbListeInfirmieres.SelectedItem;
+            txtNomInfirmiere2.Text = sinfirmier.NomInf;
+            txtPrenomInfirmiere2.Text = sinfirmier.PrenomInf;
         }
 
         private void btnAjouterInfirmiere_Click(object sender, RoutedEventArgs e)
         {
+            Infirmier infirmier = new Infirmier();
             infirmier.NomInf = txtNomInfirmiere.Text;
             infirmier.PrenomInf = txtPrenomInfirmiere.Text;
 
@@ -269,6 +271,22 @@ namespace GestionHopital
 
         private void btnSupprimerInfirmiere_Click(object sender, RoutedEventArgs e)
         {
+            Infirmier infirmier = new Infirmier();
+            Infirmier inf = cbListeInfirmieres.SelectedItem as Infirmier;
+            uneGestion.Infirmiers.Remove(inf);
+
+            try
+            {
+                uneGestion.SaveChanges();
+                MessageBox.Show("Infirmier retirer avec success!");
+                refresh();
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("L'infirmier n'a pas pu etre retirer");
+            }
 
         }
 

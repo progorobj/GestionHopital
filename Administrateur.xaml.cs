@@ -34,8 +34,6 @@ namespace GestionHopital
             cbListePreposes.DataContext = uneGestion.Preposes.ToList();
             cbxListStations.DataContext = uneGestion.Stations.ToList();
 
-            //Section Infirmier (LP)
-            
         }
 
         private void btnAjouterM_Click(object sender, RoutedEventArgs e)
@@ -52,8 +50,11 @@ namespace GestionHopital
                     uneGestion.SaveChanges();
                     MessageBox.Show("Medecin Ajouté avec succès!");
                     //cbxMedMod.DataContext = null;
-                  //  cbxMedMod.DataContext = uneGestion.Medecins.ToList();
-                    cbListeMed.DataContext = uneGestion.Medecins.ToList();
+                    //  cbxMedMod.DataContext = uneGestion.Medecins.ToList();
+
+                    refresh();
+                    txtNomMedecin.Text = String.Empty;
+                    txtPrenomMedecin.Text = String.Empty;
 
                 }
                 catch (Exception ex)
@@ -97,13 +98,14 @@ namespace GestionHopital
        private void btnModifier1_Click(object sender, RoutedEventArgs e)
         {
             Medecin unMed = cbListeMed.SelectedItem as Medecin;
-             unMed.nom = txtNomMed.Text;
-             unMed.prenom = txtPrenomMed.Text;
+            unMed.nom = txtNomMed.Text;
+            unMed.prenom = txtPrenomMed.Text;
             try
             {
 
                 uneGestion.SaveChanges();
                 MessageBox.Show("Medecin Modifié avec succès!");
+                refresh();
             }
             catch (Exception ex)
             {
@@ -174,10 +176,9 @@ namespace GestionHopital
 
             try
             {
-               
-
                 uneGestion.SaveChanges();
                 MessageBox.Show("Medecin Supprimé avec succès!");
+                refresh();
             }
             catch (Exception)
             {
@@ -237,10 +238,10 @@ namespace GestionHopital
         {
             cbListePreposes.DataContext = uneGestion.Preposes.ToList();
             cbListeInfirmieres.DataContext = uneGestion.Infirmiers.ToList();
+            cbListeMed.DataContext = uneGestion.Medecins.ToList();
         }
         private void cbListeInfirmieres_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Infirmier infirmier = new Infirmier();
             Infirmier sinfirmier = (Infirmier)cbListeInfirmieres.SelectedItem;
             txtNomInfirmiere2.Text = sinfirmier.NomInf;
             txtPrenomInfirmiere2.Text = sinfirmier.PrenomInf;
@@ -259,6 +260,8 @@ namespace GestionHopital
                 uneGestion.SaveChanges();
                 MessageBox.Show("Infirmier ajouter avec success!");
                 refresh();
+                txtNomInfirmiere.Text = String.Empty;
+                txtPrenomInfirmiere.Text = String.Empty;
 
             }
             catch (Exception)
@@ -270,12 +273,26 @@ namespace GestionHopital
 
         private void btnModiffierInfirmiere_Click(object sender, RoutedEventArgs e)
         {
+            
+            Infirmier sinfirmier = (Infirmier)cbListeInfirmieres.SelectedItem;
 
+            sinfirmier.NomInf = txtNomInfirmiere2.Text;
+            sinfirmier.PrenomInf = txtPrenomInfirmiere2.Text;
+
+            try
+            {
+                uneGestion.SaveChanges();
+                MessageBox.Show("Infirmier modifier avec succes!");
+                refresh();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("L'Infirmier n'a pas pu etre modifier");
+            }
         }
 
         private void btnSupprimerInfirmiere_Click(object sender, RoutedEventArgs e)
         {
-            Infirmier infirmier = new Infirmier();
             Infirmier inf = cbListeInfirmieres.SelectedItem as Infirmier;
             uneGestion.Infirmiers.Remove(inf);
 
@@ -355,14 +372,13 @@ namespace GestionHopital
             }
         }
 
+        
+
         private void cbListeMed_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-        }
-
-        private void cbListeMed_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-
+            Medecin unMedecin = (Medecin)cbListeMed.SelectedItem;
+            txtNomMed.Text = unMedecin.nom;
+            txtPrenomMed.Text = unMedecin.prenom;
         }
 
         private void btnAjouterAffectation_Click(object sender, RoutedEventArgs e)
@@ -377,8 +393,6 @@ namespace GestionHopital
 
             try
             {
-
-
                 uneGestion.SaveChanges();
                 MessageBox.Show("Affectation ajouté avec succès!");
             }

@@ -8,54 +8,49 @@
         Title="AjouterAdmission" Height="450" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
     <Grid Background="#FF6D90CD">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="182*"/>
-            <ColumnDefinition Width="306*"/>
-            <ColumnDefinition Width="83*"/>
-            <ColumnDefinition Width="98*"/>
-            <ColumnDefinition Width="125*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Button x:Name="btnAjouterAdmission" Content="Ajouter Admission" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114" Margin="42,342,0,0" Height="26" Click="btnAjouterAdmission_Click" />
-        <Button x:Name="btnAnnuler" Content="Annuler" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114" Margin="87,342,0,0" Height="26" Grid.Column="1" Click="btnAnnuler_Click"/>
-        <Label Content="ID Admission:" HorizontalAlignment="Left" Margin="61,96,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
-        <Label Content="Chirurgie Programmé:" HorizontalAlignment="Left" Margin="229,342,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988" Grid.ColumnSpan="2" Grid.Column="1"/>
-        <Label Content="Date Admission:" HorizontalAlignment="Left" Margin="62,128,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
-        <TextBox x:Name="txtIdAdmission" HorizontalAlignment="Left" Height="27" Margin="180,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155"  Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtChirurgieProg" HorizontalAlignment="Left" Height="27" Margin="0,341,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155"  Grid.Column="3" Grid.ColumnSpan="2"/>
-        <Label Content="Téléviseur:" HorizontalAlignment="Left" Margin="250,284,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Label Content="Téléphone:" HorizontalAlignment="Left" Margin="248,325,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtTeleviseur" HorizontalAlignment="Left" Height="27" Margin="57,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155"  Grid.ColumnSpan="3" Grid.Column="2"/>
-        <TextBox x:Name="txtTelephone" HorizontalAlignment="Left" Height="27" Margin="57,325,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Grid.ColumnSpan="3" Grid.Column="2"/>
-        <Label Content="NSS:" HorizontalAlignment="Left" Margin="63,163,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
-        <Label Content="ID Médecin:" HorizontalAlignment="Left" Margin="66,249,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
-        <Label Content="AJOUTER ADMISSION" HorizontalAlignment="Left" Margin="51,3,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Grid.ColumnSpan="3" Grid.Column="1"/>
-        <DatePicker x:Name="dpDateAdmission" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="178,130,0,0" Grid.ColumnSpan="2"/>
-        <Label Content="Numéro Lit:" HorizontalAlignment="Left" Margin="66,202,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
-        <ComboBox x:Name="cbxNSS" HorizontalAlignment="Left" Margin="177,166,0,0" VerticalAlignment="Top" Width="155" IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" DisplayMemberPath="NSS" SelectionChanged="cbxNSS_SelectionChanged" Grid.ColumnSpan="2"/>
-        <ComboBox x:Name="cbxNumeroLit" HorizontalAlignment="Left" Margin="177,205,0,0" VerticalAlignment="Top" Width="155" IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" DisplayMemberPath="numeroLit" Grid.ColumnSpan="2"/>
-        <ComboBox x:Name="cbxMedecin" HorizontalAlignment="Left" Margin="177,249,0,0" VerticalAlignment="Top" Width="155" IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" DisplayMemberPath="idMedecin" Grid.ColumnSpan="2"/>
-        <CheckBox x:Name="checkBChirurgieProg" Content="Chirurgie Programmé" Grid.Column="1" HorizontalAlignment="Left" Margin="289,97,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Width="147"/>
-        <CheckBox x:Name="checkBTeleviseur" Content="Téléviseur" Grid.Column="1" HorizontalAlignment="Left" Margin="289,126,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Width="147"/>
-        <CheckBox x:Name="checkBPHONE" Content="Téléphone" Grid.Column="1" HorizontalAlignment="Left" Margin="289,157,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Width="147"/>
-        <Grid Background="#FF6D90CD" Grid.ColumnSpan="5" Margin="0,9,0,-9">
+        <Button x:Name="btnAnnuler" Content="Annuler" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114" Margin="269,342,0,0" Height="26" Click="btnAnnuler_Click"/>
+        <Label Content="ID Admission:" HorizontalAlignment="Left" Margin="61,87,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
+        <Label Content="Chirurgie Programmé:" HorizontalAlignment="Left" Margin="411,342,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
+        <Label Content="Date Admission:" HorizontalAlignment="Left" Margin="62,119,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
+        <TextBox x:Name="txtIdAdmission" HorizontalAlignment="Left" Height="27" Margin="180,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155"/>
+        <TextBox x:Name="txtChirurgieProg" HorizontalAlignment="Left" Height="27" Margin="570,341,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155"/>
+        <Label Content="Téléviseur:" HorizontalAlignment="Left" Margin="432,284,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
+        <Label Content="Téléphone:" HorizontalAlignment="Left" Margin="430,325,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
+        <TextBox x:Name="txtTeleviseur" HorizontalAlignment="Left" Height="27" Margin="544,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155"/>
+        <TextBox x:Name="txtTelephone" HorizontalAlignment="Left" Height="27" Margin="544,325,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155"/>
+        <Label Content="NSS:" HorizontalAlignment="Left" Margin="63,154,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
+        <Label Content="ID Médecin:" HorizontalAlignment="Left" Margin="66,240,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
+        <Label Content="AJOUTER ADMISSION" HorizontalAlignment="Left" Margin="233,3,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
+        <DatePicker x:Name="dpDateAdmission" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="178,121,0,0"/>
+        <Label Content="Numéro Lit:" HorizontalAlignment="Left" Margin="66,193,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
+        <ComboBox x:Name="cbxNSS" HorizontalAlignment="Left" Margin="177,157,0,0" VerticalAlignment="Top" Width="155" IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" DisplayMemberPath="NSS" SelectionChanged="cbxNSS_SelectionChanged"/>
+        <ComboBox x:Name="cbxNumeroLit" HorizontalAlignment="Left" Margin="177,196,0,0" VerticalAlignment="Top" Width="155" IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" DisplayMemberPath="numeroLit"/>
+        <ComboBox x:Name="cbxMedecin" HorizontalAlignment="Left" Margin="177,240,0,0" VerticalAlignment="Top" Width="155" IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" DisplayMemberPath="idMedecin"/>
+        <CheckBox x:Name="checkBChirurgieProg" Content="Chirurgie Programmé" HorizontalAlignment="Left" Margin="471,97,0,0" VerticalAlignment="Top" Width="147"/>
+        <CheckBox x:Name="checkBTeleviseur" Content="Téléviseur" HorizontalAlignment="Left" Margin="471,126,0,0" VerticalAlignment="Top" Width="147"/>
+        <CheckBox x:Name="checkBPHONE" Content="Téléphone" HorizontalAlignment="Left" Margin="471,157,0,0" VerticalAlignment="Top" Width="147"/>
+        <Grid Margin="0,0,-0.4,-0.2">
+            <Grid.Background>
+                <ImageBrush ImageSource="clinique.jpg"/>
+            </Grid.Background>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="182*"/>
-                <ColumnDefinition Width="306*"/>
-                <ColumnDefinition Width="83*"/>
-                <ColumnDefinition Width="98*"/>
-                <ColumnDefinition Width="125*"/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="btnAjouterAdmission1" Content="Ajouter Admission" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114" Margin="18.8,340,0,0" Height="26" Click="btnAjouterAdmission_Click" Grid.Column="2" Grid.ColumnSpan="2" />
-            <Button x:Name="btnAnnuler1" Content="Annuler" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114" Margin="91.6,340,0,0" Height="26" Grid.Column="3" Click="btnAnnuler_Click" Grid.ColumnSpan="2"/>
-            <Label Content="Date Admission:" HorizontalAlignment="Left" Margin="62,138,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
-            <Label Content="NSS:" HorizontalAlignment="Left" Margin="63,173,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
-            <Label Content="ID Médecin:" HorizontalAlignment="Left" Margin="66,259,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
-            <Label Content="AJOUTER ADMISSION" HorizontalAlignment="Left" Margin="51,13,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Grid.ColumnSpan="3" Grid.Column="1"/>
-            <DatePicker x:Name="dpDateAdmission1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="178,140,0,0" Grid.ColumnSpan="2"/>
-            <Label Content="Numéro Lit:" HorizontalAlignment="Left" Margin="66,212,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
-            <ComboBox x:Name="cbxNSS1" HorizontalAlignment="Left" Margin="177,176,0,0" VerticalAlignment="Top" Width="155" IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" DisplayMemberPath="NSS" SelectionChanged="cbxNSS_SelectionChanged" Grid.ColumnSpan="2"/>
-            <ComboBox x:Name="cbxNumeroLit1" HorizontalAlignment="Left" Margin="177,215,0,0" VerticalAlignment="Top" Width="155" IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" DisplayMemberPath="numeroLit" Grid.ColumnSpan="2"/>
-            <ComboBox x:Name="cbxMedecin1" HorizontalAlignment="Left" Margin="177,259,0,0" VerticalAlignment="Top" Width="155" IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" DisplayMemberPath="idMedecin" Grid.ColumnSpan="2"/>
-            <GroupBox Grid.ColumnSpan="4" Grid.Column="1" Header="Choix" HorizontalAlignment="Left" Height="116" Margin="201,95,0,0" VerticalAlignment="Top" Width="396">
+            <Label Content="Ajouter Admission" HorizontalAlignment="Left" Margin="235,19,0,0" VerticalAlignment="Top" FontSize="36" Foreground="#FF003786"/>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="271" Margin="24,95,0,0" Stroke="#FFCECECE" VerticalAlignment="Top" Width="302" Opacity="0.5"/>
+            <Label Content="Date Admission:" HorizontalAlignment="Left" Margin="37,120,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
+            <Label Content="NSS:" HorizontalAlignment="Left" Margin="38,190,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
+            <Label Content="Numéro Lit:" HorizontalAlignment="Left" Margin="41,229,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
+            <Label Content="ID Médecin:" HorizontalAlignment="Left" Margin="41,273,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
+            <DatePicker x:Name="dpDateAdmission1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="138,122,0,0" Width="169"/>
+            <ComboBox x:Name="cbxNSS1" HorizontalAlignment="Left" Margin="152,193,0,0" VerticalAlignment="Top" Width="155" IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" DisplayMemberPath="NSS" SelectionChanged="cbxNSS_SelectionChanged"/>
+            <ComboBox x:Name="cbxNumeroLit1" HorizontalAlignment="Left" Margin="152,232,0,0" VerticalAlignment="Top" Width="155" IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" DisplayMemberPath="numeroLit"/>
+            <ComboBox x:Name="cbxMedecin1" HorizontalAlignment="Left" Margin="152,273,0,0" VerticalAlignment="Top" Width="155" IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" DisplayMemberPath="idMedecin"/>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="271" Margin="355,95,0,0" Stroke="#FFCECECE" VerticalAlignment="Top" Width="413" Opacity="0.7"/>
+            <GroupBox Header="" HorizontalAlignment="Left" Height="116" Margin="362,104,0,0" VerticalAlignment="Top" Width="396">
                 <Grid HorizontalAlignment="Left" Height="100" Margin="4,-9,0,0" VerticalAlignment="Top" Width="376">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="3*"/>
@@ -67,12 +62,14 @@
                     <ComboBox x:Name="cbxChoixChambre" HorizontalAlignment="Left" Margin="197,50,0,0" VerticalAlignment="Top" Width="155" IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" DisplayMemberPath="description" Grid.Row="1"/>
                 </Grid>
             </GroupBox>
-            <GroupBox Grid.ColumnSpan="4" Grid.Column="1" Header="Extra" HorizontalAlignment="Left" Height="66" Margin="201,216,0,0" VerticalAlignment="Top" Width="396">
+            <GroupBox Header="Extra" HorizontalAlignment="Left" Height="66" Margin="361,232,0,0" VerticalAlignment="Top" Width="396">
                 <Grid HorizontalAlignment="Left" Height="22" Margin="46,9,0,0" VerticalAlignment="Top" Width="321">
                     <CheckBox x:Name="checkBTeleviseur1" Content="Téléviseur" HorizontalAlignment="Left" Margin="-33,4,0,0" VerticalAlignment="Top" Width="86"/>
                     <CheckBox x:Name="checkBPHONE1" Content="Téléphone" HorizontalAlignment="Left" Margin="158,4,0,0" VerticalAlignment="Top" Width="147"/>
                 </Grid>
             </GroupBox>
+            <Button x:Name="btnAjouterAdmission1" Content="Ajouter Admission" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Margin="394,322,0,0" Height="35" Click="btnAjouterAdmission_Click" Background="#FF458AFF" Foreground="White" />
+            <Button x:Name="btnAnnuler1" Content="Annuler" HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Margin="613,322,0,0" Height="35" Click="btnAnnuler_Click" Background="#FF458AFF" Foreground="White"/>
 
         </Grid>
 

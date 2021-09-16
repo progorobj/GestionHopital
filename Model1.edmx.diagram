@@ -4,21 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0a6cc67916a1424d8036302772ee5433" Name="Diagram1">
-        <EntityTypeShape EntityType="Gestion_Hopital1Model.Admission" Width="1.5" PointX="10.25" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Gestion_Hopital1Model.Affectation" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Gestion_Hopital1Model.Assurance" Width="1.5" PointX="1.5" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Gestion_Hopital1Model.Departement" Width="1.5" PointX="5.75" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Gestion_Hopital1Model.DossierVaccin" Width="1.5" PointX="6" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Gestion_Hopital1Model.Infirmier" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Gestion_Hopital1Model.Lit" Width="1.5" PointX="8" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Gestion_Hopital1Model.Medecin" Width="1.5" PointX="8" PointY="12" IsExpanded="true" />
-        <EntityTypeShape EntityType="Gestion_Hopital1Model.Patient" Width="1.5" PointX="3.75" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Gestion_Hopital1Model.Prepose" Width="1.5" PointX="3.75" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Gestion_Hopital1Model.Station" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Gestion_Hopital1Model.sysdiagram" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
-        <EntityTypeShape EntityType="Gestion_Hopital1Model.TypeLit" Width="1.5" PointX="5.75" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Gestion_Hopital1Model.Vaccin" Width="1.5" PointX="8.25" PointY="3.75" IsExpanded="true" />
+      <Diagram DiagramId="b60909c5b1b64b889fccd6e8cd265285" Name="Diagram1">
+        <EntityTypeShape EntityType="Gestion_Hopital1Model.Admission" Width="1.5" PointX="10.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gestion_Hopital1Model.Affectation" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gestion_Hopital1Model.Assurance" Width="1.5" PointX="1.5" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gestion_Hopital1Model.Departement" Width="1.5" PointX="5.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gestion_Hopital1Model.DossierVaccin" Width="1.5" PointX="6" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gestion_Hopital1Model.Infirmier" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gestion_Hopital1Model.Lit" Width="1.5" PointX="8" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gestion_Hopital1Model.Medecin" Width="1.5" PointX="8" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gestion_Hopital1Model.Patient" Width="1.5" PointX="3.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gestion_Hopital1Model.Prepose" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gestion_Hopital1Model.Station" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gestion_Hopital1Model.sysdiagram" Width="1.5" PointX="8.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gestion_Hopital1Model.TypeLit" Width="1.5" PointX="5.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gestion_Hopital1Model.Vaccin" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
         <AssociationConnector Association="Gestion_Hopital1Model.FK_Admission_Lit" ManuallyRouted="false" />
         <AssociationConnector Association="Gestion_Hopital1Model.FK_Admission_Medecin" ManuallyRouted="false" />
         <AssociationConnector Association="Gestion_Hopital1Model.FK_Admission_Patient" ManuallyRouted="false" />

@@ -20,10 +20,12 @@ namespace GestionHopital
     public partial class Prepose : Window
     {
         Gestion_Hopital1Entities gestionH;
-        public Prepose(Gestion_Hopital1Entities g)
+        int idp;
+        public Prepose(Gestion_Hopital1Entities g, int idPrep)
         {
             InitializeComponent();
             gestionH = g;
+            idp = idPrep;
         }
 
      
@@ -84,7 +86,7 @@ namespace GestionHopital
 
         private void btnAdmissionVaccination_Click(object sender, RoutedEventArgs e)
         {
-            Vaccination vaccination = new Vaccination();
+            Vaccination vaccination = new Vaccination(gestionH,idp);
             vaccination.ShowDialog();
             
         }

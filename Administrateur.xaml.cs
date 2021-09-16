@@ -31,6 +31,7 @@ namespace GestionHopital
             // cbxMedMod.SelectedIndex = 0;
             cbListeInfirmieres.DataContext = uneGestion.Infirmiers.ToList();
             cbxListInfirmier.DataContext = uneGestion.Infirmiers.ToList();
+            cbListePreposes.DataContext = uneGestion.Preposes.ToList();
             cbxListStations.DataContext = uneGestion.Stations.ToList();
 
         }
@@ -179,7 +180,7 @@ namespace GestionHopital
                 MessageBox.Show("Medecin Supprimé avec succès!");
                 refresh();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 MessageBox.Show("Vérifier si ce medecin est lié à d'autre table ");
@@ -208,11 +209,14 @@ namespace GestionHopital
 
         private void cbListePreposes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            Prepose sprepose = (Prepose)cbListePreposes.SelectedItem;
+            txtNomPrepose2.Text = sprepose.Nom;
+            txtPrenomPrepose2.Text = sprepose.Prenom;
         }
 
         private void refresh()
         {
+            cbListePreposes.DataContext = uneGestion.Preposes.ToList();
             cbListeInfirmieres.DataContext = uneGestion.Infirmiers.ToList();
             cbListeMed.DataContext = uneGestion.Medecins.ToList();
         }
@@ -289,17 +293,63 @@ namespace GestionHopital
 
         private void btnAjouterPrepose_Click(object sender, RoutedEventArgs e)
         {
+            Prepose prepose = new Prepose();
+            prepose.Nom = txtNomPrepose.Text;
+            prepose.Prenom = txtPrenomPrepose.Text;
+
+            uneGestion.Preposes.Add(prepose);
+
+            try
+            {
+                uneGestion.SaveChanges();
+                MessageBox.Show("Prepose ajouter avec success!");
+                refresh();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
 
         }
 
         private void btnModiffierPrepose_Click(object sender, RoutedEventArgs e)
         {
+            Prepose prepose = cbListePreposes.SelectedItem as Prepose;
+            prepose.Nom = txtNomPrepose.Text;
+            prepose.Prenom = txtPrenomPrepose.Text;
+            try
+            {
 
+                uneGestion.SaveChanges();
+                MessageBox.Show("Prepose modifié avec succès!");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnSupprimerPrepose_Click(object sender, RoutedEventArgs e)
         {
+            Prepose prepose = new Prepose();
+            Prepose prep = cbListePreposes.SelectedItem as Prepose;
+            uneGestion.Preposes.Remove(prep);
 
+            try
+            {
+                uneGestion.SaveChanges();
+                MessageBox.Show("Prepose effacé avec success!");
+                refresh();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         
@@ -326,7 +376,7 @@ namespace GestionHopital
                 uneGestion.SaveChanges();
                 MessageBox.Show("Affectation ajouté avec succès!");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 MessageBox.Show("Vérifier les informatiosn entrées ! ");

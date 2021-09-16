@@ -96,8 +96,8 @@ namespace GestionHopital
        private void btnModifier1_Click(object sender, RoutedEventArgs e)
         {
             Medecin unMed = cbListeMed.SelectedItem as Medecin;
-             unMed.nom = txtNomMed.Text;
-             unMed.prenom = txtPrenomMed.Text;
+            unMed.nom = txtNomMed.Text;
+            unMed.prenom = txtPrenomMed.Text;
             try
             {
 
@@ -236,7 +236,6 @@ namespace GestionHopital
         }
         private void cbListeInfirmieres_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Infirmier infirmier = new Infirmier();
             Infirmier sinfirmier = (Infirmier)cbListeInfirmieres.SelectedItem;
             txtNomInfirmiere2.Text = sinfirmier.NomInf;
             txtPrenomInfirmiere2.Text = sinfirmier.PrenomInf;
@@ -255,6 +254,8 @@ namespace GestionHopital
                 uneGestion.SaveChanges();
                 MessageBox.Show("Infirmier ajouter avec success!");
                 refresh();
+                txtNomInfirmiere.Text = String.Empty;
+                txtPrenomInfirmiere.Text = String.Empty;
 
             }
             catch (Exception)
@@ -266,12 +267,26 @@ namespace GestionHopital
 
         private void btnModiffierInfirmiere_Click(object sender, RoutedEventArgs e)
         {
+            
+            Infirmier sinfirmier = (Infirmier)cbListeInfirmieres.SelectedItem;
 
+            sinfirmier.NomInf = txtNomInfirmiere2.Text;
+            sinfirmier.PrenomInf = txtPrenomInfirmiere2.Text;
+
+            try
+            {
+                uneGestion.SaveChanges();
+                MessageBox.Show("Medecin modifier avec succes!");
+                refresh();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Le Medecin n'a pas pu etre modifier");
+            }
         }
 
         private void btnSupprimerInfirmiere_Click(object sender, RoutedEventArgs e)
         {
-            Infirmier infirmier = new Infirmier();
             Infirmier inf = cbListeInfirmieres.SelectedItem as Infirmier;
             uneGestion.Infirmiers.Remove(inf);
 

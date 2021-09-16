@@ -51,11 +51,11 @@
                     <Rectangle Fill="White" HorizontalAlignment="Left" Height="191" Margin="91.055,69,0,0" Stroke="#FFCECECE" VerticalAlignment="Top" Width="230" Opacity="0.5" Grid.Column="2"/>
                     <Label Content="Nom :" HorizontalAlignment="Left" Margin="118.055,130,0,0" VerticalAlignment="Top" Grid.Column="2"/>
                     <Label Content="Prénom :" HorizontalAlignment="Left" Margin="104.055,169,0,0" VerticalAlignment="Top" Grid.Column="2"/>
-                    <TextBox x:Name="txtNomInfirmiere2" HorizontalAlignment="Left" Height="24" Margin="165.055,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" TextChanged="txtNomInfirmiere2_TextChanged" Grid.Column="2"/>
-                    <TextBox x:Name="txtPrenomInfirmiere2" HorizontalAlignment="Left" Height="24" Margin="167.055,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" TextChanged="txtPrenomInfirmiere2_TextChanged" Grid.Column="2"/>
+                    <TextBox x:Name="txtNomInfirmiere2" HorizontalAlignment="Left" Height="24" Margin="165.055,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" Grid.Column="2"/>
+                    <TextBox x:Name="txtPrenomInfirmiere2" HorizontalAlignment="Left" Height="24" Margin="167.055,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" Grid.Column="2"/>
                     <Rectangle Fill="White" HorizontalAlignment="Left" Height="191" Margin="27,69,0,0" Stroke="#FFCECECE" VerticalAlignment="Top" Width="230" Opacity="0.5" Grid.Column="1" Grid.ColumnSpan="2"/>
-                    <TextBox x:Name="txtPrenomInfirmiere" HorizontalAlignment="Left" Height="23" Margin="98,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" TextChanged="txtPrenomInfirmiere_TextChanged" Grid.Column="1" Grid.ColumnSpan="2"/>
-                    <TextBox x:Name="txtNomInfirmiere" HorizontalAlignment="Left" Height="23" Margin="98,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" TextChanged="txtNomInfirmiere_TextChanged" Grid.Column="1" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="txtPrenomInfirmiere" HorizontalAlignment="Left" Height="23" Margin="98,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Grid.Column="1" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="txtNomInfirmiere" HorizontalAlignment="Left" Height="23" Margin="98,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Grid.Column="1" Grid.ColumnSpan="2"/>
                     <Label Content="Nom:" HorizontalAlignment="Left" Height="31" Margin="54,130,0,0" VerticalAlignment="Top" Width="39" Grid.Column="1"/>
                     <Label Content="Prénom:" HorizontalAlignment="Left" Height="31" Margin="39,167,0,0" VerticalAlignment="Top" Width="57" Grid.Column="1"/>
                     <Label Content="Régistremet d'Infirmières" HorizontalAlignment="Left" Margin="35,76,0,0" VerticalAlignment="Top" Width="218" Height="39" FontSize="18" Foreground="#FF9D0303" Grid.Column="1" Grid.ColumnSpan="2"/>

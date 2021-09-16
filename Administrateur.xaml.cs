@@ -186,26 +186,6 @@ namespace GestionHopital
             }
         }
 
-        private void txtNomInfirmiere_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void txtPrenomInfirmiere_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void txtNomInfirmiere2_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void txtPrenomInfirmiere2_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
         private void txtPrenomPrepose_TextChanged(object sender, TextChangedEventArgs e)
         {
 

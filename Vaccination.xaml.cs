@@ -68,41 +68,131 @@ namespace GestionHopital
         {
             DossierVaccin dossVacc = new DossierVaccin();
 
-                dossVacc.NSS = int.Parse(cbxListePatients.Text);                
-                dossVacc.DateCreationD = dateAdmission.SelectedDate.Value;
-                dossVacc.NombreDoses = int.Parse(nombreDoses.Text);
-                dossVacc.DatePremiereDose = dateDose1.SelectedDate.Value;
+            Patient lePatient = cbxListePatients.SelectedItem as Patient;
+            int dateNaissance = DateTime.Today.Year - lePatient.dateNaissance.Year;
+            Vaccin unVaccin = cbxVaccins.SelectedItem as Vaccin;
 
-            if (int.Parse(nombreDoses.Text) == 2)
+            int marqueVerification = 0;
+
+            foreach (DossierVaccin item in uneGestion.DossierVaccins)
             {
-                dossVacc.DateDeuxiemeDose = dateDose2.SelectedDate.Value;
+                if(item.NSS== int.Parse(cbxListePatients.Text))
+                {
+                    foreach (Vaccin v in uneGestion.Vaccins)
+                    {
+                        if(v.Marque==unVaccin.Marque)
+                        {
+                            marqueVerification = 1;
+                        }
+                    }
+                }
             }
 
-                dossVacc.idPrepose = idp;
-                dossVacc.NumeroStation = int.Parse(cbxListeStation.Text);
-
-
-            //Attribuer le numero dossier a un vaccin
-
-            Vaccin unVaccin = cbxVaccins.SelectedItem as Vaccin;
-            unVaccin.NumeroDossierV = dossVacc.NumeroDossierV;
-
-
-
-                uneGestion.DossierVaccins.Add(dossVacc);
-                
-            try
-                {
-                    uneGestion.SaveChanges();
-                    MessageBox.Show("Dossier Vaccination ajouté avec succès Ajouté avec succès!");
-                   
-
-                }
-                catch (Exception ex)
+            int nbreDoseValide = 0;
+            //pour vérifier si la date a été selectionné ou nom
+         
+                if (dateNaissance >= 12)
                 {
 
-                    MessageBox.Show(ex.Message);
+
+                    if (unVaccin.DossierVaccin == null)
+                    {
+                                if (String.IsNullOrEmpty(nombreDoses.Text) )
+                                {
+                                    MessageBox.Show("Merci de saisir le nombre de vaccin!", "Attention", MessageBoxButton.OK, MessageBoxImage.Warning);
+
+                                }
+                                else if (int.Parse(nombreDoses.Text) == 1 )
+                                {
+                                    if(dateDose1.SelectedDate==null)
+                                        {
+                                                MessageBox.Show("Merci de selectionner la date de la première dose !", "Attention", MessageBoxButton.OK, MessageBoxImage.Warning);
+                                        }
+                                    else
+                                        {
+                                            dossVacc.DatePremiereDose = dateDose1.SelectedDate.Value;
+                                            nbreDoseValide = 1;
+
+                                        }
+                                        
+                                   
+
+                                }
+
+                             
+                                else if((int.Parse(nombreDoses.Text) == 2) && (dateDose1.SelectedDate != null)
+                                                   &&  (dateDose2.SelectedDate!= null))
+                                {
+                                    if(marqueVerification==1)
+                                    {
+                                      dossVacc.DatePremiereDose = dateDose1.SelectedDate.Value;
+                                      dossVacc.DateDeuxiemeDose = dateDose2.SelectedDate.Value;
+                                      nbreDoseValide = 1;
+
+                                    }
+                                    else
+                                    {
+                                     MessageBox.Show("le vaccin selectionné n'est pas de la même marque que le vaccin administré " +
+                                     "dans la première dose!", "Attention", MessageBoxButton.OK, MessageBoxImage.Warning);
+                                    }
+                                    
+
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Vérifier le nombre de vaccin , ainsi selectionné les dates! ", "Attention", MessageBoxButton.OK, MessageBoxImage.Warning);
+                                }
+
+
+                           if(nbreDoseValide==1 && !String.IsNullOrEmpty(cbxListePatients.Text)
+                               && !String.IsNullOrEmpty(cbxListeStation.Text) && !String.IsNullOrEmpty(idPrepose.Text)
+                               && dateAdmission.SelectedDate.Value!=null)
+                            {
+
+                                dossVacc.NSS = int.Parse(cbxListePatients.Text);
+                                dossVacc.DateCreationD = dateAdmission.SelectedDate.Value;
+                                dossVacc.NombreDoses = int.Parse(nombreDoses.Text);
+                                dossVacc.idPrepose = idp;
+                                dossVacc.NumeroStation = int.Parse(cbxListeStation.Text);
+
+                                uneGestion.DossierVaccins.Add(dossVacc);
+
+                                try
+                                {
+                                    unVaccin.NumeroDossierV = dossVacc.NumeroDossierV;
+                                    uneGestion.SaveChanges();
+                                    MessageBox.Show("Dossier Vaccination ajouté avec succès Ajouté avec succès!");
+
+
+                                }
+                                catch (Exception ex)
+                                {
+
+                                    MessageBox.Show(ex.Message);
+                                }
+
+
+                            }
+                           else
+                            {
+                                MessageBox.Show("Merci de vérifier les champs non valide", "Attention", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            }
+                       
+
+                    }
+                    else
+                        MessageBox.Show("Ce vaccin est déjà associé à un dossier de vaccination", "Attention", MessageBoxButton.OK, MessageBoxImage.Warning);
+
+
+
                 }
+
+                else
+                    MessageBox.Show("Ce patient n'est pas eligible au vaccin!", "Attention", MessageBoxButton.OK, MessageBoxImage.Warning);
+
+
+
+           
             
            
         }
@@ -136,8 +226,11 @@ namespace GestionHopital
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             dateAdmission.SelectedDate = DateTime.Today.Date;
+            dateDose1.SelectedDate = DateTime.Today.Date;
             idPrepose.Text = idp.ToString();
             idPrepose.IsEnabled = false;
         }
+
+       
     }
 }

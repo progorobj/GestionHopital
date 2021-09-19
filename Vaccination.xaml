@@ -36,7 +36,7 @@
         <Image x:Name="qrImage" HorizontalAlignment="Left" Height="117" Margin="613,257,0,0" VerticalAlignment="Top" Width="140" OpacityMask="#FFB7B7B7"/>
         <ComboBox x:Name="cbxListeStation" HorizontalAlignment="Left" Height="31" Margin="56,432,0,0" VerticalAlignment="Top" Width="161" IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" DisplayMemberPath="NumeroStation" />
         <Label Content="Liste des stations :" HorizontalAlignment="Left" Margin="53,406,0,0" VerticalAlignment="Top" FontSize="14" Width="125"/>
-        <ComboBox x:Name="cbxListePatients" HorizontalAlignment="Left" Height="31" Margin="289,100,0,0" VerticalAlignment="Top" Width="210" IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" DisplayMemberPath="NSS" />
+        <ComboBox x:Name="cbxListePatients" HorizontalAlignment="Left" Height="31" Margin="289,100,0,0" VerticalAlignment="Top" Width="210" IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" DisplayMemberPath="NSS"  />
         <ComboBox x:Name="cbxVaccins" HorizontalAlignment="Left" Height="31" Margin="56,490,0,0" VerticalAlignment="Top" Width="161" IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" DisplayMemberPath="NumeroVaccin" />
 
     </Grid>

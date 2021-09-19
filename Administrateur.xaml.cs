@@ -384,6 +384,5 @@ namespace GestionHopital
 
         }
 
-        
     }
 }

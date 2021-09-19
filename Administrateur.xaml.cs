@@ -187,25 +187,6 @@ namespace GestionHopital
             }
         }
 
-        private void txtPrenomPrepose_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void txtNomPrepose_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void txtNomPrepose2_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void txtPrenomPrepose2_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
 
         private void cbListePreposes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -220,6 +201,8 @@ namespace GestionHopital
             cbListeInfirmieres.DataContext = uneGestion.Infirmiers.ToList();
             cbListeMed.DataContext = uneGestion.Medecins.ToList();
         }
+
+        //SECTION INFIRMIER
         private void cbListeInfirmieres_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Infirmier sinfirmier = (Infirmier)cbListeInfirmieres.SelectedItem;

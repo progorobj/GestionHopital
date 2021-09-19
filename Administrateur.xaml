@@ -88,7 +88,7 @@
                     <Label Content="Prénom:" HorizontalAlignment="Left" Height="31" Margin="25.2,167,0,0" VerticalAlignment="Top" Width="57" Grid.Column="1"/>
                     <Label Content="Régistremet des préposes" HorizontalAlignment="Left" Margin="21.2,76,0,0" VerticalAlignment="Top" Width="218" Height="39" FontSize="18" Foreground="#FF9D0303" Grid.Column="1"/>
 
-                    <Button Content="Déconnexion" HorizontalAlignment="Left" Height="27" Margin="211.2,274,0,0" VerticalAlignment="Top" Width="100" Background="#FFB90092" Foreground="White" Grid.Column="1"/>
+                    <Button Content="Déconnexion" HorizontalAlignment="Left" Height="27" Margin="211.2,274,0,0" VerticalAlignment="Top" Width="100" Background="#FFB90092" Foreground="White" Grid.Column="1" Click="Button_Click_2"/>
                     <Button x:Name="btnAjouterPrepose" Content="Ajouter" HorizontalAlignment="Left" Height="27" Margin="71.2,214,0,0" VerticalAlignment="Top" Width="104" Background="#FF458AFF" Foreground="White" Click="btnAjouterPrepose_Click" Grid.Column="1"/>
                     <Button x:Name="btnModiffierPrepose" Content="Modifier" HorizontalAlignment="Left" Height="27" Margin="283.2,214,0,0" VerticalAlignment="Top" Width="104" Background="#FF458AFF" Foreground="White" Click="btnModiffierPrepose_Click" Grid.Column="1"/>
                     <Button x:Name="btnSupprimerPrepose" Content="Supprimer" HorizontalAlignment="Left" Height="27" Margin="393.2,214,0,0" VerticalAlignment="Top" Width="104" Background="#FF458AFF" Foreground="White" Click="btnSupprimerPrepose_Click" Grid.Column="1"/>

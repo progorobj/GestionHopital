@@ -20,7 +20,7 @@ namespace GestionHopital
     public partial class Administrateur : Window
     {
         Gestion_Hopital1Entities uneGestion;
-        Infirmier infirmier = new Infirmier();
+        
         public Administrateur(Gestion_Hopital1Entities g)
         {
             InitializeComponent();
@@ -29,6 +29,7 @@ namespace GestionHopital
            // cbxMedMod.DataContext = uneGestion.Medecins.ToList();
             cbListeMed.SelectedIndex = 0;
             // cbxMedMod.SelectedIndex = 0;
+            cbxListStations.DataContext = uneGestion.Stations.ToList();
             cbListeInfirmieres.DataContext = uneGestion.Infirmiers.ToList();
             cbxListInfirmier.DataContext = uneGestion.Infirmiers.ToList();
             cbListePreposes.DataContext = uneGestion.Preposes.ToList();

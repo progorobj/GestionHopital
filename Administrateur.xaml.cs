@@ -33,7 +33,7 @@ namespace GestionHopital
             cbxListInfirmier.DataContext = uneGestion.Infirmiers.ToList();
             cbListePreposes.DataContext = uneGestion.Preposes.ToList();
             cbxListStations.DataContext = uneGestion.Stations.ToList();
-
+            
         }
 
         private void btnAjouterM_Click(object sender, RoutedEventArgs e)

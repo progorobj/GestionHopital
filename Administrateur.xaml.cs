@@ -42,7 +42,7 @@ namespace GestionHopital
             Medecin unMed = cbListeMed.SelectedItem as Medecin;
             txtNomMed.Text = unMed.nom;
             txtPrenomMed.Text = unMed.prenom;
-
+            
 
             txtPrenomMed.Text = unMed.prenom;
             var query =
@@ -59,9 +59,10 @@ namespace GestionHopital
 
         private void refresh()
         {
-            cbListePreposes.DataContext = uneGestion.Preposes.ToList();
+            
             cbListeInfirmieres.DataContext = uneGestion.Infirmiers.ToList();
             cbListeMed.DataContext = uneGestion.Medecins.ToList();
+            cbListePreposes.DataContext = uneGestion.Preposes.ToList();
         }
 
         ///////////////////////////////SECTION MEDECIN///////////////////////////////
@@ -290,6 +291,7 @@ namespace GestionHopital
         private void cbListePreposes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Prepose sprepose = (Prepose)cbListePreposes.SelectedItem;
+            
             txtNomPrepose2.Text = sprepose.Nom;
             txtPrenomPrepose2.Text = sprepose.Prenom;
         }

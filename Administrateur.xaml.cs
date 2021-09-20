@@ -20,7 +20,7 @@ namespace GestionHopital
     public partial class Administrateur : Window
     {
         Gestion_Hopital1Entities uneGestion;
-        Infirmier infirmier = new Infirmier();
+        
         public Administrateur(Gestion_Hopital1Entities g)
         {
             InitializeComponent();
@@ -29,11 +29,47 @@ namespace GestionHopital
            // cbxMedMod.DataContext = uneGestion.Medecins.ToList();
             cbListeMed.SelectedIndex = 0;
             // cbxMedMod.SelectedIndex = 0;
+            cbxListStations.DataContext = uneGestion.Stations.ToList();
             cbListeInfirmieres.DataContext = uneGestion.Infirmiers.ToList();
             cbxListInfirmier.DataContext = uneGestion.Infirmiers.ToList();
             cbListePreposes.DataContext = uneGestion.Preposes.ToList();
             cbxListStations.DataContext = uneGestion.Stations.ToList();
             
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Medecin unMed = cbListeMed.SelectedItem as Medecin;
+            txtNomMed.Text = unMed.nom;
+            txtPrenomMed.Text = unMed.prenom;
+
+
+            txtPrenomMed.Text = unMed.prenom;
+            var query =
+                from l in uneGestion.Admissions
+                join c in uneGestion.Patients on l.NSS equals c.NSS
+                select new { l.idAdmission, c.NSS, c.prenom, c.nom, l.dateAdmission, l.dateChirurgie, l.dateConge };
+            //dgPatient.DataContext = query.ToList();
+
+
+            //definir la date du jours pour Affectation
+            datePAffectation.SelectedDate = DateTime.Today;
+        }
+
+
+        private void refresh()
+        {
+            cbListePreposes.DataContext = uneGestion.Preposes.ToList();
+            cbListeInfirmieres.DataContext = uneGestion.Infirmiers.ToList();
+            cbListeMed.DataContext = uneGestion.Medecins.ToList();
+        }
+
+        ///////////////////////////////SECTION MEDECIN///////////////////////////////
+        private void cbListeMed_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Medecin unMedecin = (Medecin)cbListeMed.SelectedItem;
+            txtNomMed.Text = unMedecin.nom;
+            txtPrenomMed.Text = unMedecin.prenom;
         }
 
         private void btnAjouterM_Click(object sender, RoutedEventArgs e)
@@ -70,32 +106,8 @@ namespace GestionHopital
             }
            
         }
-      
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            Medecin unMed = cbListeMed.SelectedItem as Medecin;
-            txtNomMed.Text = unMed.nom;
-            txtPrenomMed.Text = unMed.prenom;
-
-            
-            txtPrenomMed.Text = unMed.prenom;
-            var query =
-                from l in uneGestion.Admissions                
-                join c in uneGestion.Patients on l.NSS equals c.NSS                
-                select new {l.idAdmission,c.NSS,c.prenom,c.nom,l.dateAdmission,l.dateChirurgie,l.dateConge };
-            //dgPatient.DataContext = query.ToList();
-              
-            
-            //definir la date du jours pour Affectation
-            datePAffectation.SelectedDate = DateTime.Today;
-
-            
-        }
-
-       
-
-       private void btnModifier1_Click(object sender, RoutedEventArgs e)
+        private void btnModifier1_Click(object sender, RoutedEventArgs e)
         {
             Medecin unMed = cbListeMed.SelectedItem as Medecin;
             unMed.nom = txtNomMed.Text;
@@ -111,6 +123,26 @@ namespace GestionHopital
             {
 
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnSupprimer_Click(object sender, RoutedEventArgs e)
+        {
+
+            Medecin unMed = cbListeMed.SelectedItem as Medecin;
+
+            uneGestion.Medecins.Remove(unMed);
+
+            try
+            {
+                uneGestion.SaveChanges();
+                MessageBox.Show("Medecin Supprimé avec succès!");
+                refresh();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Vérifier si ce medecin est lié à d'autre table ");
             }
         }
 
@@ -166,89 +198,47 @@ namespace GestionHopital
             }*/
         }
 
-
-        private void btnSupprimer_Click(object sender, RoutedEventArgs e)
-        {
-          
-            Medecin unMed = cbListeMed.SelectedItem as Medecin;
-
-            uneGestion.Medecins.Remove(unMed);
-
-            try
-            {
-                uneGestion.SaveChanges();
-                MessageBox.Show("Medecin Supprimé avec succès!");
-                refresh();
-            }
-            catch (Exception)
-            {
-
-                MessageBox.Show("Vérifier si ce medecin est lié à d'autre table ");
-            }
-        }
-
-        private void txtPrenomPrepose_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void txtNomPrepose_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void txtNomPrepose2_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void txtPrenomPrepose2_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void cbListePreposes_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Prepose sprepose = (Prepose)cbListePreposes.SelectedItem;
-            txtNomPrepose2.Text = sprepose.Nom;
-            txtPrenomPrepose2.Text = sprepose.Prenom;
-        }
-
-        private void refresh()
-        {
-            cbListePreposes.DataContext = uneGestion.Preposes.ToList();
-            cbListeInfirmieres.DataContext = uneGestion.Infirmiers.ToList();
-            cbListeMed.DataContext = uneGestion.Medecins.ToList();
-        }
+        
+        ///////////////////////SECTION INFIRMIER////////////////////////////
         private void cbListeInfirmieres_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Infirmier sinfirmier = (Infirmier)cbListeInfirmieres.SelectedItem;
             txtNomInfirmiere2.Text = sinfirmier.NomInf;
             txtPrenomInfirmiere2.Text = sinfirmier.PrenomInf;
         }
-
+        
         private void btnAjouterInfirmiere_Click(object sender, RoutedEventArgs e)
         {
-            Infirmier infirmier = new Infirmier();
-            infirmier.NomInf = txtNomInfirmiere.Text;
-            infirmier.PrenomInf = txtPrenomInfirmiere.Text;
-
-            uneGestion.Infirmiers.Add(infirmier);
-
-            try
+            if (!String.IsNullOrEmpty(txtNomInfirmiere.Text) && !String.IsNullOrEmpty(txtPrenomInfirmiere.Text))
             {
-                uneGestion.SaveChanges();
-                MessageBox.Show("Infirmier ajouter avec success!");
-                refresh();
-                txtNomInfirmiere.Text = String.Empty;
-                txtPrenomInfirmiere.Text = String.Empty;
+                Infirmier infirmier = new Infirmier();
+                infirmier.NomInf = txtNomInfirmiere.Text;
+                infirmier.PrenomInf = txtPrenomInfirmiere.Text;
+
+                uneGestion.Infirmiers.Add(infirmier);
+
+                try
+                {
+                    uneGestion.SaveChanges();
+                    MessageBox.Show("Infirmier ajouter avec success!");
+                    refresh();
+                    txtNomInfirmiere.Text = String.Empty;
+                    txtPrenomInfirmiere.Text = String.Empty;
+
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("L'infirmier n'a pas pu etre ajouter");
+                }
 
             }
-            catch (Exception)
+            else
             {
-
-                MessageBox.Show("L'infirmier n'a pas pu etre ajouter");
+                MessageBox.Show("Merci de remplir les champs vide!","Attention",
+                    MessageBoxButton.OK,MessageBoxImage.Information);
             }
+            
         }
 
         private void btnModiffierInfirmiere_Click(object sender, RoutedEventArgs e)
@@ -289,6 +279,19 @@ namespace GestionHopital
                 MessageBox.Show("L'infirmier n'a pas pu etre retirer");
             }
 
+        }
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+
+        ///////////////////////////////SECTION PREPOSE///////////////////////////////
+        private void cbListePreposes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Prepose sprepose = (Prepose)cbListePreposes.SelectedItem;
+            txtNomPrepose2.Text = sprepose.Nom;
+            txtPrenomPrepose2.Text = sprepose.Prenom;
         }
 
         private void btnAjouterPrepose_Click(object sender, RoutedEventArgs e)
@@ -352,15 +355,12 @@ namespace GestionHopital
             }
         }
 
-        
-
-        private void cbListeMed_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            Medecin unMedecin = (Medecin)cbListeMed.SelectedItem;
-            txtNomMed.Text = unMedecin.nom;
-            txtPrenomMed.Text = unMedecin.prenom;
+            this.Close();
         }
 
+        ///////////////////////////////SECTION AFFECTATION///////////////////////////////
         private void btnAjouterAffectation_Click(object sender, RoutedEventArgs e)
         {
             Affectation uneAffectation = new Affectation();
@@ -384,9 +384,5 @@ namespace GestionHopital
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
     }
 }

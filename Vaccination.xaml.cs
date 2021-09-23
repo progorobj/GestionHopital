@@ -269,6 +269,7 @@ namespace GestionHopital
         {
             unVaccin = cbxVaccins.SelectedItem as Vaccin;
             nombreDoses.Text = nombreDeDoseAdministre().ToString();
+            nomVaccin.Content = unVaccin.Marque;
         }
     }
 }

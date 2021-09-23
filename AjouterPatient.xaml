@@ -13,16 +13,14 @@
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="317" Margin="48,71,0,0" Stroke="#FFCECECE" VerticalAlignment="Top" Width="698" Opacity="0.7"/>
         <Button x:Name="btnAjouterPatient" Content="Ajouter Patient" HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Margin="179,333,0,0" Height="35" Click="btnAjouterPatient_Click" Background="#FF458AFF" Foreground="White"/>
         <Button x:Name="btnAnnuler" Content="Annuler" HorizontalAlignment="Left" VerticalAlignment="Top" Width="152" Margin="511,333,0,0" Height="35" Click="btnAnnuler_Click" Background="#FF458AFF" Foreground="White"/>
-        <Label Content="NSS:" HorizontalAlignment="Left" Margin="137,100,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
-        <Label Content="Date de Naissance:" HorizontalAlignment="Left" Margin="64,138,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
-        <Label Content="Nom:" HorizontalAlignment="Left" Margin="133,181,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
-        <Label Content="Prénom:" HorizontalAlignment="Left" Margin="118,227,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
-        <Label Content="Adresse:" HorizontalAlignment="Left" Margin="118,267,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
+        <Label Content="Date de Naissance:" HorizontalAlignment="Left" Margin="64,100,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
+        <Label Content="Nom:" HorizontalAlignment="Left" Margin="133,143,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
+        <Label Content="Prénom:" HorizontalAlignment="Left" Margin="118,189,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
+        <Label Content="Adresse:" HorizontalAlignment="Left" Margin="118,229,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
         <Label Content="Ville:" HorizontalAlignment="Left" Margin="465,96,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
-        <TextBox x:Name="txtNSSA" HorizontalAlignment="Left" Height="27" Margin="179,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" TextChanged="txtRechercherPatient_TextChanged"/>
-        <TextBox x:Name="txtNomA" HorizontalAlignment="Left" Height="27" Margin="179,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" TextChanged="txtRechercherPatient_TextChanged"/>
-        <TextBox x:Name="txtPrenomA" HorizontalAlignment="Left" Height="27" Margin="179,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" TextChanged="txtRechercherPatient_TextChanged"/>
-        <TextBox x:Name="txtAdresseA" HorizontalAlignment="Left" Height="27" Margin="179,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" TextChanged="txtRechercherPatient_TextChanged"/>
+        <TextBox x:Name="txtNomA" HorizontalAlignment="Left" Height="27" Margin="179,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" TextChanged="txtRechercherPatient_TextChanged"/>
+        <TextBox x:Name="txtPrenomA" HorizontalAlignment="Left" Height="27" Margin="179,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" TextChanged="txtRechercherPatient_TextChanged"/>
+        <TextBox x:Name="txtAdresseA" HorizontalAlignment="Left" Height="27" Margin="179,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" TextChanged="txtRechercherPatient_TextChanged"/>
         <TextBox x:Name="txtVilleA" HorizontalAlignment="Left" Height="27" Margin="511,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="txtRechercherPatient_TextChanged"/>
         <Label Content="Province:" HorizontalAlignment="Left" Margin="445,143,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
         <Label Content="Code Postal:" HorizontalAlignment="Left" Margin="429,184,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
@@ -31,7 +29,7 @@
         <Label Content="Téléphone:" HorizontalAlignment="Left" Margin="438,228,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
         <Label Content="ID Assurance:" HorizontalAlignment="Left" Margin="426,271,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,1.988"/>
         <TextBox x:Name="txtTelephoneA" HorizontalAlignment="Left" Height="27" Margin="511,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="txtRechercherPatient_TextChanged"/>
-        <DatePicker x:Name="datePatA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="179,136,0,0" Width="194" Height="28"/>
+        <DatePicker x:Name="datePatA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="179,98,0,0" Width="194" Height="28"/>
         <Label Content="Ajouter Patient" HorizontalAlignment="Left" Margin="251,8,0,0" VerticalAlignment="Top" FontSize="36" Foreground="#FF003786"/>
         <ComboBox x:Name="cbxIdAssurance" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="511,268,0,0" IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" DisplayMemberPath="idAssurance" Height="29"/>
 

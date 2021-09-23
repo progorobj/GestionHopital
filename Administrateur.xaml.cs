@@ -387,5 +387,9 @@ namespace GestionHopital
 
         }
 
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

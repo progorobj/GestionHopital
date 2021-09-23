@@ -159,7 +159,7 @@ namespace GestionHopital
             
            
         }
-
+        //Générer un QR code pour le vaccin
         private void btnPreview_Click(object sender, RoutedEventArgs e)
         {
             txtInfo.Text = cbxListePatients.Text + cbxVaccins.Text;

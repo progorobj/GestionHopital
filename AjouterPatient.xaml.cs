@@ -58,7 +58,7 @@ namespace GestionHopital
                 try
                 {
                     magestion.SaveChanges();
-                    MessageBox.Show("Patient Ajouté avec succès!");
+                    MessageBox.Show(String.Format($"Le Patient {unPatient.prenom} {unPatient.nom} Ajouté avec succès! Numéro NSS : { unPatient.NSS} "));
                 }
                 catch (Exception ex)
                 {

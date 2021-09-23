@@ -23,6 +23,7 @@ namespace GestionHopital
         
         public Administrateur(Gestion_Hopital1Entities g)
         {
+            
             InitializeComponent();
             uneGestion = g;
             cbListeMed.DataContext = uneGestion.Medecins.ToList();

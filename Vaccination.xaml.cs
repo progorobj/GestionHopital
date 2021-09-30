@@ -21,7 +21,7 @@ using System.Drawing.Imaging;
 
 namespace GestionHopital
 {
-    /// <summary>
+    /// <summary>asdasdas
     /// Lógica de interacción para Vaccination.xaml
     /// </summary>
     public partial class Vaccination : Window

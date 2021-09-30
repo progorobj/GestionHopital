@@ -21,7 +21,7 @@ using System.Drawing.Imaging;
 
 namespace GestionHopital
 {
-    /// <summary>
+    /// <summary>asdasdas
     /// Lógica de interacción para Vaccination.xaml
     /// </summary>
     public partial class Vaccination : Window
@@ -44,9 +44,6 @@ namespace GestionHopital
             //   de suite les numéros de dossier seront attribué lors de la création du dossier
 
         }
-
-
-
 
         private void numeroDossier_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -82,8 +79,6 @@ namespace GestionHopital
                 {
                     if (dateNaissance >= 12)
                     {
-
-
                         if (unVaccin.NumeroDossierV == null)
                         {
                             if (((nombreDoses.Text == "0") &&
@@ -130,8 +125,6 @@ namespace GestionHopital
                             {
                                 MessageBox.Show("Merci de selectionner les dates requises!", "Attention",
                                     MessageBoxButton.OK, MessageBoxImage.Warning);
-
-
                             }
                         }
                         else
@@ -256,8 +249,6 @@ namespace GestionHopital
                 }
 
 
-
-
             }
             else if (nbreDossier == 2)
 
@@ -272,6 +263,8 @@ namespace GestionHopital
         {
 
             nombreDeSosesMoinsUn();
+
+            nombreDoses.Text = nombreDeDoseAdministre().ToString();
         }
 
         private void cbxVaccins_SelectionChanged(object sender, SelectionChangedEventArgs e)

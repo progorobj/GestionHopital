@@ -29,7 +29,7 @@ namespace GestionHopital
         Gestion_Hopital1Entities uneGestion;
         int idp;
         Vaccin unVaccin;
-        public Vaccination(Gestion_Hopital1Entities g,int idPrep)
+        public Vaccination(Gestion_Hopital1Entities g, int idPrep)
         {
             InitializeComponent();
             uneGestion = g;
@@ -38,8 +38,8 @@ namespace GestionHopital
             unVaccin = new Vaccin();
             cbxListePatients.DataContext = g.Patients.ToList();
             cbxListeStation.DataContext = g.Stations.ToList();
-            
-            
+
+
             // les vaccins devront etre créer sans leur affecté des numéro de dossier au départ 
             //   de suite les numéros de dossier seront attribué lors de la création du dossier
 
@@ -67,10 +67,10 @@ namespace GestionHopital
         {
 
         }
-          
+
         private void btnCreerAdmission_Click(object sender, RoutedEventArgs e)
         {
-
+            //Création d'une nouvelle admission et vérification des informations saisies par l'utilisateur
 
             try
             {
@@ -84,49 +84,60 @@ namespace GestionHopital
                     {
 
 
-                        if (((int.Parse(nombreDoses.Text) == 0) &&
-                            (dateDose1.SelectedDate != null)) || ((int.Parse(nombreDoses.Text) == 1) &&
-                            (dateDose1.SelectedDate != null) && (dateDose2.SelectedDate != null)))
+                        if (unVaccin.NumeroDossierV == null)
                         {
-                            if (int.Parse(nombreDoses.Text) == 0)
+                            if (((int.Parse(nombreDoses.Text) == 0) &&
+                               (dateDose1.SelectedDate != null)) || ((int.Parse(nombreDoses.Text) == 1) &&
+                               (dateDose1.SelectedDate != null) && (dateDose2.SelectedDate != null)))
                             {
-                                
-                                dossVacc.NombreDoses = 1;
+                                if (int.Parse(nombreDoses.Text) == 0)
+                                {
+
+                                    dossVacc.NombreDoses = 1;
+                                }
+                                else if (int.Parse(nombreDoses.Text) == 1)
+                                {
+                                    dossVacc.DateDeuxiemeDose = dateDose2.SelectedDate;
+                                    dossVacc.NombreDoses = 2;
+
+                                }
+
+                                nombreDoses.Text = dossVacc.NombreDoses.ToString();
+
+                                dossVacc.NSS = int.Parse(cbxListePatients.Text);
+                                dossVacc.DateCreationD = dateAdmission.SelectedDate.Value;
+                                dossVacc.NombreDoses = int.Parse(nombreDoses.Text);
+                                dossVacc.idPrepose = idp;
+                                dossVacc.NumeroStation = int.Parse(cbxListeStation.Text);
+                                dossVacc.DatePremiereDose = dateDose1.SelectedDate;
+                                uneGestion.DossierVaccins.Add(dossVacc);
+
+                                try
+                                {
+                                    unVaccin.NumeroDossierV = dossVacc.NumeroDossierV;
+                                    uneGestion.SaveChanges();
+                                    MessageBox.Show("Dossier Vaccination ajouté avec succès Ajouté avec succès!");
+
+
+                                }
+                                catch (Exception ex)
+                                {
+
+                                    MessageBox.Show(ex.Message);
+                                }
                             }
-                            else if(int.Parse(nombreDoses.Text) == 0)
+                            else
                             {
-                                dossVacc.DateDeuxiemeDose = dateDose2.SelectedDate;
-                                dossVacc.NombreDoses = 2;
-                                
-                            }
-                            nombreDoses.Text = dossVacc.NombreDoses.ToString();
-
-                            dossVacc.NSS = int.Parse(cbxListePatients.Text);
-                            dossVacc.DateCreationD = dateAdmission.SelectedDate.Value;
-                            dossVacc.NombreDoses = int.Parse(nombreDoses.Text);
-                            dossVacc.idPrepose = idp;
-                            dossVacc.NumeroStation = int.Parse(cbxListeStation.Text);
-                            dossVacc.DatePremiereDose = dateDose1.SelectedDate;
-                            uneGestion.DossierVaccins.Add(dossVacc);
-                            try
-                            {
-                                unVaccin.NumeroDossierV = dossVacc.NumeroDossierV;
-                                uneGestion.SaveChanges();
-                                MessageBox.Show("Dossier Vaccination ajouté avec succès Ajouté avec succès!");
+                                MessageBox.Show("Merci de selectionner les dates requises!", "Attention",
+                                    MessageBoxButton.OK, MessageBoxImage.Warning);
 
 
-                            }
-                            catch (Exception ex)
-                            {
-
-                                MessageBox.Show(ex.Message);
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Merci de selectionner les dates requises!", "Attention",
-                                MessageBoxButton.OK, MessageBoxImage.Warning);
-
+                            MessageBox.Show(" Le vaccin est assigné à un autre dossier!", "Attention",
+                                                              MessageBoxButton.OK, MessageBoxImage.Warning);
                         }
 
 
@@ -134,7 +145,7 @@ namespace GestionHopital
                     }
                     else
                     {
-                        MessageBox.Show("Ce patient n'est pas eligible au vaccin!", "Attention", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show("Ce patient n'est pas eligible au vaccin! ", "Attention", MessageBoxButton.OK, MessageBoxImage.Warning);
                     }
                 }
                 else if (int.Parse(nombreDoses.Text) == 2)
@@ -155,11 +166,11 @@ namespace GestionHopital
                 MessageBox.Show("Merci de vérifier tout les champs requis  !", "Informations dose", MessageBoxButton.OK,
                                    MessageBoxImage.Information);
             }
-           
-            
-           
-        }
 
+
+
+        }
+        //Générer un QR code pour le vaccin
         private void btnPreview_Click(object sender, RoutedEventArgs e)
         {
             txtInfo.Text = cbxListePatients.Text + cbxVaccins.Text;
@@ -173,7 +184,7 @@ namespace GestionHopital
 
         private ImageSource BitmapToImageSource(Bitmap bitmap)
         {
-            using(MemoryStream memory = new MemoryStream())
+            using (MemoryStream memory = new MemoryStream())
             {
                 bitmap.Save(memory, ImageFormat.Bmp);
                 memory.Position = 0;
@@ -195,14 +206,14 @@ namespace GestionHopital
             idPrepose.IsEnabled = false;
             unVaccin = cbxVaccins.SelectedItem as Vaccin;
 
-           
-            
+
+
 
 
         }
 
-        
-        public  int nombreDeDoseAdministre()
+
+        public int nombreDeDoseAdministre()
         {
             int nbreDossier = 0;
             int occVacc = 0;
@@ -212,7 +223,7 @@ namespace GestionHopital
 
             foreach (DossierVaccin item in uneGestion.DossierVaccins)
             {
-                if(item.NSS==unPatient.NSS)
+                if (item.NSS == unPatient.NSS)
                 {
                     nbreDossier++;
                     dossierV = item;
@@ -220,48 +231,48 @@ namespace GestionHopital
                 }
             }
 
-           
-            if(nbreDossier==1)
-            {
-                        Vaccin unV = new Vaccin();
-                        dateDose1.SelectedDate = dossierV.DatePremiereDose;
-                        foreach (Vaccin v in uneGestion.Vaccins)
-                        {
-                            
-                            if(v.NumeroDossierV==dossierV.NumeroDossierV)
-                            {
-                              unV = v; 
-                            }
-                        }
-                    
-                    if(unVaccin.Marque == unV.Marque)
-                    {
-                       occVacc = 1;
-                
-                    }
-                    else if(unVaccin.Marque != unV.Marque)
-                    {
-                    occVacc--;
-                    }
-                    
 
-                
-                
+            if (nbreDossier == 1)
+            {
+                Vaccin unV = new Vaccin();
+                dateDose1.SelectedDate = dossierV.DatePremiereDose;
+                foreach (Vaccin v in uneGestion.Vaccins)
+                {
+
+                    if (v.NumeroDossierV == dossierV.NumeroDossierV)
+                    {
+                        unV = v;
+                    }
+                }
+
+                if (unVaccin.Marque == unV.Marque)
+                {
+                    occVacc = 1;
+
+                }
+                else if (unVaccin.Marque != unV.Marque)
+                {
+                    occVacc--;
+                }
+
+
+
+
             }
-            else if(nbreDossier==2)
+            else if (nbreDossier == 2)
 
             {
                 occVacc = 2;
             }
-            
+
             return occVacc;
         }
-        
+
         private void cbxListePatients_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
-            
-           
+
+
+
             nombreDoses.Text = nombreDeDoseAdministre().ToString();
         }
 

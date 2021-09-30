@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace GestionHopital
 {
-    /// <summary>
-    /// Logique d'interaction pour Administrateur.xaml
-    /// </summary>
     public partial class Administrateur : Window
     {
         Gestion_Hopital1Entities uneGestion;

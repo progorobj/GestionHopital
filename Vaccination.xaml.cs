@@ -45,9 +45,6 @@ namespace GestionHopital
 
         }
 
-
-
-
         private void numeroDossier_TextChanged(object sender, TextChangedEventArgs e)
         {
 
@@ -82,8 +79,6 @@ namespace GestionHopital
                 {
                     if (dateNaissance >= 12)
                     {
-
-
                         if (unVaccin.NumeroDossierV == null)
                         {
                             if (((int.Parse(nombreDoses.Text) == 0) &&
@@ -130,8 +125,6 @@ namespace GestionHopital
                             {
                                 MessageBox.Show("Merci de selectionner les dates requises!", "Attention",
                                     MessageBoxButton.OK, MessageBoxImage.Warning);
-
-
                             }
                         }
                         else
@@ -205,11 +198,6 @@ namespace GestionHopital
             idPrepose.Text = idp.ToString();
             idPrepose.IsEnabled = false;
             unVaccin = cbxVaccins.SelectedItem as Vaccin;
-
-
-
-
-
         }
 
 
@@ -256,8 +244,6 @@ namespace GestionHopital
                 }
 
 
-
-
             }
             else if (nbreDossier == 2)
 
@@ -270,9 +256,6 @@ namespace GestionHopital
 
         private void cbxListePatients_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-
-
             nombreDoses.Text = nombreDeDoseAdministre().ToString();
         }
 

@@ -264,7 +264,7 @@ namespace GestionHopital
 
             nombreDeSosesMoinsUn();
 
-            nombreDoses.Text = nombreDeDoseAdministre().ToString();
+            
         }
 
         private void cbxVaccins_SelectionChanged(object sender, SelectionChangedEventArgs e)

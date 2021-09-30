@@ -78,7 +78,7 @@ namespace GestionHopital
                 int dateNaissance = DateTime.Today.Year - lePatient.dateNaissance.Year;
                 DossierVaccin dossVacc = new DossierVaccin();
 
-                if (int.Parse(nombreDoses.Text) == 0 || int.Parse(nombreDoses.Text) == 1)
+                if (nombreDoses.Text == "0" || nombreDoses.Text == "1")
                 {
                     if (dateNaissance >= 12)
                     {
@@ -86,16 +86,16 @@ namespace GestionHopital
 
                         if (unVaccin.NumeroDossierV == null)
                         {
-                            if (((int.Parse(nombreDoses.Text) == 0) &&
-                               (dateDose1.SelectedDate != null)) || ((int.Parse(nombreDoses.Text) == 1) &&
+                            if (((nombreDoses.Text == "0") &&
+                               (dateDose1.SelectedDate != null)) || ((nombreDoses.Text == "1") &&
                                (dateDose1.SelectedDate != null) && (dateDose2.SelectedDate != null)))
                             {
-                                if (int.Parse(nombreDoses.Text) == 0)
+                                if (nombreDoses.Text == "0")
                                 {
 
                                     dossVacc.NombreDoses = 1;
                                 }
-                                else if (int.Parse(nombreDoses.Text) == 1)
+                                else if (nombreDoses.Text == "1")
                                 {
                                     dossVacc.DateDeuxiemeDose = dateDose2.SelectedDate;
                                     dossVacc.NombreDoses = 2;
@@ -116,7 +116,7 @@ namespace GestionHopital
                                 {
                                     unVaccin.NumeroDossierV = dossVacc.NumeroDossierV;
                                     uneGestion.SaveChanges();
-                                    MessageBox.Show("Dossier Vaccination ajouté avec succès Ajouté avec succès!");
+                                    MessageBox.Show("Dossier de Vaccination ajouté avec succès !");
 
 
                                 }
@@ -148,14 +148,14 @@ namespace GestionHopital
                         MessageBox.Show("Ce patient n'est pas eligible au vaccin! ", "Attention", MessageBoxButton.OK, MessageBoxImage.Warning);
                     }
                 }
-                else if (int.Parse(nombreDoses.Text) == 2)
+                else if (nombreDoses.Text == "2")
                 {
                     MessageBox.Show("Deux doses sont déjà administré a ce patient !", "Informations dose", MessageBoxButton.OK,
                                    MessageBoxImage.Information);
                 }
-                else if (int.Parse(nombreDoses.Text) == -1)
+                else if (nombreDoses.Text == "N/A")
                 {
-                    MessageBox.Show("Le vaccin selectionné n'est pas de la marque que la première dose  !", "Informations dose", MessageBoxButton.OK,
+                    MessageBox.Show("Le vaccin selectionné n'est pas de la marque que la vaccin administré à la première dose  !", "Informations dose", MessageBoxButton.OK,
                                    MessageBoxImage.Information);
 
                 }
@@ -205,7 +205,7 @@ namespace GestionHopital
             idPrepose.Text = idp.ToString();
             idPrepose.IsEnabled = false;
             unVaccin = cbxVaccins.SelectedItem as Vaccin;
-
+            nombreDoses.IsEnabled = false;
 
 
 
@@ -271,16 +271,24 @@ namespace GestionHopital
         private void cbxListePatients_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-
-
-            nombreDoses.Text = nombreDeDoseAdministre().ToString();
+            nombreDeSosesMoinsUn();
         }
 
         private void cbxVaccins_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             unVaccin = cbxVaccins.SelectedItem as Vaccin;
-            nombreDoses.Text = nombreDeDoseAdministre().ToString();
+
             nomVaccin.Content = unVaccin.Marque;
+
+            nombreDeSosesMoinsUn();
+        }
+
+        public void nombreDeSosesMoinsUn(){
+            if (nombreDeDoseAdministre() != -1)
+                nombreDoses.Text = nombreDeDoseAdministre().ToString();
+            else
+                nombreDoses.Text = "N/A";
+
         }
     }
 }

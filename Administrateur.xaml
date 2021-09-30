@@ -121,8 +121,9 @@
                     <Label Content="Liste d'stations" HorizontalAlignment="Left" Margin="134.483,74,0,0" VerticalAlignment="Top" Grid.Column="2"/>
                     <DatePicker x:Name="datePAffectation" HorizontalAlignment="Left" Height="32" Margin="317.483,103,0,0" VerticalAlignment="Top" Width="167" Grid.Column="2"/>
                     <Label Content="Date d'affectation" HorizontalAlignment="Left" Margin="312.483,74,0,0" VerticalAlignment="Top" Grid.Column="2"/>
-                    <Button x:Name="btnAjouterAffectation" Content="Ajouter" HorizontalAlignment="Left" Height="38" Margin="333.8,226,0,0" VerticalAlignment="Top" Width="104" Background="#FF458AFF" Foreground="White" Grid.Column="2" Click="btnAjouterAffectation_Click"/>
-                    <Button Content="Annuler" HorizontalAlignment="Left" Margin="169.8,226,0,0" VerticalAlignment="Top" Width="99" Click="Button_Click" Height="38" FontSize="14" Background="#FF458AFF" Foreground="White" Grid.Column="2"/>
+                    <Button x:Name="btnAjouterAffectation" Content="Ajouter" HorizontalAlignment="Left" Height="38" Margin="242.8,226,0,0" VerticalAlignment="Top" Width="130" Background="#FF458AFF" Foreground="White" Grid.Column="2" Click="btnAjouterAffectation_Click"/>
+
+                    <Button Content="Annuler" HorizontalAlignment="Left" Margin="53.8,226,0,0" VerticalAlignment="Top" Width="124" Click="Button_Click" Height="38" FontSize="14" Background="#FF458AFF" Foreground="White" Grid.Column="2"/>
 
                 </Grid>
             </TabItem>

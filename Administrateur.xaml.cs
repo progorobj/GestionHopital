@@ -27,9 +27,7 @@ namespace GestionHopital
             InitializeComponent();
             uneGestion = g;
             cbListeMed.DataContext = uneGestion.Medecins.ToList();
-           // cbxMedMod.DataContext = uneGestion.Medecins.ToList();
             cbListeMed.SelectedIndex = 0;
-            // cbxMedMod.SelectedIndex = 0;
             cbxListStations.DataContext = uneGestion.Stations.ToList();
             cbListeInfirmieres.DataContext = uneGestion.Infirmiers.ToList();
             cbxListInfirmier.DataContext = uneGestion.Infirmiers.ToList();
@@ -50,23 +48,27 @@ namespace GestionHopital
                 from l in uneGestion.Admissions
                 join c in uneGestion.Patients on l.NSS equals c.NSS
                 select new { l.idAdmission, c.NSS, c.prenom, c.nom, l.dateAdmission, l.dateChirurgie, l.dateConge };
-            //dgPatient.DataContext = query.ToList();
 
 
             //definir la date du jours pour Affectation
             datePAffectation.SelectedDate = DateTime.Today;
         }
 
-
+        /*=========================
+	    Rafraichissement des ComboBox apres modification
+        ===========================*/
         private void refresh()
         {
-            
             cbListeInfirmieres.DataContext = uneGestion.Infirmiers.ToList();
             cbListeMed.DataContext = uneGestion.Medecins.ToList();
             cbListePreposes.DataContext = uneGestion.Preposes.ToList();
         }
 
         ///////////////////////////////SECTION MEDECIN///////////////////////////////
+
+        /*=========================
+	    Affichage lier au ComboBox Medecin
+        ===========================*/
         private void cbListeMed_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Medecin unMedecin = (Medecin)cbListeMed.SelectedItem;
@@ -74,6 +76,9 @@ namespace GestionHopital
             txtPrenomMed.Text = unMedecin.prenom;
         }
 
+        /*=========================
+	    Ajouter Medecin
+        ===========================*/
         private void btnAjouterM_Click(object sender, RoutedEventArgs e)
         {
             
@@ -87,8 +92,7 @@ namespace GestionHopital
                 {
                     uneGestion.SaveChanges();
                     MessageBox.Show("Medecin Ajouté avec succès!");
-                    //cbxMedMod.DataContext = null;
-                    //  cbxMedMod.DataContext = uneGestion.Medecins.ToList();
+                    
 
                     refresh();
                     txtNomMedecin.Text = String.Empty;
@@ -109,6 +113,9 @@ namespace GestionHopital
            
         }
 
+        /*=========================
+	    Modifier Medecin
+        ===========================*/
         private void btnModifier1_Click(object sender, RoutedEventArgs e)
         {
             Medecin unMed = cbListeMed.SelectedItem as Medecin;
@@ -128,6 +135,9 @@ namespace GestionHopital
             }
         }
 
+        /*=========================
+	    Supprimer Medecin
+        ===========================*/
         private void btnSupprimer_Click(object sender, RoutedEventArgs e)
         {
 
@@ -148,67 +158,29 @@ namespace GestionHopital
             }
         }
 
+        /*=========================
+	    Quitter Fenetre Medecin
+        ===========================*/
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
 
-        // code a modifier
-        private void btnValider_Click(object sender, RoutedEventArgs e)
-        {
-          /*  if(ckbxAssur.IsChecked==true && ckbxMedecin.IsChecked == false)
-            {
-                var query =
-                from l in uneGestion.Admissions
-                join c in uneGestion.Patients on l.NSS equals c.NSS
-                join a in uneGestion.Assurances on c.idAssurance equals a.idAssurance
-                select new { l.idAdmission, c.NSS, c.prenom, c.nom, a.nomCompagnie, l.dateAdmission, l.dateChirurgie, l.dateConge };
-                dgPatient.DataContext = query.ToList();
-
-
-            }
-            else if(ckbxAssur.IsChecked==true && ckbxMedecin.IsChecked==true)
-            {
-                var query =
-                from l in uneGestion.Admissions
-                join c in uneGestion.Patients on l.NSS equals c.NSS
-                join a in uneGestion.Assurances on c.idAssurance equals a.idAssurance
-                join m in uneGestion.Medecins on l.idMedecin equals m.idMedecin
-                select new { l.idAdmission, c.NSS, c.prenom, a.nomCompagnie, m.idMedecin,m.nom,l.dateAdmission, l.dateChirurgie, l.dateConge };
-                dgPatient.DataContext = query.ToList();
-
-            }
-            else if(ckbxAssur.IsChecked == false && ckbxMedecin.IsChecked == true)
-            {
-               var query =
-               from l in uneGestion.Admissions
-               join c in uneGestion.Patients on l.NSS equals c.NSS              
-               join m in uneGestion.Medecins on l.idMedecin equals m.idMedecin
-               select new { l.idAdmission, c.NSS, c.prenom, m.idMedecin, m.nom, l.dateAdmission, l.dateChirurgie, l.dateConge };
-                dgPatient.DataContext = query.ToList();
-
-            }
-            else
-            {
-                var query =
-                from l in uneGestion.Admissions
-                join c in uneGestion.Patients on l.NSS equals c.NSS                
-                select new { l.idAdmission, c.NSS, c.prenom, c.nom,l.dateAdmission, l.dateChirurgie, l.dateConge };
-                dgPatient.DataContext = query.ToList();
-
-            }*/
-        }
-
-        
         ///////////////////////SECTION INFIRMIER////////////////////////////
+
+        /*=========================
+	    Affichage lier au ComboBox Infirmiere
+        ===========================*/
         private void cbListeInfirmieres_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Infirmier sinfirmier = (Infirmier)cbListeInfirmieres.SelectedItem;
             txtNomInfirmiere2.Text = sinfirmier.NomInf;
             txtPrenomInfirmiere2.Text = sinfirmier.PrenomInf;
         }
-        
+        /*=========================
+	    Ajouter Infirmiere
+        ===========================*/
         private void btnAjouterInfirmiere_Click(object sender, RoutedEventArgs e)
         {
             if (!String.IsNullOrEmpty(txtNomInfirmiere.Text) && !String.IsNullOrEmpty(txtPrenomInfirmiere.Text))
@@ -243,6 +215,9 @@ namespace GestionHopital
             
         }
 
+        /*=========================
+	    Modifier Infirmiere
+        ===========================*/
         private void btnModiffierInfirmiere_Click(object sender, RoutedEventArgs e)
         {
             
@@ -263,6 +238,9 @@ namespace GestionHopital
             }
         }
 
+        /*=========================
+	    Supprimer Infirmiere
+        ===========================*/
         private void btnSupprimerInfirmiere_Click(object sender, RoutedEventArgs e)
         {
             Infirmier inf = cbListeInfirmieres.SelectedItem as Infirmier;
@@ -282,6 +260,10 @@ namespace GestionHopital
             }
 
         }
+
+        /*=========================
+	    Quitter Fenetre Infirmiere
+        ===========================*/
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -289,6 +271,10 @@ namespace GestionHopital
 
 
         ///////////////////////////////SECTION PREPOSE///////////////////////////////
+
+        /*=========================
+	    Affichage lier au ComboBox Preposer
+        ===========================*/
         private void cbListePreposes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Prepose sprepose = (Prepose)cbListePreposes.SelectedItem;
@@ -297,6 +283,9 @@ namespace GestionHopital
             txtPrenomPrepose2.Text = sprepose.Prenom;
         }
 
+        /*=========================
+	    Ajouter Preposer
+        ===========================*/
         private void btnAjouterPrepose_Click(object sender, RoutedEventArgs e)
         {
             Prepose prepose = new Prepose();
@@ -320,6 +309,9 @@ namespace GestionHopital
 
         }
 
+        /*=========================
+	    Modifier Preposer
+        ===========================*/
         private void btnModiffierPrepose_Click(object sender, RoutedEventArgs e)
         {
             Prepose prepose = cbListePreposes.SelectedItem as Prepose;
@@ -338,6 +330,9 @@ namespace GestionHopital
             }
         }
 
+        /*=========================
+	    Supprimer Preposer
+        ===========================*/
         private void btnSupprimerPrepose_Click(object sender, RoutedEventArgs e)
         {
             Prepose prepose = new Prepose();
@@ -357,13 +352,19 @@ namespace GestionHopital
                 MessageBox.Show(ex.Message);
             }
         }
-
+        /*=========================
+	    Quitter Fenetre Preposer
+        ===========================*/
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
         ///////////////////////////////SECTION AFFECTATION///////////////////////////////
+
+        /*=========================
+        Ajouter Affectation
+        ===========================*/
         private void btnAjouterAffectation_Click(object sender, RoutedEventArgs e)
         {
             Affectation uneAffectation = new Affectation();
@@ -387,6 +388,9 @@ namespace GestionHopital
 
         }
 
+        /*=========================
+	    Quitter Fenetre Affectation
+        ===========================*/
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             this.Close();

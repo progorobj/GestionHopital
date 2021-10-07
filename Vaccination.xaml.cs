@@ -45,25 +45,7 @@ namespace GestionHopital
 
         }
 
-        private void numeroDossier_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void nombreDoses_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void idPrepose_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void nomVaccin_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
+       
 
         private void btnCreerAdmission_Click(object sender, RoutedEventArgs e)
         {
@@ -205,6 +187,8 @@ namespace GestionHopital
 
         }
 
+
+        //Vérifier le nombre de dossier appartenant à un patient
 
         public int nombreDeDoseAdministre()
         {

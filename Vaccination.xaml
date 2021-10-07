@@ -21,11 +21,11 @@
         <Label Content="Date deuxième dose :" HorizontalAlignment="Left" Margin="43,331,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label Content="Id Preposé :" HorizontalAlignment="Left" Margin="50,372,0,0" VerticalAlignment="Top" FontSize="14" Width="83"/>
         <Label Content="Vaccin :" HorizontalAlignment="Left" Margin="53,460,0,0" VerticalAlignment="Top" FontSize="14" Width="57"/>
-        <TextBox x:Name="nombreDoses" HorizontalAlignment="Left" Height="29" Margin="460,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="39" FontSize="16" TextChanged="nombreDoses_TextChanged"/>
+        <TextBox x:Name="nombreDoses" HorizontalAlignment="Left" Height="29" Margin="460,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="39" FontSize="16" />
         <DatePicker x:Name="dateAdmission" HorizontalAlignment="Left" Height="29" Margin="289,142,0,0" VerticalAlignment="Top" Width="210"/>
         <DatePicker x:Name="dateDose1" HorizontalAlignment="Left" Height="29" Margin="191,293,0,0" VerticalAlignment="Top" Width="210"/>
         <DatePicker x:Name="dateDose2" HorizontalAlignment="Left" Height="29" Margin="191,332,0,0" VerticalAlignment="Top" Width="210"/>
-        <TextBox x:Name="idPrepose" HorizontalAlignment="Left" Height="29" Margin="133,375,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" FontSize="16" TextChanged="idPrepose_TextChanged"/>
+        <TextBox x:Name="idPrepose" HorizontalAlignment="Left" Height="29" Margin="133,375,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" FontSize="16" />
         <Button x:Name="btnCreerAdmission" Content="Créer Admission" HorizontalAlignment="Left" Height="40" Margin="56,531,0,0" VerticalAlignment="Top" Width="161" FontSize="14" Background="#FFA303BF" Foreground="White" Click="btnCreerAdmission_Click"/>
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="128" Margin="603,251,0,0" Stroke="White" VerticalAlignment="Top" Width="142"/>
         <Button x:Name="btnSave" Content="Enregistrer" HorizontalAlignment="Left" Margin="603,531,0,0" VerticalAlignment="Top" Width="142" FontSize="14" Height="40" Background="#FF4D60C2" Foreground="White"/>

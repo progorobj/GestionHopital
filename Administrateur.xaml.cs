@@ -263,7 +263,11 @@ namespace GestionHopital
         ===========================*/
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            Login unLogin = new Login();
+            unLogin.Show();
+
             this.Close();
+            
         }
 
 
@@ -354,7 +358,10 @@ namespace GestionHopital
         ===========================*/
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            Login unLogin = new Login();
+            unLogin.Show();
             this.Close();
+           
         }
 
         ///////////////////////////////SECTION AFFECTATION///////////////////////////////

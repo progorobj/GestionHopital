@@ -74,29 +74,30 @@
                         <ImageBrush ImageSource="clinique.jpg"/>
                     </Grid.Background>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="46*"/>
-                        <ColumnDefinition Width="565*"/>
+                        <ColumnDefinition Width="23*"/>
+                        <ColumnDefinition Width="95*"/>
+                        <ColumnDefinition Width="187*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Content="Northern Lights Hospital (NLH) " HorizontalAlignment="Left" Margin="32,-1,0,0" VerticalAlignment="Top" Width="532" FontSize="36" Height="61" Foreground="#FF003786" Grid.ColumnSpan="2"/>
-                    <Rectangle Fill="White" HorizontalAlignment="Left" Height="191" Margin="275.2,69,0,0" Stroke="#FFCECECE" VerticalAlignment="Top" Width="230" Opacity="0.5" Grid.Column="1"/>
-                    <Label Content="Nom :" HorizontalAlignment="Left" Margin="302.2,130,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-                    <Label Content="Prénom :" HorizontalAlignment="Left" Margin="288.2,169,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-                    <Rectangle Fill="White" HorizontalAlignment="Left" Height="191" Margin="13.2,69,0,0" Stroke="#FFCECECE" VerticalAlignment="Top" Width="230" Opacity="0.5" Grid.Column="1"/>
-                    <TextBox x:Name="txtNomPrepose" HorizontalAlignment="Left" Height="23" Margin="84.2,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Grid.Column="1"/>
-                    <TextBox x:Name="txtPrenomPrepose" HorizontalAlignment="Left" Height="23" Margin="84.2,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Grid.Column="1"/>
-                    <Button x:Name="btnAjouterPrepose" Content="Ajouter" HorizontalAlignment="Left" Height="27" Margin="71.2,214,0,0" VerticalAlignment="Top" Width="104" Background="#FF458AFF" Foreground="White" Click="btnAjouterPrepose_Click" Grid.Column="1"/>
-                    <ComboBox x:Name="cbListePreposes" Grid.Column="1" HorizontalAlignment="Left" Margin="288,93,0,0" VerticalAlignment="Top" Width="205" Height="27" 
+                    <Label Content="Northern Lights Hospital (NLH) " HorizontalAlignment="Left" Margin="32,-1,0,0" VerticalAlignment="Top" Width="532" FontSize="36" Height="61" Foreground="#FF003786" Grid.ColumnSpan="3"/>
+                    <Rectangle Fill="White" HorizontalAlignment="Left" Height="191" Margin="84.968,69,0,0" Stroke="#FFCECECE" VerticalAlignment="Top" Width="230" Opacity="0.5" Grid.Column="2"/>
+                    <Label Content="Nom :" HorizontalAlignment="Left" Margin="111.968,130,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+                    <Label Content="Prénom :" HorizontalAlignment="Left" Margin="97.968,169,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+                    <Rectangle Fill="White" HorizontalAlignment="Left" Height="191" Margin="13,69,0,0" Stroke="#FFCECECE" VerticalAlignment="Top" Width="230" Opacity="0.5" Grid.Column="1" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="txtNomPrepose" HorizontalAlignment="Left" Height="23" Margin="84,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Grid.Column="1" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="txtPrenomPrepose" HorizontalAlignment="Left" Height="23" Margin="84,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Grid.Column="1" Grid.ColumnSpan="2"/>
+                    <Button x:Name="btnAjouterPrepose" Content="Ajouter" HorizontalAlignment="Left" Height="27" Margin="71,214,0,0" VerticalAlignment="Top" Width="104" Background="#FF458AFF" Foreground="White" Click="btnAjouterPrepose_Click" Grid.Column="1"/>
+                    <ComboBox x:Name="cbListePreposes" Grid.Column="2" HorizontalAlignment="Left" Margin="97.968,93,0,0" VerticalAlignment="Top" Width="205" Height="27" 
                               IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" DisplayMemberPath="idPrepose" SelectionChanged="cbListePreposes_SelectionChanged"/>
-                    <TextBox x:Name="txtNomPrepose2" HorizontalAlignment="Left" Height="24" Margin="349.2,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" Grid.Column="1"/>
-                    <TextBox x:Name="txtPrenomPrepose2" HorizontalAlignment="Left" Height="24" Margin="351.2,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" Grid.Column="1"/>
-                    <Label Content="Nom:" HorizontalAlignment="Left" Height="31" Margin="40.2,130,0,0" VerticalAlignment="Top" Width="39" Grid.Column="1"/>
-                    <Label Content="Prénom:" HorizontalAlignment="Left" Height="31" Margin="25.2,167,0,0" VerticalAlignment="Top" Width="57" Grid.Column="1"/>
-                    <Label Content="Régistremet des préposes" HorizontalAlignment="Left" Margin="21.2,76,0,0" VerticalAlignment="Top" Width="218" Height="39" FontSize="18" Foreground="#FF9D0303" Grid.Column="1"/>
-                    <Button x:Name="btnModiffierPrepose" Content="Modifier" HorizontalAlignment="Left" Height="27" Margin="283.2,214,0,0" VerticalAlignment="Top" Width="104" 
-                            Background="#FF458AFF" Foreground="White" Click="btnModiffierPrepose_Click" Grid.Column="1"/>
-                    <Button x:Name="btnSupprimerPrepose" Content="Supprimer" HorizontalAlignment="Left" Height="27" Margin="393.2,214,0,0" VerticalAlignment="Top" Width="104" 
-                            Background="#FF458AFF" Foreground="White" Click="btnSupprimerPrepose_Click" Grid.Column="1"/>
-                    <Button Content="Déconnexion" HorizontalAlignment="Left" Height="27" Margin="211.2,274,0,0" VerticalAlignment="Top" Width="100" Background="#FFB90092" Foreground="White" Grid.Column="1" Click="Button_Click_2"/>
+                    <TextBox x:Name="txtNomPrepose2" HorizontalAlignment="Left" Height="24" Margin="158.968,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" Grid.Column="2"/>
+                    <TextBox x:Name="txtPrenomPrepose2" HorizontalAlignment="Left" Height="24" Margin="160.968,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" Grid.Column="2"/>
+                    <Label Content="Nom:" HorizontalAlignment="Left" Height="31" Margin="40,130,0,0" VerticalAlignment="Top" Width="39" Grid.Column="1"/>
+                    <Label Content="Prénom:" HorizontalAlignment="Left" Height="31" Margin="25,167,0,0" VerticalAlignment="Top" Width="57" Grid.Column="1"/>
+                    <Label Content="Régistremet des préposes" HorizontalAlignment="Left" Margin="21,76,0,0" VerticalAlignment="Top" Width="218" Height="39" FontSize="18" Foreground="#FF9D0303" Grid.Column="1" Grid.ColumnSpan="2"/>
+                    <Button x:Name="btnModiffierPrepose" Content="Modifier" HorizontalAlignment="Left" Height="27" Margin="92.968,214,0,0" VerticalAlignment="Top" Width="104" 
+                            Background="#FF458AFF" Foreground="White" Click="btnModiffierPrepose_Click" Grid.Column="2"/>
+                    <Button x:Name="btnSupprimerPrepose" Content="Supprimer" HorizontalAlignment="Left" Height="27" Margin="202.968,214,0,0" VerticalAlignment="Top" Width="104" 
+                            Background="#FF458AFF" Foreground="White" Click="btnSupprimerPrepose_Click" Grid.Column="2"/>
+                    <Button Content="Déconnexion" HorizontalAlignment="Left" Height="27" Margin="20.968,274,0,0" VerticalAlignment="Top" Width="100" Background="#FFB90092" Foreground="White" Grid.Column="2" Click="Button_Click_2"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Affectation">
